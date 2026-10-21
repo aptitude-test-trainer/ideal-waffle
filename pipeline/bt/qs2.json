@@ -1,0 +1,275 @@
+[
+ {
+  "id": "b47",
+  "file": "/tmp/bt/q/b47.png",
+  "src": "Screenshot_20261019-175745.png",
+  "stem": "Ratchet X moves half a meter in the arrow direction. How far will the centre of the gear move in such a case?",
+  "choices": [
+   "0.16m",
+   "0.25m",
+   "0.5m"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b48",
+  "file": "/tmp/bt/q/b48.png",
+  "src": "Screenshot_20261019-175754.png",
+  "stem": "Which gear, A or B, rotates slower or do they rotate at the same speed?",
+  "choices": [
+   "Gear A rotates slower",
+   "At the same speed",
+   "Gear B rotates slower"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b49",
+  "file": "/tmp/bt/q/b49.png",
+  "src": "Screenshot_20261019-175804.png",
+  "stem": "Which horse should run faster making a turn not to be outrun by the other?",
+  "choices": [
+   "Horse A",
+   "At the same speed",
+   "Horse B"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b50",
+  "file": "/tmp/bt/q/b50.png",
+  "src": "Screenshot_20261019-175811.png",
+  "stem": "Which water jet will be more powerful if the taps are turned on at the same time?",
+  "choices": [
+   "Water jet A",
+   "Water jet B",
+   "The same"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b51",
+  "file": "/tmp/bt/q/b51.png",
+  "src": "Screenshot_20261019-175817.png",
+  "stem": "Which load can be lifted with less effort if they have equal weight?",
+  "choices": [
+   "Load A",
+   "Load B",
+   "Both require equal effort"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b52",
+  "file": "/tmp/bt/q/b52.png",
+  "src": "Screenshot_20261019-175824.png",
+  "stem": "These objects are made of the same material. Which of them weighs less?",
+  "choices": [
+   "Object A",
+   "Object B",
+   "The same"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b53",
+  "file": "/tmp/bt/q/b53.png",
+  "src": "Screenshot_20261019-175830.png",
+  "stem": "At which point does the ball move faster?",
+  "choices": [
+   "The speed is equal at both points",
+   "At point A",
+   "At point B"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b54",
+  "file": "/tmp/bt/q/b54.png",
+  "src": "Screenshot_20261019-175836.png",
+  "stem": "Which of the two rails should be higher on the turn?",
+  "choices": [
+   "Rail A",
+   "Rail B",
+   "Both, at the same height"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b55",
+  "file": "/tmp/bt/q/b55.png",
+  "src": "Screenshot_20261019-175842.png",
+  "stem": "In which manner is the weight distributed between hooks A and B?",
+  "choices": [
+   "Equally",
+   "The force of gravity is stronger at hook A",
+   "The force of gravity is stronger at hook B"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b56",
+  "file": "/tmp/bt/q/b56.png",
+  "src": "Screenshot_20261019-175846.png",
+  "stem": "Which pump valves are placed correctly?",
+  "choices": [
+   "Valves A",
+   "Valves B",
+   "Valves C"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b57",
+  "file": "/tmp/bt/q/b57.png",
+  "src": "Screenshot_20261019-175852.png",
+  "stem": "Which axis rotates more slowly?",
+  "choices": [
+   "Axis A",
+   "Axis B",
+   "Axis C"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b58",
+  "file": "/tmp/bt/q/b58.png",
+  "src": "Screenshot_20261019-175858.png",
+  "stem": "Cables A and B are made of the same material and have the same cross-sectional area. Which one will bear more strain?",
+  "choices": [
+   "Cable A",
+   "Cable B",
+   "Both, the same strain"
+  ],
+  "answer": "A",
+  "corrected": true
+ },
+ {
+  "id": "b59",
+  "file": "/tmp/bt/q/b59.png",
+  "src": "Screenshot_20261019-175904.png",
+  "stem": "Which vehicle should drive off farther for the boat to stop at the bank?",
+  "choices": [
+   "Vehicle A",
+   "Vehicle B",
+   "Both, for equal distances"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b60",
+  "file": "/tmp/bt/q/b60.png",
+  "src": "Screenshot_20261019-175910.png",
+  "stem": "At which wicket is the cable fixed better?",
+  "choices": [
+   "Equally well at both wickets",
+   "At wicket A",
+   "At wicket B"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b61",
+  "file": "/tmp/bt/q/b61.png",
+  "src": "Screenshot_20261019-175916.png",
+  "stem": "With which tackle block is it easier to hoist the load?",
+  "choices": [
+   "Tackle block A",
+   "Tackle block B",
+   "The same"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b62",
+  "file": "/tmp/bt/q/b62.png",
+  "src": "Screenshot_20261019-175923.png",
+  "stem": "There is a driving wheel rotating cones on axis X. Which cone will rotate faster?",
+  "choices": [
+   "Cone A",
+   "Both, at the same speed",
+   "Cone B"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b63",
+  "file": "/tmp/bt/q/b63.png",
+  "src": "Screenshot_20261019-175930.png",
+  "stem": "Which way will the big wheel rotate if the small wheel rotates as indicated by the arrow?",
+  "choices": [
+   "In the direction indicated by arrow A",
+   "In both directions",
+   "In the direction indicated by arrow B"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b64",
+  "file": "/tmp/bt/q/b64.png",
+  "src": "Screenshot_20261019-175936.png",
+  "stem": "Which cable holds the column better?",
+  "choices": [
+   "Cable A",
+   "Cable B",
+   "Cable C"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b65",
+  "file": "/tmp/bt/q/b65.png",
+  "src": "Screenshot_20261019-175942.png",
+  "stem": "With which winch is it harder to lift the load?",
+  "choices": [
+   "With winch A",
+   "The same",
+   "With winch B"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b66",
+  "file": "/tmp/bt/q/b66.png",
+  "src": "Screenshot_20261019-175948.png",
+  "stem": "In what way is it reasonable to fix the cable made of steel to hold the bridge across the river?",
+  "choices": [
+   "As shown in Fig. A",
+   "As shown in Fig. B",
+   "As shown in Fig. C"
+  ],
+  "answer": "C",
+  "corrected": true
+ },
+ {
+  "id": "b67",
+  "file": "/tmp/bt/q/b67.png",
+  "src": "Screenshot_20261019-175955.png",
+  "stem": "Which chain is exposed to less strain?",
+  "choices": [
+   "Chain A",
+   "Chain B",
+   "Both are exposed to the same strain"
+  ],
+  "answer": "B",
+  "corrected": false
+ }
+]

@@ -1,0 +1,299 @@
+[
+ {
+  "q": 1,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Put in values: 2(4 + A) + 3 = 5(-3 - 4) = -35, so 2A + 11 = -35 and A = -23. Trap: -C with C = -3 is +3.",
+  "flag": null
+ },
+ {
+  "q": 2,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Slope is 1.5/0.5 = 3 and y = 11 at x = 1, so y = 3x + 8. Table C fits every row (-5 to -7, 0 to 8, 5 to 23). B says y = 10x + 1, and A is a curve.",
+  "flag": null
+ },
+ {
+  "q": 3,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "2y + 8x = 6 is y = 3 - 4x (crosses the x-axis at 3/4), and 3y + 3x = 9 is y = 3 - x (crosses the x-axis at 3). Both pass through (0,3). Only graph D has a steep line and a slope -1 line meeting at (0,3) with those x-crossings.",
+  "flag": null
+ },
+ {
+  "q": 4,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "x = 2: 4 + 6y^2 + (2 + 2y)(2 - 3y) = 4 + 6y^2 + 4 - 2y - 6y^2 = 8 - 2y. Trap: the 6y^2 terms cancel, so D is wrong; a number only shows up if you also plug in y.",
+  "flag": null
+ },
+ {
+  "q": 5,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "y = 2x + 6 crosses the x-axis at -3 and the y-axis at 6, which matches graph B. The table in A fails (x = -3 should give 0), C fails at x = 3, and D is 2x + 3.",
+  "flag": null
+ },
+ {
+  "q": 6,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "The gaps shrink by 8: -24, -16, -8, 0, then +8, so 18 + 8 = 26.",
+  "flag": null
+ },
+ {
+  "q": 7,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Each number is the sum of the two before it: -1 + 3 = 2, 3 + 2 = 5, 2 + 5 = 7, so next is 5 + 7 = 12.",
+  "flag": null
+ },
+ {
+  "q": 8,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "C = -2E. If E is positive, C is smaller; if E is negative, C is larger. So C can be either.",
+  "flag": null
+ },
+ {
+  "q": 9,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The graph crosses (-3,0) and (0,6), so y = 2x + 6. y = 2x + 3 has the same slope with a different y-intercept, so C is true. Graph D is the same line (same slope and intercept), so D is false; graph B has a negative slope.",
+  "flag": null
+ },
+ {
+  "q": 10,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The gaps are -81, -27, -9, -3 (each 1/3 of the last), so next is -1: 5 - 1 = 4.",
+  "flag": null
+ },
+ {
+  "q": 11,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Multiply by 2: -2x + y = 1, so y = 2x + 1 (y-intercept 1, slope 2). That is the rising steep line labeled C. Trap: B also passes (0,1) but slopes down.",
+  "flag": null
+ },
+ {
+  "q": 12,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "R > 0 when T/2 > -4, that is T > -8. T > 4 is always above -8, so B is true. A fails at T = -9, C fails at T = -20, and D is always negative.",
+  "flag": null
+ },
+ {
+  "q": 13,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Pull out the smallest power of each: x^7 y^-6 z^4. What's left is x^7 - y^(2-(-6)) = x^7 - y^8.",
+  "flag": null
+ },
+ {
+  "q": 14,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "D < 0 when 2F < 12, that is F < 6. So C is true. A fails at F = 3 (D = -6), and D gives negative D.",
+  "flag": null
+ },
+ {
+  "q": 15,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Put in values: 2B(4) - 8 = 4(B + 4 - 3), so 8B - 8 = 4B + 4, 4B = 12, and B = 3. Trap: C^2 = 4, not -4.",
+  "flag": null
+ },
+ {
+  "q": 16,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The line crosses (0,2) and (3,0). 2x + 3y = 6 fits both points. Trap: 3x + 2y = 6 swaps the intercepts.",
+  "flag": null
+ },
+ {
+  "q": 17,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Move terms: -5x - 3x = 12 + 36, so -8x = 48 and x = -6.",
+  "flag": null
+ },
+ {
+  "q": 18,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "medium",
+  "explain": "The pattern alternates +1, -2, +2, -2, +3, -2, so next is +4: 12 + 4 = 16.",
+  "flag": "Pattern is a judgment call; +n/-2 alternation is the cleanest fit and gives 16 (key D)."
+ },
+ {
+  "q": 19,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "The steps alternate times and plus: 0x2 = 0, 0 + 2 = 2, 2x4 = 8, 8 + 4 = 12, 12x6 = 72, so next is 72 + 6 = 78.",
+  "flag": null
+ },
+ {
+  "q": 20,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "q = 40/2 = 20, so 3p + 3 = 18 and 2q - 4 = 36. 18/36 - 36/18 = 1/2 - 2 = -3/2 = -1.5. Trap: subtracting the wrong way gives +1.5.",
+  "flag": null
+ },
+ {
+  "q": 21,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "(30 + 6)/4 + 15/3 = 9 + 5 = 14, so B + 14 = 14 and B = 0. Trap: 'No solutions' is tempting when B disappears; it doesn't.",
+  "flag": null
+ },
+ {
+  "q": 22,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Combine inside first: 4x^5 + 3x^4 - 3x^4 + 2x^3 - x^3 + 6x^2 - 5 = 4x^5 + x^3 + 6x^2 - 5. Times 2x: 8x^6 + 2x^4 + 12x^3 - 10x. Trap: each power goes up by 1.",
+  "flag": null
+ },
+ {
+  "q": 23,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "x^-4 times x^6 = x^2 and x^-4 times x^4 = 1, so the product is x^2 + 1 - 5x^6 - 5x^4. Add -x^2 + x^4: -5x^6 - 4x^4 + 1.",
+  "flag": null
+ },
+ {
+  "q": 24,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "You need two numbers that multiply to 9 and add to -6: -3 and -3, so (x - 3)^2. Trap: (x+3)(x-3) = x^2 - 9.",
+  "flag": null
+ },
+ {
+  "q": 25,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Y = 2(x - 4) = 2x - 8, crossing the x-axis at 4 with slope 2, which is graph D. Trap: C is 2x + 4 (wrong sign), the table fails at x = -1, and B gives Y = 2X + 6.",
+  "flag": null
+ },
+ {
+  "q": 26,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "v^2 = d/t, so K = (1/2)m(d/t) = md/(2t). Trap: squaring the root cancels it, so there is no d^2.",
+  "flag": null
+ },
+ {
+  "q": 27,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Put in y = 3: x = 6x - 8 + 3, so -5x = -5 and x = 1. Then x - y = -2 < 0.",
+  "flag": null
+ },
+ {
+  "q": 28,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "pm = 0.6 x 0.4 = 0.24, then 0.24 + 0.36 = 0.6.",
+  "flag": null
+ },
+ {
+  "q": 29,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "y drops by 3 for each step of 1 in x, starting at 30: y = 30 - 3x, crossing the x-axis at 10. Graph A fits. B has slope -1, C starts at 15, D starts at 60.",
+  "flag": null
+ },
+ {
+  "q": 30,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Dividing by 1/2 means multiplying by 2, so B = 2A. Then BA = 2A^2, which is greater than A^2 whenever A is not 0. A is an equality, not >; B and D only hold for some A.",
+  "flag": null
+ },
+ {
+  "q": 31,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Add 4: d + 4 = (g + 5)^2, take the square root: g + 5 = sqrt(d + 4), so g = sqrt(d + 4) - 5.",
+  "flag": null
+ },
+ {
+  "q": 32,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "2(10)^2/(6 - (-4)) = 200/10 = 20, and 3(4 - (-4))/(-3) = 24/(-3) = -8. 20 - 8 = 12. Trap: minus a negative J becomes plus.",
+  "flag": null
+ },
+ {
+  "q": 33,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Check the choices: (2,0) gives 26 - 26 = 0 = 7(0) and 34 + 0 = 34. The other points fail equation i.",
+  "flag": null
+ }
+]

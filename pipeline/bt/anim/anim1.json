@@ -1,0 +1,94 @@
+[
+ {
+  "id": "b24",
+  "explain": "Rubber wheels that touch always turn in opposite directions. Wheel X must turn counterclockwise (the dashed arrow), so the small middle wheel has to turn clockwise. That means the driving wheel must turn counterclockwise, which is arrow B (answer B)."
+ },
+ {
+  "id": "b25",
+  "explain": "The front of the lower gear moves up, so its teeth at the top swing back, away from you. Those teeth push the upper gear's teeth at the corner away from you as well. Seen from above, that turns the upper gear so its front edge moves to the right: arrow A (answer A)."
+ },
+ {
+  "id": "b26",
+  "explain": "Each shape is tipped over its corner until its centre of gravity (the dot) is right above that corner; any further and it falls over. Tall, narrow B goes over after only about 24° and cube A at 45°. Pyramid C is wide with its weight low, so it must be tipped about 63° before it falls: C is hardest to turn over (answer C)."
+ },
+ {
+  "id": "b27",
+  "explain": "All three are 40 g of ice, but B is broken into many small pieces. Heat from the water flows into ice through its surface, and many small pieces have far more surface in total than one lump. So B pulls heat out of the water fastest and its thermometer drops the most (answer B)."
+ },
+ {
+  "id": "b28",
+  "explain": "The bomb leaves the plane already moving forward at the plane's speed. Gravity pulls it down faster and faster, but it keeps that forward speed, so it stays right under the plane. Seen from the ground it falls in a forward curve, as in Figure A (answer A)."
+ },
+ {
+  "id": "b29",
+  "explain": "The car is turning left, towards A. Its body wants to keep going straight ahead, so when the tyres lose grip it slides outward, away from the centre of the turn. The outside of the bend is B, so the car skids towards B (answer C)."
+ },
+ {
+  "id": "b30",
+  "explain": "The vessel is packed with ice up to the dashed line. Water expands when it freezes, so ice takes up about 9% more room than the same water. As it melts, the water needs less space and settles below the old ice line: the level goes down (answer B)."
+ },
+ {
+  "id": "b31",
+  "explain": "In A the rope is tied to the post and runs round a pulley fixed to the stone, so two rope strands pull on the stone. Each strand carries half the load: your hand pulls with only half the force, though it moves twice as far. In B a single strand takes all of it, so stone A is easier to move (answer A)."
+ },
+ {
+  "id": "b32",
+  "explain": "Both scales use the same sliding weight. Box A balances when the weight is only 4 marks from the pivot, but box B needs it 12 marks out. Needing less leverage means a lighter box, so box A weighs less (answer A)."
+ },
+ {
+  "id": "b33",
+  "explain": "Both bars get the same load in the middle. Bar A lies flat, so it is thin in the direction it bends and sags a lot. Bar B stands on its edge; that extra depth makes it many times stiffer and stronger, so it barely bends: bar B can bear the heavier load (answer C)."
+ },
+ {
+  "id": "b34",
+  "explain": "Only the weight of the water in the tank pushes the jet out of the hose. Without any losses it could climb at most back up to the tank's water surface. Friction in the hose and the air takes a little, so the jet tops out just below that level, as in Figure B (answer B)."
+ },
+ {
+  "id": "b35",
+  "explain": "All three objects are the same hot metal, and they lose heat to the air through their surface. C's fins give it far more surface than the plain cylinder or cube. So C sheds its heat fastest and cools down first (answer C)."
+ },
+ {
+  "id": "b36",
+  "explain": "The built-in metal circle makes one side of the disk much heavier. As the disk rolls, the heavy side swings down and the disk rocks back and forth like a pendulum. It comes to rest with the metal at the very bottom, position A (answer A)."
+ },
+ {
+  "id": "b37",
+  "explain": "Pushing the left end down turns the stick about the support at B, while the heavy rock holds the right end down. The stick is held up at B and pushed down on both sides of it, so the bending is strongest right over the support. That is where it snaps: at point B (answer B)."
+ },
+ {
+  "id": "b38",
+  "explain": "Each step pours the same amount of water into identical cups. The cups get wider toward the top, so every new pour raises the water a little less than the one before. The water lines land on the marks only in cup A, whose marks get closer together going up (answer A)."
+ },
+ {
+  "id": "b39",
+  "explain": "Water pressure grows with depth, so the lowest hole has the most water pushing on it. Its jet shoots out fastest and lands farthest, while the top jet is weakest and falls closest to the tank. That is how Figure B draws it (answer B)."
+ },
+ {
+  "id": "b40",
+  "explain": "Both packages hold 1 kg of ice cream. Heat from the warm air gets in through the outside surface, and the wide, open box B has much more surface for the same amount than the compact can A. So B takes in heat faster and its ice cream melts first (answer B)."
+ },
+ {
+  "id": "b41",
+  "explain": "The upper wheel turns clockwise all the time, but its single tooth catches the gear only once per turn. Each time, it kicks the gear one tooth counterclockwise, which lets a little rope unwind from the drum. So the load goes down in jerks, one step at a time: downwards, in a discontinuous manner (answer A)."
+ },
+ {
+  "id": "b42",
+  "explain": "All three wheels start at the same speed and are slowed by the same bearing friction. A wheel keeps spinning longer the more of its mass sits far out at the rim. C has the heaviest, thickest rim, so it stores the most spin and turns the longest (answer C)."
+ },
+ {
+  "id": "b43",
+  "explain": "Each cart is a lever that turns about the wheel's axle when you lift the handle. The closer the stone sits to the wheel, the less of its weight your hands have to carry. In A the stone is right by the wheel, so it needs the least lift and is easiest to pull (answer A)."
+ },
+ {
+  "id": "b44",
+  "explain": "The left gear turns clockwise and the right one counterclockwise, so on the outside of each gear the teeth sweep upward along the casing wall. Water trapped between the teeth is carried round the outside from the bottom port to the top. In the middle the teeth mesh and seal, so it can't come back down: the water moves toward A (answer A)."
+ },
+ {
+  "id": "b45",
+  "explain": "The pedals turn at the same rate in all three bikes. A bigger front sprocket pulls more chain per pedal turn, so the rear wheel turns more times and every push has to move the bike farther. C has the biggest front sprocket, so it needs the most force uphill: C is hardest (answer C)."
+ },
+ {
+  "id": "b46",
+  "explain": "The pebble layer is full of air gaps between the stones. When the two are mixed, the fine sand trickles into those gaps instead of sitting underneath. The same sand and pebbles now take up less room, so the level of the fill goes down (answer B)."
+ }
+]

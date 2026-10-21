@@ -1,0 +1,308 @@
+[
+ {
+  "q": 1,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Divide by 6: y = 2x - 7. Graph D is the rising line through (0, -7) with slope 2 (hits 0 at x = 7/2).",
+  "flag": null
+ },
+ {
+  "q": 2,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Each term goes up 0.75. -1 1/4 + 0.75 = -0.5.",
+  "flag": null
+ },
+ {
+  "q": 3,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Divide each top term by R: -3R^2 + 2u + 5t. Add 3R^2 + 4u - t to get 6u + 4t.",
+  "flag": null
+ },
+ {
+  "q": 4,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "2(3) - 3(-2) + 1/2 = 12 1/2 = 25/2. Divide by 4: 25/8.",
+  "flag": null
+ },
+ {
+  "q": 5,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "GCF is 6ge^2: 18ge^7 / 6ge^2 = 3e^5 and 24ge^2n^4 / 6ge^2 = 4n^4. C multiplies back but only pulls out 3ge^2, so it isn't fully factored.",
+  "flag": null
+ },
+ {
+  "q": 6,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Quadratic formula with a = 3, b = -7, c = -11: (7 \u00b1 \u221a(49 + 132)) / 6 = (7 \u00b1 \u221a181)/6.",
+  "flag": null
+ },
+ {
+  "q": 7,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Two patterns: 4, 8, 16, 32 (x2) and 27, 22, 17 (-5). Next is 17 - 5 = 12.",
+  "flag": null
+ },
+ {
+  "q": 8,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "In eighths: 4/8, 9/8, 14/8, 19/8 (+5/8 each). Next is 24/8 = 3.",
+  "flag": null
+ },
+ {
+  "q": 9,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Slope -2/3 means the line falls; it crosses the y-axis at 4 and the x-axis at 6. Only C does that (B is too steep, D crosses at -4).",
+  "flag": null
+ },
+ {
+  "q": 10,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Plug each x into y = -1/2 x + 4: -8 -> 8, -4 -> 6, 2 -> 3, 6 -> 1, 10 -> -1. All of B fits; A fails at x = -6 (should be 7).",
+  "flag": null
+ },
+ {
+  "q": 11,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Table drops 2 each step from 9: y = 9 - 2x. Line D starts at 9 on the y-axis and hits 0 at x = 4.5.",
+  "flag": null
+ },
+ {
+  "q": 12,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Graph crosses y at 6 and rises to 10 at x = 20/3, so slope = 4 / (20/3) = 3/5. y = 3/5 x + 6 is Function B.",
+  "flag": null
+ },
+ {
+  "q": 13,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Table: slope (89 - 50)/(27 - 14) = 3, so y = 3x + 8. Every row of C fits (3*11 + 8 = 41 ...). A is y = 4x + 8.",
+  "flag": null
+ },
+ {
+  "q": 14,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The statement is y = 4x - 5. A is y = 4x + 5, B is y = -4x - 5, D is y = 1/4 x - 5, so none match.",
+  "flag": null
+ },
+ {
+  "q": 15,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "k has a negative coefficient (-3), so as k goes up, m goes down.",
+  "flag": null
+ },
+ {
+  "q": 16,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "y = -2x + 7: y and x move in opposite directions, so y going up means x going down.",
+  "flag": null
+ },
+ {
+  "q": 17,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "x = 4y - 27, which is 0 at y = 6.75. For y above 7, x is always positive. A fails at y = 6.5 (x = -1).",
+  "flag": null
+ },
+ {
+  "q": 18,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "t has a negative coefficient (-4), so as t goes up, r goes down.",
+  "flag": null
+ },
+ {
+  "q": 19,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "p = 0 at q = 8. p is negative exactly when q is greater than 8.",
+  "flag": null
+ },
+ {
+  "q": 20,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "(3x - 5)(2x + 7) = 6x^2 + 11x - 35. Times -3: -18x^2 - 33x + 105.",
+  "flag": null
+ },
+ {
+  "q": 21,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Need two numbers that multiply to 12 and add to 7: 3 and 4.",
+  "flag": null
+ },
+ {
+  "q": 22,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "(3x + 1)(2x + 3) = 6x^2 + 9x + 2x + 3 = 6x^2 + 11x + 3. B gives 6x^2 + 9x + 3.",
+  "flag": null
+ },
+ {
+  "q": 23,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "c = (3*8 - 6)/2 = 9. Then -56 = -(7/9)(9)t = -7t, so t = 8.",
+  "flag": null
+ },
+ {
+  "q": 24,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "1/2(-6) - (-3) = 0, so 12 = -(3/5)(2k - 4). 2k - 4 = -20, so k = -8.",
+  "flag": null
+ },
+ {
+  "q": 25,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "3(x^2 - 4x + 4) - 2(x^2 + 8x + 16) = 3x^2 - 12x + 12 - 2x^2 - 16x - 32 = x^2 - 28x - 20.",
+  "flag": null
+ },
+ {
+  "q": 26,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "2n - n = n, so r = n / (10\u03c0). Q = 5 / r = 50\u03c0 / n.",
+  "flag": null
+ },
+ {
+  "q": 27,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Top simplifies to C1C2 (the C1J2 terms cancel), so J1 = C1C2/(C2 - 3). Multiply by (C2 - 3) and divide by C2: C1 = J1(C2 - 3)/C2.",
+  "flag": null
+ },
+ {
+  "q": 28,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Vertex at (1, 4) and opens down: y = -(x - 1)^2 + 4. Check: it crosses the x-axis at -1 and 3, matching the graph.",
+  "flag": null
+ },
+ {
+  "q": 29,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "s = -6t + 8 + 16 = -6t + 24, which is 0 at t = 4. s negative means t > 4, so D is the false statement.",
+  "flag": null
+ },
+ {
+  "q": 30,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "r up 2 means n down 5*2 = 10 (I true). n < 0 means 30 < 5r, so r > 6 (II true). r = 5 gives n = 5, not 0 (III false).",
+  "flag": null
+ },
+ {
+  "q": 31,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "P - Q = 2Q + 6, which changes as Q changes. C fails at Q = -1 (P = 3), and so does D.",
+  "flag": null
+ },
+ {
+  "q": 32,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Multiply both sides by 6: x - 3 = 30/8 = 3.75, so x = 6.75.",
+  "flag": null
+ },
+ {
+  "q": 33,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Triple the first: 6x + 9y = 51. Subtract the second: 14y = 56, so y = 4 and x = 5/2. Check: 6(5/2) - 5(4) = -5.",
+  "flag": null
+ },
+ {
+  "q": 34,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Only C has a falling line through 5 (slope -3/4), a rising line through -4 (slope 5/3), and a horizontal line at y = -9. A has a vertical line, B's middle line falls, D's flat line is at +9.",
+  "flag": null
+ }
+]

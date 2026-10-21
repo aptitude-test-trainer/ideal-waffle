@@ -1,0 +1,299 @@
+[
+ {
+  "q": 1,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Plug in: 10(B-3) = 50-(B+2(B+1)) gives 10B-30 = 48-3B, so 13B = 78 and B = 6. Trap: forgetting to distribute the minus sign across the whole bracket.",
+  "flag": null
+ },
+ {
+  "q": 2,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Plug in: 3A-16-2 = 30+A, so 2A = 48 and A = 24. Trap: dropping the -2 or the minus in front of (2B+C).",
+  "flag": null
+ },
+ {
+  "q": 3,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "(A^3+A)/A = A^2+1, and (C+B)(B-C) = 4*6 = 24. Then A^2+1+24-A^2 = 25, the A^2 terms cancel. Trap: choices that keep A in the answer.",
+  "flag": null
+ },
+ {
+  "q": 4,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Check rows in y = -x+1: x=10 gives -9, x=100 gives -99, so table C fits. Trap: table A is y = -x-1 (off by 2), and D works out to y = 1.",
+  "flag": null
+ },
+ {
+  "q": 5,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Ten times x divided by five is y = 2x, so the table 0,2,4,6,8 matches. Trap: graph D is too steep (slope 3) and table B is y = 10x-5.",
+  "flag": null
+ },
+ {
+  "q": 6,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Every row is y = x-3, and graph C crosses (0,-3) and (3,0). Trap: A says x minus (-3), which is x+3, not x-3.",
+  "flag": null
+ },
+ {
+  "q": 7,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "The given line goes through (0,2) and (4,0), so m = -1/2 and b = 2. y = (1/2)x+2 has a different slope but the same y-intercept. Trap: Graph D has the same slope but a different intercept (-1), the opposite of what D says.",
+  "flag": null
+ },
+ {
+  "q": 8,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Each number is the sum of the two before it: 6+11 = 17, 11+17 = 28.",
+  "flag": null
+ },
+ {
+  "q": 9,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "The pattern is -5, +2, -4, +2, -3, +2, then -2: 9-2 = 7.",
+  "flag": null
+ },
+ {
+  "q": 10,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Each term is 3 times the one before it: 54*3 = 162.",
+  "flag": null
+ },
+ {
+  "q": 11,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Each term is 2 times the one before it, plus 1: 47*2+1 = 95.",
+  "flag": null
+ },
+ {
+  "q": 12,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The differences halve each time: -16, -8, -4, -2. So 22-2 = 20.",
+  "flag": null
+ },
+ {
+  "q": 13,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The steps alternate x3 then -3: 2, 6, 3, 9, 6, then 6*3 = 18.",
+  "flag": null
+ },
+ {
+  "q": 14,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Inside the bracket: 2x^3-3x^3 = -x^3, the x^2 terms cancel (3-4+1 = 0), leaving -5x and -8. Times 2 gives -2x^3-10x-16.",
+  "flag": null
+ },
+ {
+  "q": 15,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "(2x+1)(x-1) = 2x^2-x-1. Times 2 gives 4x^2-2x-2. Trap: A and C forget to multiply every term by 2.",
+  "flag": null
+ },
+ {
+  "q": 16,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Pull out x^-2: y^3x^3 / x^-2 = y^3x^5, so you get x^-2(1+y^3x^5). Trap: C uses x^1 instead of x^5 (subtracted the exponents the wrong way).",
+  "flag": null
+ },
+ {
+  "q": 17,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "You need two numbers that multiply to -27 and add to +6: 9 and -3. So (x+9)(x-3).",
+  "flag": null
+ },
+ {
+  "q": 18,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "x+y = 3 crosses (0,3) and (3,0). x-y = 1 crosses (0,-1) and (1,0). They meet at (2,1), which is graph B. Trap: graph A's lines meet at (2,-1).",
+  "flag": null
+ },
+ {
+  "q": 19,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "B = 7-A. If A < -7, then B > 14, which is positive. Trap: in D, B < -7 makes A > 14 (positive, not negative).",
+  "flag": null
+ },
+ {
+  "q": 20,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "W-P = P+2, so the difference changes as P changes. Trap: C fails for P = -1/2 (W = 1), and D fails for the same value.",
+  "flag": null
+ },
+ {
+  "q": 21,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Divide by 2.5: x = 3y+6. If y < -2, then x < 0. Trap: B and D only give ranges that include both signs.",
+  "flag": null
+ },
+ {
+  "q": 22,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Multiply by 4: 2x = 8-y, so x = 4-y/2. If y < -6, then x > 7, which is positive. Trap: A and B have the signs reversed.",
+  "flag": null
+ },
+ {
+  "q": 23,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "x = 0.5y+6 is positive exactly when y > -12. So y > -6 makes x > 3, which is positive.",
+  "flag": null
+ },
+ {
+  "q": 24,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "T-G = 1 and G-T = -1, so 1 > -1 is always true. Trap: A depends on G, B and C are always false.",
+  "flag": null
+ },
+ {
+  "q": 25,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Cross-multiply: 12(k+3) = 6(14-k), so 18k = 48 and k = 8/3 = 2 2/3.",
+  "flag": null
+ },
+ {
+  "q": 26,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "y = 3*11/11 = 3, so 4x+1 = 45 and 4y-3 = 9. Then 45/9 + 9/45 = 5 + 1/5 = 5.2.",
+  "flag": null
+ },
+ {
+  "q": 27,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "T = 1/f = 1 / (W/2π), which flips to 2π/W. Trap: B is just f itself.",
+  "flag": null
+ },
+ {
+  "q": 28,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "From i, x = 6+2y. Put that into ii: 18+4y = 10, so y = -2 and x = 2. Check: 4+8 = 12 and 6+4 = 10.",
+  "flag": null
+ },
+ {
+  "q": 29,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "y = 0.2x goes through the origin with a gentle upward slope (it reaches about 0.8 at x = 4). Only line D does that.",
+  "flag": null
+ },
+ {
+  "q": 30,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "y = -4x+8 is steep and falling, with y-intercept 8 and x-intercept 2. Line B crosses the x-axis at 2 going steeply down. Trap: A is steep but rising.",
+  "flag": null
+ },
+ {
+  "q": 31,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "18/(9-3) = 3, and 18(3-1)/(9-1) = 36/8 = 4.5. So H = 7.5.",
+  "flag": null
+ },
+ {
+  "q": 32,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "AB/C = XY - D/F, so C = AB/(XY - D/F). Trap: C is that fraction flipped upside down.",
+  "flag": null
+ },
+ {
+  "q": 33,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Multiply both sides by 2, then divide by d2: d1 = 2A/d2.",
+  "flag": null
+ }
+]

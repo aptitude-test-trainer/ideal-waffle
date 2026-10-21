@@ -1,0 +1,993 @@
+[
+ {
+  "id": "pp01",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     15,
+     3
+    ],
+    [
+     15,
+     21
+    ]
+   ]
+  },
+  "holes": [
+   [
+    15,
+    3
+   ],
+   [
+    15,
+    21
+   ],
+   [
+    9,
+    3
+   ],
+   [
+    9,
+    21
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful: left half over right, 2 punches near top/bottom. (max offset vs key sheet 1.7 units)"
+ },
+ {
+  "id": "pp02",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "y",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     13,
+     15
+    ]
+   ]
+  },
+  "holes": [
+   [
+    13,
+    15
+   ],
+   [
+    13,
+    9
+   ],
+   [
+    11,
+    15
+   ],
+   [
+    11,
+    9
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful. (max offset vs key sheet 1.27 units)"
+ },
+ {
+  "id": "pp03",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "x",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     7,
+     9
+    ]
+   ]
+  },
+  "holes": [
+   [
+    7,
+    9
+   ],
+   [
+    17,
+    9
+   ],
+   [
+    3,
+    5
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful (corner x+y=12 then right half over left); 3 holes, max offset ~2 units vs sheet. (max offset vs key sheet 2.15 units)"
+ },
+ {
+  "id": "pp04",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "p",
+     "c": 36,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     15,
+     15
+    ]
+   ]
+  },
+  "holes": [
+   [
+    15,
+    15
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    9,
+    15
+   ],
+   [
+    3,
+    21
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful. (max offset vs key sheet 0.81 units)"
+ },
+ {
+  "id": "pp05",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": 1
+    },
+    {
+     "k": "p",
+     "c": 24,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     1,
+     5
+    ]
+   ]
+  },
+  "holes": [
+   [
+    1,
+    5
+   ],
+   [
+    19,
+    23
+   ],
+   [
+    5,
+    1
+   ],
+   [
+    23,
+    19
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful. (max offset vs key sheet 1.42 units)"
+ },
+ {
+  "id": "pp06",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 12,
+     "sg": 1
+    },
+    {
+     "k": "y",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     1,
+     17
+    ]
+   ]
+  },
+  "holes": [
+   [
+    1,
+    17
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    23,
+    17
+   ],
+   [
+    23,
+    7
+   ]
+  ],
+  "matches_key": true,
+  "note": "Folds faithful; punch moved from drawn bottom-edge spot (~8,23) to left edge (1,17). As drawn the holes would be on top/bottom edges at x=8/16; key C shows them on the side edges (figure vs key rotated 90 deg). (max offset vs key sheet 1.22 units)"
+ },
+ {
+  "id": "pp07",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 36,
+     "sg": 1
+    },
+    {
+     "k": "x",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     19,
+     5
+    ]
+   ]
+  },
+  "holes": [
+   [
+    19,
+    5
+   ],
+   [
+    5,
+    5
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful. (max offset vs key sheet 1.2 units)"
+ },
+ {
+  "id": "pp08",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 24,
+     "sg": 1
+    },
+    {
+     "k": "m",
+     "c": 0,
+     "sg": 1
+    },
+    {
+     "k": "x",
+     "c": 6,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     3,
+     13
+    ]
+   ]
+  },
+  "holes": [
+   [
+    3,
+    13
+   ],
+   [
+    9,
+    13
+   ],
+   [
+    13,
+    3
+   ],
+   [
+    13,
+    9
+   ],
+   [
+    11,
+    21
+   ],
+   [
+    11,
+    15
+   ],
+   [
+    21,
+    11
+   ],
+   [
+    15,
+    11
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful (diag, diag, then x=6); punch (3,13) vs drawn ~(3,12). (max offset vs key sheet 1.56 units)"
+ },
+ {
+  "id": "pp09",
+  "model": {
+   "folds": [
+    {
+     "k": "y",
+     "c": 12,
+     "sg": 1
+    },
+    {
+     "k": "p",
+     "c": 24,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     3,
+     9
+    ]
+   ]
+  },
+  "holes": [
+   [
+    3,
+    9
+   ],
+   [
+    3,
+    15
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful; key sheet holes not symmetric about the crease, max offset ~2.4 units. (max offset vs key sheet 2.38 units)"
+ },
+ {
+  "id": "pp10",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 36,
+     "sg": 1
+    },
+    {
+     "k": "p",
+     "c": 24,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     3,
+     3
+    ]
+   ]
+  },
+  "holes": [
+   [
+    3,
+    3
+   ]
+  ],
+  "matches_key": true,
+  "note": "KEY-FIT VARIANT: corner fold moved from top-left (x+y=12) to bottom-right (x+y=36). Figure as printed physically gives one hole at (21,21) (bottom-right), not key B (3,3). (max offset vs key sheet 0 units)"
+ },
+ {
+  "id": "pp11",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": -1
+    },
+    {
+     "k": "p",
+     "c": 24,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     7,
+     3
+    ]
+   ]
+  },
+  "holes": [
+   [
+    7,
+    3
+   ],
+   [
+    21,
+    17
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    17,
+    21
+   ]
+  ],
+  "matches_key": true,
+  "note": "Folds faithful; punch moved from drawn ~(11,8) to (7,3) to match key B positions (drawn spot gives 4 holes at (11,7),(7,11),(17,13),(13,17)). (max offset vs key sheet 1.42 units)"
+ },
+ {
+  "id": "pp12",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": -12,
+     "sg": -1
+    },
+    {
+     "k": "m",
+     "c": 0,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     19,
+     15
+    ]
+   ]
+  },
+  "holes": [
+   [
+    19,
+    15
+   ],
+   [
+    15,
+    19
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful (corner fold x-y=-12, then diagonal); punch (19,15) vs drawn ~(21,14). (max offset vs key sheet 1.1 units)"
+ },
+ {
+  "id": "pp13",
+  "model": {
+   "folds": [
+    {
+     "k": "y",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "x",
+     "c": 8,
+     "sg": -1
+    },
+    {
+     "k": "x",
+     "c": 16,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     21,
+     15
+    ]
+   ]
+  },
+  "holes": [
+   [
+    21,
+    15
+   ],
+   [
+    11,
+    15
+   ],
+   [
+    5,
+    15
+   ],
+   [
+    21,
+    9
+   ],
+   [
+    11,
+    9
+   ],
+   [
+    5,
+    9
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful (top down, left third right, middle third right). (max offset vs key sheet 1.41 units)"
+ },
+ {
+  "id": "pp14",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": 1
+    },
+    {
+     "k": "p",
+     "c": 24,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     23
+    ],
+    [
+     15,
+     23
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    23
+   ],
+   [
+    15,
+    23
+   ],
+   [
+    1,
+    15
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    23,
+    9
+   ],
+   [
+    23,
+    15
+   ],
+   [
+    15,
+    1
+   ],
+   [
+    9,
+    1
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful, 2 punches; key sheet slightly asymmetric, max offset ~2.2 units. (max offset vs key sheet 2.15 units)"
+ },
+ {
+  "id": "pp15",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 24,
+     "sg": 1
+    },
+    {
+     "k": "x",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     3
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    3
+   ],
+   [
+    15,
+    3
+   ],
+   [
+    21,
+    15
+   ],
+   [
+    21,
+    9
+   ]
+  ],
+  "matches_key": true,
+  "note": "Faithful. (max offset vs key sheet 0.1 units)"
+ },
+ {
+  "id": "pp16",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 24,
+     "sg": 1
+    },
+    {
+     "k": "p",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     17,
+     3
+    ]
+   ]
+  },
+  "holes": [
+   [
+    17,
+    3
+   ],
+   [
+    21,
+    7
+   ]
+  ],
+  "matches_key": true,
+  "note": "Folds faithful; punch mirrored across main diagonal: drawn at ~(3,17) which gives (3,17),(7,21) (no option); key A = (17,3),(21,7). (max offset vs key sheet 0.73 units)"
+ },
+ {
+  "id": "pp17",
+  "model": null,
+  "holes": null,
+  "matches_key": false,
+  "note": "NOT MODELABLE: 2nd fold crease runs from (12,0) to (24,24) (slope 2, not 0/45/90 deg) and no punch hole is printed on the figure."
+ },
+ {
+  "id": "pp18",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 6,
+     "sg": -1
+    },
+    {
+     "k": "x",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     3,
+     3
+    ],
+    [
+     3,
+     21
+    ]
+   ]
+  },
+  "holes": [
+   [
+    3,
+    3
+   ],
+   [
+    3,
+    21
+   ],
+   [
+    21,
+    3
+   ],
+   [
+    21,
+    21
+   ]
+  ],
+  "matches_key": false,
+  "note": "NO MATCH: faithful model (left strip x=6 over, then right half over left, punches at drawn (3,3),(3,21)). Physically the drawn punch spot has only the right-half flap, so holes = (21,3),(21,21) (no option shows this). pfcheck lists 4 holes because it always keeps the punch position as a hole (see report). Key A (3,3),(3,21) is the left-right mirror of the physical result; mirrored variant x=18 sg=1, x=12 sg=-1, punches (21,3),(21,21) gives key A physically but pfcheck shows 4 holes."
+ },
+ {
+  "id": "pp19",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 24,
+     "sg": -1
+    },
+    {
+     "k": "y",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "x",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     15,
+     21
+    ]
+   ]
+  },
+  "holes": [
+   [
+    15,
+    21
+   ],
+   [
+    9,
+    21
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    3,
+    15
+   ]
+  ],
+  "matches_key": true,
+  "note": "Folds faithful (diagonal, then top down + left over right shown together in panel 2); punch moved from drawn ~(21,21) to (15,21) to match key. (max offset vs key sheet 1.49 units)"
+ },
+ {
+  "id": "pp20",
+  "model": {
+   "folds": [
+    {
+     "k": "y",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "p",
+     "c": 24,
+     "sg": -1
+    },
+    {
+     "k": "p",
+     "c": 36,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     21
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    21
+   ],
+   [
+    3,
+    15
+   ],
+   [
+    9,
+    3
+   ],
+   [
+    3,
+    9
+   ]
+  ],
+  "matches_key": true,
+  "note": "KEY-FIT VARIANT: panel 1 (right half over left) is inconsistent with panels 2-3 (which still show full-width paper), so it is dropped; folds = top down, lower-left corner x+y=24, lower-right corner x+y=36; punch moved from drawn ~(15,15) to (9,21). (max offset vs key sheet 0.92 units)"
+ },
+ {
+  "id": "pp21",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": -1
+    },
+    {
+     "k": "x",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     1
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    1
+   ],
+   [
+    15,
+    1
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    1,
+    15
+   ]
+  ],
+  "matches_key": true,
+  "note": "KEY-FIT VARIANT: panel 1 (anti-diagonal) and panel 2 (main diagonal) disagree; model uses main-diagonal fold leaving upper-right triangle, then right over left, punch (9,1) = figure turned upside down (drawn punch ~(9,23)). (max offset vs key sheet 1.41 units)"
+ },
+ {
+  "id": "pp22",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": -1
+    },
+    {
+     "k": "x",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     21,
+     17
+    ]
+   ]
+  },
+  "holes": [
+   [
+    21,
+    17
+   ],
+   [
+    17,
+    21
+   ]
+  ],
+  "matches_key": true,
+  "note": "Uses panel 2 geometry (main diagonal, upper-right triangle remains; panel 1 draws the anti-diagonal instead), then left over right; punch at drawn spot. (max offset vs key sheet 1.1 units)"
+ },
+ {
+  "id": "pp23",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": 1
+    },
+    {
+     "k": "y",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     19,
+     21
+    ]
+   ]
+  },
+  "holes": [
+   [
+    19,
+    21
+   ],
+   [
+    21,
+    19
+   ]
+  ],
+  "matches_key": true,
+  "note": "KEY-FIT VARIANT: panel 1 and panel 2 disagree on which triangle remains; model = main-diagonal fold leaving lower-left triangle, then top folded down, punch (19,21). Drawn punch top-left ~(5,1) cannot give key A. (max offset vs key sheet 1 units)"
+ },
+ {
+  "id": "pp24",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": -1
+    },
+    {
+     "k": "y",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     13,
+     7
+    ]
+   ]
+  },
+  "holes": [
+   [
+    13,
+    7
+   ],
+   [
+    7,
+    13
+   ]
+  ],
+  "matches_key": true,
+  "note": "Uses panel 2 geometry (main diagonal, upper-right remains; panel 1 draws anti-diagonal), then bottom up; punch (13,7) vs drawn ~(13,5). (max offset vs key sheet 1.28 units)"
+ }
+]

@@ -1,0 +1,240 @@
+[
+ {
+  "q": 1,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Two series are interleaved. Odd positions go −3, −1, 1 (+2) and even positions go −8, −6, −4 (+2). The next is an odd position: 3.",
+  "flag": null
+ },
+ {
+  "q": 2,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The denominators interleave: 8, 12, 16 (+4) and 14, 21, 28 (+7). The next is an odd position: 1/20.",
+  "flag": null
+ },
+ {
+  "q": 3,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Each denominator is the sum of the two before it: 3+8=11, 8+11=19, 11+19=30, 19+30=49. Next: 30 + 49 = 79.",
+  "flag": null
+ },
+ {
+  "q": 4,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The differences are −19, −16, −13, −10, shrinking by 3 each time. The next difference is −7, so 70 − 7 = 63.",
+  "flag": null
+ },
+ {
+  "q": 5,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Each term is the previous × 3 + 1: 121 × 3 + 1 = 364.",
+  "flag": null
+ },
+ {
+  "q": 6,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "×3 then subtract 1, 2, 3, 4…: 8×3−1=23, 23×3−2=67, 67×3−3=198, 198×3−4=590. Next: 590×3−5 = 1765.",
+  "flag": null
+ },
+ {
+  "q": 7,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Distribute −2: −6x³ + x² − 8x + 10. Add x³ − (3/2)x² − 6x + 7 to get −5x³ − (1/2)x² − 14x + 17. Trap: sign errors on the x² term give B or C.",
+  "flag": null
+ },
+ {
+  "q": 8,
+  "answer": null,
+  "confidence": "high",
+  "explain": "(x − 3)(x + 5) = x² + 2x − 15. Times −2: −2x² − 4x + 30.",
+  "flag": "Choices A and D are identical (both −2x² − 4x + 30), so both are correct. Probably a typo in the source."
+ },
+ {
+  "q": 9,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The GCF is 9x³y². Dividing it out leaves 2xy + 3, so 9x³y²(2xy + 3). Trap: D multiplies out to the same thing but isn't fully factored (3x is still in the brackets), and A has the wrong y power.",
+  "flag": null
+ },
+ {
+  "q": 10,
+  "answer": "D",
+  "confidence": "high",
+  "explain": "(3x − 2)(2x + 5) = 6x² + 15x − 4x − 10 = 6x² + 11x − 10. A gives −11x, B and C give +28x and +4x.",
+  "flag": null
+ },
+ {
+  "q": 11,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Plug in: 2(2A − 4) + 5 = A + 6, so 4A − 3 = A + 6 and A = 3.",
+  "flag": null
+ },
+ {
+  "q": 12,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "P = (12 + 6)/3 = 6. Then 12/6 + 6/2 = 2 + 3 = 5.",
+  "flag": null
+ },
+ {
+  "q": 13,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Left side: 5B + 10 − 4(B/2 − 3) = 3B + 22. Right side: 30 − (2B − 4B + 4) = 2B + 26. So 3B + 22 = 2B + 26 and B = 4.",
+  "flag": null
+ },
+ {
+  "q": 14,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "3(10 − 4) + 3(16) = 18 + 48 = 66, and 66/3 = 22. The right side is 10 + 6 = 16, so 22 − z = 16 and z = 6.",
+  "flag": null
+ },
+ {
+  "q": 15,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "\"4 minus 3 times x\" is y = 4 − 3x. Graph A and table B both drop by 2 per unit (slope −2), and D rises.",
+  "flag": null
+ },
+ {
+  "q": 16,
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Check table D with y = (5/9)x + 2: −36→−18, −27→−13, −18→−8, −9→−3, 9→7. All match. C rises 4 per 9 (slope 4/9), graph A has intercept −2 instead of +2, and B is a curve.",
+  "flag": null
+ },
+ {
+  "q": 17,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "T goes up 7 each step and is −7 at C = 0, so T = 7C − 7. Graph C passes through (0, −7), (1, 0) and (2, 7). A is C − 7, B is 7C − 49, and D simplifies to 7C − 6.",
+  "flag": null
+ },
+ {
+  "q": 18,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Numerator: 14x + 18x − 6y + 4y − 12x = 20x − 2y. So y = 10x − y, 2y = 10x, and y = 5x. Graph B goes through (0, 0) and (2, 10). Table A is 4x and C is 5x + 1.",
+  "flag": null
+ },
+ {
+  "q": 19,
+  "answer": "D",
+  "confidence": "high",
+  "explain": "y = −(1/2)x + 3 goes through (0, 3) and (6, 0). x + y = 1 goes through (0, 1) and (1, 0). They meet at (−4, 5). Only graph D has both lines.",
+  "flag": null
+ },
+ {
+  "q": 20,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "y = 3 is a horizontal line through y = 3: line A. B is the vertical line (x = 2.5), and C and D are slanted.",
+  "flag": null
+ },
+ {
+  "q": 21,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "y = −(x − 1)² + 4 opens downward with its top at (1, 4) and crosses the x-axis at −1 and 3. That is curve A. C opens upward (vertex (1, −4)), B is a sideways parabola, and D is a line.",
+  "flag": null
+ },
+ {
+  "q": 22,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "z = 6x/(y − 2), and y − 2 is positive, so z has the same sign as x and grows when x grows. Positive x gives positive z.",
+  "flag": null
+ },
+ {
+  "q": 23,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "x = 0 when 0.5y = 6, so at y = 12. Above 12, x is positive.",
+  "flag": null
+ },
+ {
+  "q": 24,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Z > 0 when (3/2)R > 4, so R > 8/3. A fails because Z − R = R/2 − 4 changes. C and D get the direction backward.",
+  "flag": null
+ },
+ {
+  "q": 25,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "x = 0 at y = 6, and x goes down as y goes up. So y < 6 makes x positive. C and D are reversed: x < 12 means y > 0.",
+  "flag": null
+ },
+ {
+  "q": 26,
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Divide by 3: K = 2M + 6, so K = 0 at M = −3. Below −3, K is negative. A, B and C are true, so D is the false one.",
+  "flag": null
+ },
+ {
+  "q": 27,
+  "answer": "D",
+  "confidence": "high",
+  "explain": "2R − Z = 6 always, so (2R − Z) = 6 > −6 = (Z − 2R). A is an equality, not >. B says 6 < 0. C only holds when R < 3.",
+  "flag": null
+ },
+ {
+  "q": 28,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "−(4 − K) = K − 4, and 3/9 = 1/3. So 3(K − 8) = K − 4, 2K = 20, and K = 10. Check: 2/6 = 1/3.",
+  "flag": null
+ },
+ {
+  "q": 29,
+  "answer": null,
+  "confidence": "medium",
+  "explain": "r = 3n/(4n) = 3/4, so Q = 3 ÷ (3/4) = 4. Direct substitution gives 12n/(3n) (D), which simplifies to 4n/n (A); both equal 4. B and C are 4/3 and 3/4.",
+  "flag": "Two correct choices: A (4n/n) and D (12n/(3n)) both equal 4. The source probably wants D, the unsimplified substitution, but A is also correct."
+ },
+ {
+  "q": 30,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "From the second equation, a = 2b + 1. Substitute: 4b + 2 + 5b = 11, so b = 1 and a = 3. Check: 6 + 5 = 11 and 9 − 6 = 3.",
+  "flag": null
+ },
+ {
+  "q": 31,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "18/6 = 3. 18(2)/(10 − 1) = 36/9 = 4. 18/6 = 3. So 3 + 4 − 3 = 4. Trap: T − (H − 1) is 9, not 7.",
+  "flag": null
+ },
+ {
+  "q": 32,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Move the other terms: TC = P − (Q − R)/S + U. Divide by T. Trap: B gets the sign of U wrong.",
+  "flag": null
+ },
+ {
+  "q": 33,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "The numerator simplifies: k₁(k₂ − m₂) + k₁m₂ = k₁k₂. So m₁ = k₁k₂/(m₂ + 2) and k₁ = m₁(m₂ + 2)/k₂.",
+  "flag": null
+ },
+ {
+  "q": 34,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Divide by 13: x² − 5x + 6 = 0, which is (x − 2)(x − 3) = 0. So x = 2 or 3.",
+  "flag": null
+ }
+]

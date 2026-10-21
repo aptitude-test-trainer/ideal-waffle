@@ -1,0 +1,1211 @@
+[
+ {
+  "file": "Screenshot_20261019-175126.png",
+  "stem": "If the left gear rotates in the direction indicated by the arrow, in which direction will the right gear rotate?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "Don’t know"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   921,
+   1522,
+   1589
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175140.png",
+  "stem": "Which track should move faster for the tractor to turn in the direction of the arrow?",
+  "choices": [
+   "Track A",
+   "Track B",
+   "Don't know"
+  ],
+  "answer": 2,
+  "box": [
+   255,
+   816,
+   1421,
+   1792
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175149.png",
+  "stem": "In which direction will the gear move if the handle on the left is moved up and down as shown by the dashed arrows?",
+  "choices": [
+   "Back and forth according to arrows A-B",
+   "In the direction of arrow A",
+   "In the direction of arrow B"
+  ],
+  "answer": 3,
+  "box": [
+   185,
+   756,
+   1410,
+   1776
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175200.png",
+  "stem": "If the round disk in the figure is exposed to two equal forces 1 and 2, in which direction will the disc move?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "In the direction of arrow C"
+  ],
+  "answer": 2,
+  "box": [
+   291,
+   735,
+   1306,
+   1749
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175210.png",
+  "stem": "Are both chains required to support the load, or is just one chain enough? Which one?",
+  "choices": [
+   "Chain A is sufficient",
+   "Chain B is sufficient",
+   "Both chains are required"
+  ],
+  "answer": 2,
+  "box": [
+   218,
+   753,
+   1379,
+   1773
+  ],
+  "topic": "levers",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175221.png",
+  "stem": "Three turbines are installed in the river with the flow direction shown by the arrow. Water falls down from the pipes above them. Which turbine will spin faster than the others?",
+  "choices": [
+   "Turbine A",
+   "Turbine B",
+   "Turbine C"
+  ],
+  "answer": 3,
+  "box": [
+   67,
+   881,
+   1526,
+   1660
+  ],
+  "topic": "fluids",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175230.png",
+  "stem": "Which wheel, A or B, will rotate in the same direction as wheel X?",
+  "choices": [
+   "Wheel A",
+   "Wheel B",
+   "Both wheels"
+  ],
+  "answer": 3,
+  "box": [
+   67,
+   907,
+   1509,
+   1668
+  ],
+  "topic": "belts",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175247.png",
+  "stem": "Which chain is required to support the load?",
+  "choices": [
+   "Chain A",
+   "Chain B",
+   "Chain C"
+  ],
+  "answer": 2,
+  "box": [
+   80,
+   737,
+   1514,
+   1757
+  ],
+  "topic": "levers",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175308.png",
+  "stem": "Which axis, A or B, rotates faster or do both axes rotate at the same speed?",
+  "choices": [
+   "Axis A rotates faster",
+   "Axis B rotates faster",
+   "At the same speed"
+  ],
+  "answer": 2,
+  "box": [
+   293,
+   742,
+   1304,
+   1753
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175317.png",
+  "stem": "If the lower wheel rotates in the direction indicated by the arrow, in which direction will axis X rotate?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "In both ways"
+  ],
+  "answer": 2,
+  "box": [
+   83,
+   763,
+   1511,
+   1776
+  ],
+  "topic": "belts",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175325.png",
+  "stem": "Which car with liquid in the barrel is depicted at the time of braking?",
+  "choices": [
+   "Car A",
+   "Car B",
+   "Car C"
+  ],
+  "answer": 3,
+  "box": [
+   208,
+   767,
+   1389,
+   1767
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175332.png",
+  "stem": "In which direction will the propeller adapted for watering rotate if it’s set in motion with water pressure?",
+  "choices": [
+   "In both directions",
+   "In the direction of arrow A",
+   "In the direction of arrow B"
+  ],
+  "answer": 3,
+  "box": [
+   371,
+   763,
+   1223,
+   1766
+  ],
+  "topic": "fluids",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175341.png",
+  "stem": "Which handle can be held down by the spring?",
+  "choices": [
+   "None",
+   "Handle A",
+   "Handle B"
+  ],
+  "answer": 2,
+  "box": [
+   156,
+   751,
+   1442,
+   1771
+  ],
+  "topic": "levers",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175350.png",
+  "stem": "In which direction has been the bed moved for the last time?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "Don't know"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   859,
+   1530,
+   1676
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175359.png",
+  "stem": "The wheel and the brake shoe are made of the same material. Which will wear out faster — the wheel or the brake shoe?",
+  "choices": [
+   "The wheel will wear out faster",
+   "The brake shoe will wear out faster",
+   "Both, at the same time"
+  ],
+  "answer": 2,
+  "box": [
+   198,
+   769,
+   1396,
+   1789
+  ],
+  "topic": "other",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175407.png",
+  "stem": "Are the containers filled with liquids of the same density or is one liquid denser than the other (the balls are the same)?",
+  "choices": [
+   "Both liquids have the same density",
+   "Liquid A is the denser",
+   "Liquid B is the denser"
+  ],
+  "answer": 3,
+  "box": [
+   247,
+   752,
+   1347,
+   1772
+  ],
+  "topic": "fluids",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175416.png",
+  "stem": "In which direction will the fan driven by air flow rotate?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "In both directions"
+  ],
+  "answer": 2,
+  "box": [
+   82,
+   770,
+   1520,
+   1790
+  ],
+  "topic": "fluids",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175423.png",
+  "stem": "In which position will the disc stop after free motion along the indicated line?",
+  "choices": [
+   "In any position",
+   "In position A",
+   "In position B"
+  ],
+  "answer": 3,
+  "box": [
+   67,
+   960,
+   1530,
+   1531
+  ],
+  "topic": "balance",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175430.png",
+  "stem": "With which scissors is it easier to cut the sheet of iron?",
+  "choices": [
+   "With scissors A",
+   "With scissors B",
+   "With scissors C"
+  ],
+  "answer": 2,
+  "box": [
+   120,
+   755,
+   1478,
+   1775
+  ],
+  "topic": "levers",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175437.png",
+  "stem": "Which wheel of the wheelchair spins faster when the wheelchair is moving?",
+  "choices": [
+   "Wheel A",
+   "At the same speed",
+   "Wheel B"
+  ],
+  "answer": 1,
+  "box": [
+   67,
+   843,
+   1530,
+   1690
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175443.png",
+  "stem": "How will the shape of the sealed thin-walled tin can change if it is heated?",
+  "choices": [
+   "As shown in Figure A",
+   "As shown in Figure B",
+   "As shown in Figure C"
+  ],
+  "answer": 3,
+  "box": [
+   67,
+   882,
+   1529,
+   1594
+  ],
+  "topic": "heat",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175451.png",
+  "stem": "Which gear rotates faster?",
+  "choices": [
+   "Gear A",
+   "Gear B",
+   "Gear C"
+  ],
+  "answer": 3,
+  "box": [
+   85,
+   987,
+   1454,
+   1673
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175458.png",
+  "stem": "Which ball will collide with ball X, if it hits the barrier in the direction indicated by the solid arrow?",
+  "choices": [
+   "With ball A",
+   "With ball B",
+   "With ball C"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   798,
+   1530,
+   1708
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175504.png",
+  "stem": "Let’s assume that the wheels are made of rubber. In which direction the driving wheel (the left one) should be rotated to make wheel X to rotate in the direction indicated by the dashed arrow?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "The direction doesn’t matter"
+  ],
+  "answer": 2,
+  "box": [
+   71,
+   846,
+   1526,
+   1682
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175511.png",
+  "stem": "If the lower gear rotates in the arrow direction, in which direction does the upper gear rotate?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "Don't know"
+  ],
+  "answer": 1,
+  "box": [
+   277,
+   768,
+   1317,
+   1788
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175518.png",
+  "stem": "Figures A, B and C have the same weight. Which one is harder to turn over?",
+  "choices": [
+   "Object A",
+   "Object B",
+   "Object C"
+  ],
+  "answer": 3,
+  "box": [
+   67,
+   974,
+   1529,
+   1574
+  ],
+  "topic": "balance",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175525.png",
+  "stem": "Which piece of ice will cool a glass of water faster?",
+  "choices": [
+   "Piece A",
+   "Piece B",
+   "Piece C"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   806,
+   1530,
+   1667
+  ],
+  "topic": "heat",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175531.png",
+  "stem": "Which figure shows how bombs can be dropped from a plane?",
+  "choices": [
+   "Figure A",
+   "Figure B",
+   "Figure C"
+  ],
+  "answer": 1,
+  "box": [
+   67,
+   848,
+   1530,
+   1678
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175538.png",
+  "stem": "Where will the car moving along the arrow skid while turning?",
+  "choices": [
+   "To any side",
+   "Towards A",
+   "Towards B"
+  ],
+  "answer": 3,
+  "box": [
+   67,
+   922,
+   1530,
+   1565
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175545.png",
+  "stem": "There is ice in the vessel. The ice thawed, how will the water level change as compared to the ice level?",
+  "choices": [
+   "The level will rise",
+   "The level will go down",
+   "The level won't change"
+  ],
+  "answer": 2,
+  "box": [
+   303,
+   772,
+   1291,
+   1792
+  ],
+  "topic": "heat",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175552.png",
+  "stem": "Which stone, A or B, is it easier to move?",
+  "choices": [
+   "Stone A",
+   "Both require equal efforts",
+   "Stone B"
+  ],
+  "answer": 1,
+  "box": [
+   67,
+   881,
+   1529,
+   1704
+  ],
+  "topic": "pulleys",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175601.png",
+  "stem": "Do the boxes have the same weight or is one of them heavier than the other?",
+  "choices": [
+   "Box A weighs less",
+   "Box B weighs less",
+   "Both boxes weigh the same"
+  ],
+  "answer": 1,
+  "box": [
+   67,
+   927,
+   1530,
+   1600
+  ],
+  "topic": "balance",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175609.png",
+  "stem": "Bars A and B have the same cross-sectional area and are made of the same material. Which beam can bear a heavier load?",
+  "choices": [
+   "Both can bear the same",
+   "Bar A",
+   "Bar B"
+  ],
+  "answer": 3,
+  "box": [
+   248,
+   771,
+   1337,
+   1791
+  ],
+  "topic": "structures",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175616.png",
+  "stem": "To what level will the water from the hose rise if it’s released from tanks A and B filled to the brim?",
+  "choices": [
+   "As shown in Figure A",
+   "As shown in Figure B",
+   "To the level of the basins"
+  ],
+  "answer": 2,
+  "box": [
+   103,
+   755,
+   1494,
+   1775
+  ],
+  "topic": "fluids",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175623.png",
+  "stem": "Which of these all-metal objects will cool down faster if they are heated and put outdoors?",
+  "choices": [
+   "Object A",
+   "Object B",
+   "Object C"
+  ],
+  "answer": 3,
+  "box": [
+   67,
+   951,
+   1530,
+   1574
+  ],
+  "topic": "heat",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175630.png",
+  "stem": "In which position will the wooden disk with a built-in metal circle stop if the disk is rolled?",
+  "choices": [
+   "In position A",
+   "In position B",
+   "In any position"
+  ],
+  "answer": 1,
+  "box": [
+   67,
+   929,
+   1522,
+   1570
+  ],
+  "topic": "balance",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175637.png",
+  "stem": "Where will the stick break if its left end is pressed sharply?",
+  "choices": [
+   "At the point A",
+   "At the point B",
+   "At the point C"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   808,
+   1530,
+   1710
+  ],
+  "topic": "levers",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175644.png",
+  "stem": "Which capacity marks are placed correctly?",
+  "choices": [
+   "On container A",
+   "On container B",
+   "On container C"
+  ],
+  "answer": 1,
+  "box": [
+   67,
+   931,
+   1525,
+   1595
+  ],
+  "topic": "fluids",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175652.png",
+  "stem": "Which figure displays water coming out of the vessel holes in a proper way?",
+  "choices": [
+   "Figure A",
+   "Figure B",
+   "Figure C"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   892,
+   1530,
+   1621
+  ],
+  "topic": "fluids",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175658.png",
+  "stem": "Which ice cream will melt faster?",
+  "choices": [
+   "In package A",
+   "In package B",
+   "In any package"
+  ],
+  "answer": 2,
+  "box": [
+   69,
+   860,
+   1530,
+   1697
+  ],
+  "topic": "heat",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175704.png",
+  "stem": "How will a suspended load move if the upper wheel rotates in the arrow direction?",
+  "choices": [
+   "Downwards, in a discontinuous manner",
+   "Upwards, in a discontinuous manner",
+   "Upwards, in a continuous manner"
+  ],
+  "answer": 1,
+  "box": [
+   218,
+   771,
+   1379,
+   1790
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175712.png",
+  "stem": "Which of the wheels made of the same material will rotate longer if they are accelerated to the same speed?",
+  "choices": [
+   "Wheel A",
+   "Wheel B",
+   "Wheel C"
+  ],
+  "answer": 3,
+  "box": [
+   67,
+   1018,
+   1531,
+   1522
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175718.png",
+  "stem": "What is the easiest method to draw the stone along a smooth road?",
+  "choices": [
+   "Method A",
+   "Method B",
+   "Method C"
+  ],
+  "answer": 1,
+  "box": [
+   315,
+   777,
+   1284,
+   1797
+  ],
+  "topic": "other",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175725.png",
+  "stem": "In which direction will the water move in the geared pump system if the gear rotates as shown by the arrows?",
+  "choices": [
+   "In the direction A",
+   "In the direction B",
+   "In both directions"
+  ],
+  "answer": 1,
+  "box": [
+   333,
+   767,
+   1265,
+   1787
+  ],
+  "topic": "fluids",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175732.png",
+  "stem": "With which type of bicycle gearing it will be harder to ride uphill?",
+  "choices": [
+   "Type A",
+   "Type B",
+   "Type C"
+  ],
+  "answer": 3,
+  "box": [
+   382,
+   786,
+   1215,
+   1795
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175738.png",
+  "stem": "There is sand covered with pebbles (small stones) on the bottom of the container. How will the level of the fill change if the sand and pebbles are mixed up?",
+  "choices": [
+   "It will rise",
+   "It will go down",
+   "It will remain the same"
+  ],
+  "answer": 2,
+  "box": [
+   303,
+   762,
+   1291,
+   1782
+  ],
+  "topic": "other",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175745.png",
+  "stem": "Ratchet X moves half a meter in the arrow direction. How far will the centre of the gear move in such a case?",
+  "choices": [
+   "0.16m",
+   "0.25m",
+   "0.5m"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   797,
+   1530,
+   1781
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175754.png",
+  "stem": "Which gear, A or B, rotates slower or do they rotate at the same speed?",
+  "choices": [
+   "Gear A rotates slower",
+   "At the same speed",
+   "Gear B rotates slower"
+  ],
+  "answer": 2,
+  "box": [
+   68,
+   884,
+   1530,
+   1766
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175804.png",
+  "stem": "Which horse should run faster making a turn not to be outrun by the other?",
+  "choices": [
+   "Horse A",
+   "At the same speed",
+   "Horse B"
+  ],
+  "answer": 1,
+  "box": [
+   195,
+   767,
+   1399,
+   1773
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175811.png",
+  "stem": "Which water jet will be more powerful if the taps are turned on at the same time?",
+  "choices": [
+   "Water jet A",
+   "Water jet B",
+   "The same"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   815,
+   1530,
+   1774
+  ],
+  "topic": "fluids",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175817.png",
+  "stem": "Which load can be lifted with less effort if they have equal weight?",
+  "choices": [
+   "Load A",
+   "Load B",
+   "Both require equal effort"
+  ],
+  "answer": 1,
+  "box": [
+   67,
+   794,
+   1527,
+   1766
+  ],
+  "topic": "pulleys",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175824.png",
+  "stem": "These objects are made of the same material. Which of them weighs less?",
+  "choices": [
+   "Object A",
+   "Object B",
+   "The same"
+  ],
+  "answer": 1,
+  "box": [
+   81,
+   895,
+   1530,
+   1649
+  ],
+  "topic": "other",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175830.png",
+  "stem": "At which point does the ball move faster?",
+  "choices": [
+   "The speed is equal at both points",
+   "At point A",
+   "At point B"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   787,
+   1530,
+   1770
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175836.png",
+  "stem": "Which of the the two rails should be higher on the turn?",
+  "choices": [
+   "Rail A",
+   "Rail B",
+   "Both, at the same height"
+  ],
+  "answer": 1,
+  "box": [
+   116,
+   769,
+   1481,
+   1790
+  ],
+  "topic": "motion",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175842.png",
+  "stem": "In which manner is the weight distributed between hooks A and B?",
+  "choices": [
+   "Equally",
+   "The force of gravity is stronger at hook A",
+   "The force of gravity is stronger at hook B"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   917,
+   1530,
+   1693
+  ],
+  "topic": "structures",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175846.png",
+  "stem": "Which pump valves are placed correctly?",
+  "choices": [
+   "Valves A",
+   "Valves B",
+   "Valves C"
+  ],
+  "answer": 2,
+  "box": [
+   185,
+   777,
+   1409,
+   1798
+  ],
+  "topic": "fluids",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175852.png",
+  "stem": "Which axis rotates more slowly?",
+  "choices": [
+   "Axis A",
+   "Axis B",
+   "Axis C"
+  ],
+  "answer": 1,
+  "box": [
+   129,
+   778,
+   1465,
+   1782
+  ],
+  "topic": "belts",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175858.png",
+  "stem": "Cables A vu B are made of the same material and have the same cross-sectional area. Which one will bear more strain?",
+  "choices": [
+   "Cable A",
+   "Cable B",
+   "Both, the same strain"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   850,
+   1530,
+   1733
+  ],
+  "topic": "structures",
+  "dup_of": null,
+  "doubt": "Cable A is drawn nearly straight/taut while B sags in a V; for the same load a flatter cable carries much higher tension, so A should bear more strain, not B."
+ },
+ {
+  "file": "Screenshot_20261019-175904.png",
+  "stem": "Which vehicle should drive off farther for the boat to stop at the bank?",
+  "choices": [
+   "Vehicle A",
+   "Vehicle B",
+   "Both, for equal distances"
+  ],
+  "answer": 1,
+  "box": [
+   80,
+   789,
+   1509,
+   1805
+  ],
+  "topic": "pulleys",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175910.png",
+  "stem": "At which wicket is the cable fixed better?",
+  "choices": [
+   "Equally well at both wickets",
+   "At wicket A",
+   "At wicket B"
+  ],
+  "answer": 3,
+  "box": [
+   67,
+   810,
+   1530,
+   1814
+  ],
+  "topic": "structures",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175916.png",
+  "stem": "Whith which tackle block is it easier to hoist the load?",
+  "choices": [
+   "Tackle block A",
+   "Tackle block B",
+   "The same"
+  ],
+  "answer": 2,
+  "box": [
+   300,
+   789,
+   1293,
+   1810
+  ],
+  "topic": "pulleys",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175923.png",
+  "stem": "There is a driving wheel rotating cones on axis X. Which cone will rotate faster?",
+  "choices": [
+   "Cone A",
+   "Both, at the same speed",
+   "Cone B"
+  ],
+  "answer": 1,
+  "box": [
+   67,
+   957,
+   1530,
+   1623
+  ],
+  "topic": "gears",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175930.png",
+  "stem": "Which way will the big wheel rotate if the small wheel rotates as indicated by the arrow?",
+  "choices": [
+   "In the direction indicated by arrow A",
+   "In both directions",
+   "In the direction indicated by arrow B"
+  ],
+  "answer": 2,
+  "box": [
+   520,
+   825,
+   1059,
+   1816
+  ],
+  "topic": "levers",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175936.png",
+  "stem": "Which cable holds the column better?",
+  "choices": [
+   "Cable A",
+   "Cable B",
+   "Cable C"
+  ],
+  "answer": 3,
+  "box": [
+   395,
+   770,
+   1202,
+   1791
+  ],
+  "topic": "structures",
+  "dup_of": null,
+  "note": "Choice 3 and the answer lines are partly covered by a screenshot-preview overlay; read as \"Cable C\" and \"Right answer: 3)\"."
+ },
+ {
+  "file": "Screenshot_20261019-175942.png",
+  "stem": "With which winch is it harder to lift the load?",
+  "choices": [
+   "With winch A",
+   "The same",
+   "With winch B"
+  ],
+  "answer": 1,
+  "box": [
+   67,
+   933,
+   1530,
+   1681
+  ],
+  "topic": "pulleys",
+  "dup_of": null
+ },
+ {
+  "file": "Screenshot_20261019-175948.png",
+  "stem": "In what way is it reasonable to fix the cable made of steel to hold the bridge across the river?",
+  "choices": [
+   "As shown in Fig. A",
+   "As shown in Fig. B",
+   "As shown in Fig. C"
+  ],
+  "answer": 2,
+  "box": [
+   175,
+   778,
+   1419,
+   1798
+  ],
+  "topic": "structures",
+  "dup_of": null,
+  "doubt": "A steel cable only works in tension; Fig. C (cable slung under the deck as an inverted king-post/underslung truss) is the classic tension arrangement, while in Fig. B the cables run from the deck ends to the banks and do not support midspan. App's B is questionable."
+ },
+ {
+  "file": "Screenshot_20261019-175955.png",
+  "stem": "Which chain is exposed to less strain?",
+  "choices": [
+   "Chain A",
+   "Chain B",
+   "Both are exposed to the same strain"
+  ],
+  "answer": 2,
+  "box": [
+   67,
+   818,
+   1530,
+   1721
+  ],
+  "topic": "levers",
+  "dup_of": null
+ }
+]

@@ -1,0 +1,94 @@
+[
+ {
+  "id": "b01",
+  "explain": "The left gear turns counter-clockwise: its bottom moves to the right. Meshing gears always turn opposite ways, so the middle gear turns clockwise. That reverses again, so the right gear turns counter-clockwise with its bottom moving right, like arrow B (answer B)."
+ },
+ {
+  "id": "b02",
+  "explain": "To turn left, the tractor swings round a point off to its left side. The inside track A only travels a short arc, while the outside track B must cover a much longer one in the same time. So track B has to run faster (answer B)."
+ },
+ {
+  "id": "b03",
+  "explain": "Each time the handle swings up, its pawl catches a tooth and drags the wheel clockwise. When the handle swings back, the pawl slides over the sloped teeth, and the lower pawl stops the wheel slipping back. So the wheel steps round clockwise, in the direction of arrow B (answer C)."
+ },
+ {
+  "id": "b04",
+  "explain": "Force 1 pushes the disc to the right and force 2 pushes it down, equally hard. Two equal pushes at right angles add up to one push halfway between them, down and to the right. So the disc moves diagonally, in the direction of arrow B (answer B)."
+ },
+ {
+  "id": "b05",
+  "explain": "The load pulls the right arm down, so the beam tries to turn clockwise about its pin. Chain B runs from the top of the post down to the right arm, so it is pulled tight and holds that arm up. The left arm only moves toward chain A's anchor, so A goes slack: chain B alone is enough (answer B)."
+ },
+ {
+  "id": "b06",
+  "explain": "The river pushes the bottom blades of every turbine to the left, which turns them clockwise. The falling water lands on the left side of A (pushing it the other way), near the middle of B, but on the right side of C, which also turns it clockwise. Only on C do both pushes work together, so turbine C spins fastest (answer C)."
+ },
+ {
+  "id": "b07",
+  "explain": "Wheel X turns clockwise and drives the belt clockwise around the outside of the wheels. Every wheel, A and B included, sits inside the belt loop, so the belt drags each one the same way it drags X. Both A and B turn clockwise, just like X (answer C)."
+ },
+ {
+  "id": "b08",
+  "explain": "The load presses the right arm down, so the beam tries to turn clockwise about the pin and its left end lifts. Chain A sits above the rising left end and chain C sits under the falling right arm, so both just go slack. Only chain B, under the left end, is pulled tight to hold it down, so B is the chain that is needed (answer B)."
+ },
+ {
+  "id": "b09",
+  "explain": "Gear A has 18 teeth and gear B only 6, and every tooth of A that passes pushes one tooth of B. So for one turn of A, the small gear B has to turn three times. Axis B rotates faster (answer B)."
+ },
+ {
+  "id": "b10",
+  "explain": "The bottom pulley turns clockwise, and the crossed belt makes the upper pulley turn the opposite way, counter-clockwise. The second upper pulley is on the same shaft, so it turns counter-clockwise too. An open belt keeps the direction, so X turns counter-clockwise with its bottom moving right, like arrow B (answer B)."
+ },
+ {
+  "id": "b11",
+  "explain": "The truck is driving to the left with the liquid lying flat in its tank. When it brakes the truck slows down, but the liquid keeps going forward and piles up at the front of the tank, next to the cab. A tank that is deepest at the front is car C (answer C)."
+ },
+ {
+  "id": "b12",
+  "explain": "Seen from above, water shoots out of each bent nozzle sideways, counter-clockwise. Pushing water out one way pushes the nozzle the opposite way, like the kick of a fire hose. So the arms are driven clockwise, in the direction of arrow B (answer C)."
+ },
+ {
+  "id": "b13",
+  "explain": "The spring pulls each handle toward its anchor below the floor. On handle A the pull passes to the left of the pin, so it turns the handle into the wall and floor, which stop it: it stays held. On handle B the pull passes to the right of the pin and swings the handle away from the wall, so only handle A is held (answer B)."
+ },
+ {
+  "id": "b14",
+  "explain": "A caster wheel swivels so that it always trails behind its pivot, away from the direction of travel. Roll the bed to the right and both casters swing round until their wheels sit to the left of their pivots. In the picture both wheels sit to the left of their pivots, so the bed was last moved right, in the direction of arrow B (answer B)."
+ },
+ {
+  "id": "b15",
+  "explain": "As the wheel turns, the brake shoe rubs against its rim. Any one spot on the rim (the blue dot) touches the shoe only briefly each turn, but the shoe's face is rubbing the whole time. So all the wear piles up on the shoe's small face, and the brake shoe wears out faster (answer B)."
+ },
+ {
+  "id": "b16",
+  "explain": "The two balls are identical, so each one needs the same upward push from its liquid to float. In A the ball has to sink almost completely to get that push, but in B it only sinks halfway. Moving aside less liquid gives the same lift only if that liquid is heavier, so liquid B is denser (answer C)."
+ },
+ {
+  "id": "b17",
+  "explain": "The blades are set at a slant, so wind from the left hits the face of the near blade at an angle. The blade turns the air upward, and the air pushes back on the blade the other way, downward. So the near blades sweep down and the fan turns in the direction of arrow B (answer B)."
+ },
+ {
+  "id": "b18",
+  "explain": "The hole makes one side of the disc lighter, so its heavy side is the solid side opposite the hole (the blue mark). In position A the heavy side is on top, which is unstable, so the disc rolls until the heavy side is at the bottom. It comes to rest with the hole on top, as in position B (answer C)."
+ },
+ {
+  "id": "b19",
+  "explain": "Each pair of scissors is a lever with the pivot as the fulcrum: your hand pushes on the handles and the blades push on the metal. The longer the handles are compared with the cutting part of the blade, the more your squeeze is multiplied. Scissors B have long handles and very short blades, so they cut the iron most easily (answer B)."
+ },
+ {
+  "id": "b20",
+  "explain": "Both wheels are fixed to the same chair, so they roll the same distance along the floor. Small wheel A has a much shorter rim, so it has to turn many more times to cover that distance (watch the blue dots). Wheel A spins faster (answer A)."
+ },
+ {
+  "id": "b21",
+  "explain": "Heating the sealed can heats the air trapped inside it. Hot air pushes harder on every wall, and the flat ends are the weakest parts, so they bulge outward. The can ends up with domed ends, as in figure C (answer C)."
+ },
+ {
+  "id": "b22",
+  "explain": "Meshing gears pass the same number of teeth across each other every second. So the gear with the fewest teeth has to turn the most: A has 14, B has 20 and C only 9 (watch the blue dots). Gear C, the smallest, rotates fastest (answer C)."
+ },
+ {
+  "id": "b23",
+  "explain": "A ball bounces off a wall at the same angle as it hits it. X bounces off the top wall and then the side wall, and two bounces in a corner send it back parallel to the line it started on. That return line runs straight into ball B (answer B)."
+ }
+]

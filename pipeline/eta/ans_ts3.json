@@ -1,0 +1,299 @@
+[
+ {
+  "q": 1,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Multiply first: (-3x+2)(5-x) = 3x^2-17x+10, then add x^2 to get 4x^2-17x+10. Trap: A and D come from sign slips in the -3x times -x term.",
+  "flag": null
+ },
+ {
+  "q": 2,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Add the equations: 2x = 8, so x = 4 and y = 3. Trap: A swaps x and y; (3,4) gives x-y = -1.",
+  "flag": null
+ },
+ {
+  "q": 3,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "y drops by 9 each time x goes up 1 and y = -6 at x = 0, so the line falls from (-2,12) to (2,-24). Graph A matches; B, C and D have the wrong signs or intercepts.",
+  "flag": null
+ },
+ {
+  "q": 4,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Put E = 2: 4 + 3D = 8D - 3D = 5D, so 4 = 2D and D = 2. Then D = E. Trap: 4DE becomes 8D, not 4D.",
+  "flag": null
+ },
+ {
+  "q": 5,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "These are prime numbers in order (7, 11, 13, 17, 19, 23); the next prime is 29. 24, 26 and 27 are not prime.",
+  "flag": null
+ },
+ {
+  "q": 6,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Rewrite as b = 5a + 15, so b > 0 exactly when a > -3. Trap: D sounds close, but b > 15 means a > 0, so a is positive.",
+  "flag": null
+ },
+ {
+  "q": 7,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "e = fg/h = 32/16 = 2, then c = d/e = 14/2 = 7. Trap: 256 comes from multiplying instead of dividing.",
+  "flag": null
+ },
+ {
+  "q": 8,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "20 = 5C + 2C - 1, so 7C = 21 and C = 3. Trap: remember 2 times -0.5 is -1.",
+  "flag": null
+ },
+ {
+  "q": 9,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "The line crosses (0,-1) and (2,0), so y = x/2 - 1, which is x - 2y = 2. The table fails at x = 2 (y should be 0, not 1), and C has the wrong slope sign.",
+  "flag": null
+ },
+ {
+  "q": 10,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Q is half of R, so for positive values Q is closer to zero than R. R - Q = Q grows, so A and B are false.",
+  "flag": null
+ },
+ {
+  "q": 11,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Combine 3z + 2 + z = 4z + 2, then cross-multiply: 6(4z+2) = 9(2z+3), so 24z + 12 = 18z + 27 and z = 15/6 = 5/2 = 2 1/2. Trap: forgetting the extra +z.",
+  "flag": null
+ },
+ {
+  "q": 12,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "a = (6 - 60)/8 = -54/8 = -6.75. Trap: doing P - R gives +6.75, which is not a choice; -6 is a rounding trap.",
+  "flag": null
+ },
+ {
+  "q": 13,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Put in B = 2, C = 6: A(2*2) + 6(A-2)(A+1) = 4A + 6A^2 - 6A - 12 = 6A^2 - 2A - 12. Trap: (A-2)(A+1) has a -A middle term.",
+  "flag": null
+ },
+ {
+  "q": 14,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "2(2 + 2 + 2C) = 12, so 8 + 4C = 12 and C = 1. Trap: the right side is 11 + 1 = 12.",
+  "flag": null
+ },
+ {
+  "q": 15,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Each number is 7 less than the one before: 23 - 7 = 16.",
+  "flag": null
+ },
+ {
+  "q": 16,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "y = 3x + 1 crosses the y-axis at 1, and y = 0 when x = -1/3, so A is true. The table reverses x and y, C works out to y = 3x - 3, and graph D goes through the origin.",
+  "flag": null
+ },
+ {
+  "q": 17,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "Line B goes through (-1,-1/2) and (1/2,1), so the slope is 1 and y = x + 1/2, which is 2x + 1 = 2y. Trap: A is line C (slope 2), B is line D (slope 4), and D is line A (slope 1/2).",
+  "flag": null
+ },
+ {
+  "q": 18,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "With A = 0, y = 0x - 1 = -1, a flat horizontal line at y = -1. Trap: B uses y = +1 and A/D are vertical lines.",
+  "flag": null
+ },
+ {
+  "q": 19,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "10 = 1 + 3(C - 3), so 3(C - 3) = 9, C - 3 = 3, and C = 6. Trap: C = 4 comes from forgetting to distribute the 3.",
+  "flag": null
+ },
+ {
+  "q": 20,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Find two numbers that multiply to 24 and add to -14: -12 and -2. Trap: (x-4)(x-6) multiplies to 24 but adds to -10.",
+  "flag": null
+ },
+ {
+  "q": 21,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "x = 0 and x = 3 both give y = 4, but y goes 4, 2, 0, then jumps back to 4, so the slope is not constant: not linear. A gives -2 at x = 0, C is y = 2x - 2, and graph D goes through (0,0).",
+  "flag": null
+ },
+ {
+  "q": 22,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "G = 2F, so F and G always have the same sign. Trap: A and D each fail for half the numbers (F bigger only when negative).",
+  "flag": null
+ },
+ {
+  "q": 23,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "121 - 165 + 56 = 12. Trap: -56 comes from dropping the x^2 term.",
+  "flag": null
+ },
+ {
+  "q": 24,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Subtract C from both sides: AB = D, so B = D/A. Trap: C cancels; don't keep it like choice C.",
+  "flag": null
+ },
+ {
+  "q": 25,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Y > 0 when 5 - 2W > 0, which means W < 2.5. Trap: B and C use -2.5 (wrong sign); A fails at W = 5.",
+  "flag": null
+ },
+ {
+  "q": 26,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "x = 1/y always has the same sign as y. If x is negative, y is negative, so y < 1. When x is positive, y could be above or below 1, so A and B are not always true.",
+  "flag": null
+ },
+ {
+  "q": 27,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "The numbers go up by 18 each time: 61 + 18 = 79.",
+  "flag": null
+ },
+ {
+  "q": 28,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "x(x+8) = x^2 + 8x, then times (3x^2 + 1) = 3x^4 + 24x^3 + x^2 + 8x. Trap: A and B forget that x multiplies the whole thing.",
+  "flag": null
+ },
+ {
+  "q": 29,
+  "key": "C",
+  "mine": "C",
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The gaps double: +2, +4, +8, +16, then +32, so 33 + 32 = 65.",
+  "flag": null
+ },
+ {
+  "q": 30,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Move XY: -ZA = BR - XY, then divide by -Z: A = (BR - XY)/(-Z). Trap: D has the wrong sign on XY.",
+  "flag": null
+ },
+ {
+  "q": 31,
+  "key": "B",
+  "mine": "B",
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Multiply by r: Fr = Gmn, then divide by mn: G = rF/(mn). Trap: A is upside down.",
+  "flag": null
+ },
+ {
+  "q": 32,
+  "key": "D",
+  "mine": "D",
+  "answer": "D",
+  "confidence": "high",
+  "explain": "T = 5(S/3 + 2) is positive when S > -6. Anything greater than -3 is also greater than -6, so D is always true. A and C each fail for some S < -3 (S = -4 gives T > 0, S = -10 gives T < 0).",
+  "flag": null
+ },
+ {
+  "q": 33,
+  "key": "A",
+  "mine": "A",
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Each number is the product of the two before it: 0.5x2 = 1, 2x1 = 2, 1x2 = 2, 2x2 = 4, 2x4 = 8, so next is 4x8 = 32. Trap: doubling 8 gives 16.",
+  "flag": null
+ }
+]

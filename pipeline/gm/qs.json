@@ -1,0 +1,267 @@
+[
+ {
+  "id": "m01",
+  "file": "/tmp/gm/m01.png",
+  "stem": "Which direction will gears A and B turn?",
+  "choices": [
+   "Both clockwise",
+   "Both counter-clockwise",
+   "Gear A will turn clockwise and gear B counter-clockwise"
+  ],
+  "answer": "A",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m02",
+  "file": "/tmp/gm/m02.png",
+  "stem": "Which object requires less force to move in the direction of arrow?",
+  "choices": [
+   "Object A",
+   "Object B",
+   "They both require equal force"
+  ],
+  "answer": "A",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m03",
+  "file": "/tmp/gm/m03.png",
+  "stem": "Which basketball player is more likely to retain control of the ball?",
+  "choices": [
+   "Player A",
+   "Player B",
+   "Both equally likely"
+  ],
+  "answer": "B",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m04",
+  "file": "/tmp/gm/m04.png",
+  "stem": "Which direction does gear A need to rotate so that gear B rotates in a counter-clockwise direction.",
+  "choices": [
+   "clockwise",
+   "counter-clockwise",
+   "Gear A will not impact gear B"
+  ],
+  "answer": "B",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m05",
+  "file": "/tmp/gm/m05.png",
+  "stem": "If there is a 100 pound weight on each of the pulleys below, which would require the least force to move?",
+  "choices": [
+   "Figure A",
+   "Figure B",
+   "Figure C"
+  ],
+  "answer": "A",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m06",
+  "file": "/tmp/gm/m06.png",
+  "stem": "If wheel A turns counter-clockwise, in which direction will wheel D turn?",
+  "choices": [
+   "clockwise",
+   "counter-clockwise",
+   "It will not turn"
+  ],
+  "answer": "A",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m07",
+  "file": "/tmp/gm/m07.png",
+  "stem": "In which direction is the train traveling?",
+  "choices": [
+   "Direction A",
+   "Direction B",
+   "Neither direction"
+  ],
+  "answer": "B",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m08",
+  "file": "/tmp/gm/m08.png",
+  "stem": "Which figure shows the object in a state of balance?",
+  "choices": [
+   "Figure A",
+   "Figure B",
+   "Figure C",
+   "Figure D"
+  ],
+  "answer": "B",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m09",
+  "file": "/tmp/gm/m09.png",
+  "stem": "In which direction will the large wheel turn if the small wheel turns in the direction indicated?",
+  "choices": [
+   "Counter-clockwise",
+   "Clockwise",
+   "It will not turn"
+  ],
+  "answer": "B",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m10",
+  "file": "/tmp/gm/m10.png",
+  "stem": "In which direction should box C move in order to balance the board?",
+  "choices": [
+   "Direction A",
+   "Direction B",
+   "Neither direction"
+  ],
+  "answer": "A",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m11",
+  "file": "/tmp/gm/m11.png",
+  "stem": "How many times will the large wheel go around if the small wheel makes two revolutions?",
+  "choices": [
+   "1 revolution",
+   "2 revolutions",
+   "It cannot be determined"
+  ],
+  "answer": "A",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m12",
+  "file": "/tmp/gm/m12.png",
+  "stem": "Which pole bears more weight?",
+  "choices": [
+   "Pole A",
+   "Pole B",
+   "No difference"
+  ],
+  "answer": "B",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m13",
+  "file": "/tmp/gm/m13.png",
+  "stem": "Which stool would be less wobbly if you rocked while sitting on it?",
+  "choices": [
+   "Stool A",
+   "Stool B",
+   "No difference"
+  ],
+  "answer": "A",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m14",
+  "file": "/tmp/gm/m14.png",
+  "stem": "Which of the pulleys will require the least amount of work to lift the weight?",
+  "choices": [
+   "Pulley A",
+   "Pulley B",
+   "Pulley C"
+  ],
+  "answer": "C",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m15",
+  "file": "/tmp/gm/m15.png",
+  "stem": "At which point will the rocket be at its lowest velocity?",
+  "choices": [
+   "Point A",
+   "Point B",
+   "Point C"
+  ],
+  "answer": "B",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m16",
+  "file": "/tmp/gm/m16.png",
+  "stem": "Which cart would take less effort to pull?",
+  "choices": [
+   "Cart A",
+   "Cart B",
+   "Both would take the same amount of effort"
+  ],
+  "answer": "C",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m17",
+  "file": "/tmp/gm/m17.png",
+  "stem": "In which pitcher will the ice cubes melt first?",
+  "choices": [
+   "Pitcher A",
+   "Pitcher B",
+   "They will melt at the same time"
+  ],
+  "answer": "C",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m18",
+  "file": "/tmp/gm/m18.png",
+  "stem": "Which pulley will require less force to lift the object?",
+  "choices": [
+   "Pulley A",
+   "Pulley B",
+   "They will require the same amount of force"
+  ],
+  "answer": "A",
+  "source": "GAN study guide practice test"
+ },
+ {
+  "id": "m19",
+  "file": "/tmp/gm/m19.png",
+  "stem": "Which tower of boxes is more likely to fall over from the wind?",
+  "choices": [
+   "Tower A",
+   "Tower B",
+   "Both are equally likely"
+  ],
+  "answer": "A",
+  "source": "GAN study guide examples"
+ },
+ {
+  "id": "m20",
+  "file": "/tmp/gm/m20.png",
+  "stem": "At which point (A, B, or D) would it be easiest to move object C?",
+  "choices": [
+   "Point A",
+   "Point B",
+   "Point D"
+  ],
+  "answer": "C",
+  "source": "GAN study guide examples"
+ },
+ {
+  "id": "m21",
+  "file": "/tmp/gm/m21.png",
+  "stem": "Which gear will rotate faster?",
+  "choices": [
+   "Gear A",
+   "Gear B",
+   "Both rotate at the same speed"
+  ],
+  "answer": "A",
+  "source": "GAN study guide examples"
+ },
+ {
+  "id": "m22",
+  "file": "/tmp/gm/m22.png",
+  "stem": "Which pulley will require the least amount of work to lift the weight?",
+  "choices": [
+   "Pulley A",
+   "Pulley B",
+   "Pulley C"
+  ],
+  "answer": "C",
+  "source": "GAN study guide examples"
+ }
+]

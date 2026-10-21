@@ -1,0 +1,233 @@
+[
+ {
+  "q": 1,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Distribute the 3: 6x³ − 3x² + 12 − 15x. Then combine with −2x³ + x² to get 4x³ − 2x² − 15x + 12. Trap: forgetting to subtract the 2x³ gives 6x³ (choice B).",
+  "flag": null
+ },
+ {
+  "q": 2,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "FOIL first: (x − 2)(x + 4) = x² + 2x − 8. Multiply every term by 3: 3x² + 6x − 24.",
+  "flag": null
+ },
+ {
+  "q": 3,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "The GCF of 4x³y and 8x²y² is 4x²y. Dividing out leaves x + 2y, so 4x²y(x + 2y). Check by multiplying back.",
+  "flag": null
+ },
+ {
+  "q": 4,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Find two numbers that multiply to −24 and add to +5: 8 and −3. So (x + 8)(x − 3).",
+  "flag": null
+ },
+ {
+  "q": 5,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Each term is the previous × 3 − 3 (the gaps 3, 9, 27 also triple). 42 × 3 − 3 = 123.",
+  "flag": null
+ },
+ {
+  "q": 6,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The steps alternate: +5, −2, ×2 (or +7), −2, ×2 (or +12), −2. The last step is −2, so 24 − 2 = 22.",
+  "flag": null
+ },
+ {
+  "q": 7,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Each term is double the previous, alternating −1 and +1: 5×2−1=9, 9×2+1=19, 19×2−1=37, 37×2+1=75. Next is 75×2−1 = 149.",
+  "flag": null
+ },
+ {
+  "q": 8,
+  "answer": "D",
+  "confidence": "high",
+  "explain": "The differences are −11, −8, −5, −2, growing by 3 each time. The next difference is +1, so 47 + 1 = 48.",
+  "flag": null
+ },
+ {
+  "q": 9,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Two series are interleaved. Odd positions go 6, 9, 12 (+3) and even positions go 11, 16, 21 (+5). Next is an odd position: 15.",
+  "flag": null
+ },
+ {
+  "q": 10,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "The steps repeat +6, −3, +7. After 24 → 30 (+6) comes −3, so 27. Each group of three is also 10 more than the last (7, 17, 27).",
+  "flag": null
+ },
+ {
+  "q": 11,
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Plug in: 4A − 13 + 3 = 3A − 5, so 4A − 10 = 3A − 5 and A = 5. Check: 20 − 10 = 10 and 15 − 5 = 10.",
+  "flag": null
+ },
+ {
+  "q": 12,
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Plug in: 6B + 12 = 44 − (B + 4B − 12) = 56 − 5B. So 11B = 44 and B = 4.",
+  "flag": null
+ },
+ {
+  "q": 13,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "2(A³ + A)/A = 2A² + 2 and (A⁴ − A²)/A² = A² − 1. (8 + 2)(8 − 2) = 60. Total: 2A² + 2 − A² + 1 + 60 − A² = 63, and the A terms cancel. Trap: D leaves an A² that cancels.",
+  "flag": null
+ },
+ {
+  "q": 14,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "A < 0 means 10 − 2B < 0, so B > 5. B, C and D all get the direction backward (for example, B > 5 makes A negative, not positive).",
+  "flag": null
+ },
+ {
+  "q": 15,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "x = 0 when 0.25y = 4, so at y = 16. Above 16, x is positive.",
+  "flag": null
+ },
+ {
+  "q": 16,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "H − M = M + 2, which changes as M changes, so A is true and B is false. C and D fail at M = −1/2, which gives H = 1.",
+  "flag": null
+ },
+ {
+  "q": 17,
+  "answer": "D",
+  "confidence": "high",
+  "explain": "Divide by 3: x = 2y + 4, so x = 0 at y = −2. When y > −2, x is positive. The other choices reverse a direction.",
+  "flag": null
+ },
+ {
+  "q": 18,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "Multiply by 3: x = 15 − (3/2)y, so x = 0 at y = 10. When y < 10, x is positive.",
+  "flag": null
+ },
+ {
+  "q": 19,
+  "answer": "D",
+  "confidence": "high",
+  "explain": "M − H = 4 and H − M = −4 always, and 4 > −4. A and B can fail, and C says 4 < 0.",
+  "flag": null
+ },
+ {
+  "q": 20,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Plug the table x values into y = 2x − 3: −1→−5, 0→−3, 1→−1, 2→1, 3→3. All match. B has slope −2 and intercept +3, C has slope −2, and D is y = x − 3.",
+  "flag": null
+ },
+ {
+  "q": 21,
+  "answer": null,
+  "confidence": "medium",
+  "explain": "Twelve times x divided by three is y = 4x. Table A (0,0), (1,4), (2,8)… fits, and graph C through (−2,−8), (0,0), (2,8) also has slope 4 through the origin. B and D are y = 2x − 1.",
+  "flag": "Two correct choices: table A and graph C both show y = 4x. The answer key probably wants A, but C is equally valid."
+ },
+ {
+  "q": 22,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "The table goes up 1 in y for every 2 in x and starts at (0, −3), so y = (1/2)x − 3. Graph C passes through (0,−3), (6,0) and (10,2). A has the wrong slope, B's table has slope 1/4 and a bad last row, and D is a curve.",
+  "flag": null
+ },
+ {
+  "q": 23,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "The given line goes through (0, 2) and (4, 0), so slope = −2/4 = −1/2 and the y-intercept is 2, which is function B. Graph A has slope +1/2, D has intercept −1, and C has slope −2.",
+  "flag": null
+ },
+ {
+  "q": 24,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "x + y = 4 is y = 4 − x (intercept 4, slope −1). 2x − y = 1 is y = 2x − 1 (intercept −1, slope 2). Only graph A shows both lines; they cross at (5/3, 7/3). B's falling line has intercept 3, C's rising line has intercept +1, and D has two falling lines.",
+  "flag": null
+ },
+ {
+  "q": 25,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "3/9 = 1/3, so cross-multiply: 3(m − 4) = 16 − m. Then 4m = 28 and m = 7. Check: 3/9 = 1/3.",
+  "flag": null
+ },
+ {
+  "q": 26,
+  "answer": "B",
+  "confidence": "high",
+  "explain": "y = (30 − 3)/6 = 4.5, so 3x − 2 = 16 and 2y + 1 = 10. Then 16/10 + 10/16 = 1.6 + 0.625 = 2.225.",
+  "flag": null
+ },
+ {
+  "q": 27,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Q = 1/r = 1 ÷ (n/(2π)) = 2π/n. Dividing by a fraction is the same as flipping it.",
+  "flag": null
+ },
+ {
+  "q": 28,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "From 4x − y = 5, y = 4x − 5. Substitute: 2x + 12x − 15 = 13, so x = 2 and y = 3. Check: 4 + 9 = 13 and 8 − 3 = 5.",
+  "flag": null
+ },
+ {
+  "q": 29,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "y = 8x goes through the origin and rises 8 for each 1 across, through (1, 8). That is line A. D is y = 4x + 2, B falls, and C has slope 1.",
+  "flag": null
+ },
+ {
+  "q": 30,
+  "answer": "C",
+  "confidence": "high",
+  "explain": "y = −3x + 5 has intercept 5 and drops 3 for each 1 across: (0,5), (1,2), (2,−1). That is line C. B also passes through (0,5) but only drops 2 per unit (the trap). D is y = −3x + 2, the right slope but the wrong intercept, and A rises.",
+  "flag": null
+ },
+ {
+  "q": 31,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "24/(10 − 4) = 4. 24(1 − 4)/(10 − 1) = −72/9 = −8. Then 4 + (−8) = −4.",
+  "flag": null
+ },
+ {
+  "q": 32,
+  "answer": "A",
+  "confidence": "high",
+  "explain": "Subtract E/F: XY − E/F = A(B + C)/D. Multiply by D/A: B + C = D(XY − E/F)/A. Subtract B.",
+  "flag": null
+ },
+ {
+  "q": 33,
+  "answer": "A",
+  "confidence": "medium",
+  "explain": "Multiply both sides by 4, then divide by (p₂ − 3): p₁ = 4M/(p₂ − 3). Choice A is meant to be this, with p₂ − 3 as the whole denominator.",
+  "flag": "As printed, A reads (4M)/p₂ − 3, which by order of operations is the same as D, so no choice is literally right. A is the intended answer (the denominator's parentheses were lost)."
+ }
+]

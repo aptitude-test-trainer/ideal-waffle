@@ -1,0 +1,86 @@
+[
+ {
+  "id": "m01",
+  "explain": "The big top gear turns counterclockwise. Gear A meshes with it, so A turns the opposite way: clockwise. Gear B also meshes with the big gear, so B turns clockwise too. Both gears turn clockwise (answer A)."
+ },
+ {
+  "id": "m02",
+  "explain": "In A the rope is tied to the wall, wraps around the pulley on the box and comes back to your hand. Two rope segments pull on the box, so your hand travels twice as far as the box moves. Twice the distance means half the force, about 50 kg of pull. In B one rope pulls the box directly, so it takes the full force. A needs less force (answer A)."
+ },
+ {
+  "id": "m03",
+  "explain": "Player A holds the ball high and away from his body, so every bounce is a long trip and the ball spends a lot of time out of his hand. Player B crouches low and keeps the ball close, so each bounce is short and quick. Less time away from the hand, shielded by the body, means more control: player B (answer B)."
+ },
+ {
+  "id": "m04",
+  "explain": "Work backward from gear B, which must turn counterclockwise. The big gear meshes with B, so it has to turn the opposite way: clockwise. Gear A meshes with the big gear, so A turns opposite to it: counterclockwise (answer B)."
+ },
+ {
+  "id": "m05",
+  "explain": "None of these pulleys moves with the load, so none of them cuts the 100 lb pull by itself. The difference is friction: every wheel adds axle drag and another bend in the rope. B and C use several small wheels that spin fast and bend the rope sharply, while A uses one large wheel that turns slowly and smoothly. A loses the least to friction, so it needs the least force (answer A)."
+ },
+ {
+  "id": "m06",
+  "explain": "Wheel A turns counterclockwise. Each meshed wheel turns the opposite way, so B turns clockwise. C meshes with B, so C turns counterclockwise. D meshes with C, so D turns clockwise (answer A)."
+ },
+ {
+  "id": "m07",
+  "explain": "The ball hangs on a string from the ceiling of the car. When the train speeds up, the car is pulled forward but the ball tends to stay where it was, so it swings back and lags behind. The ball lags toward A, so the train is moving in direction B (answer B)."
+ },
+ {
+  "id": "m08",
+  "explain": "An object is in balance when it is supported and the turning forces on each side cancel, so it stays still and level. In A the beam is already tilted and keeps tipping. C and D have no pivot under them at all, so they simply fall. Only B sits level on its pivot and stays put (answer B)."
+ },
+ {
+  "id": "m09",
+  "explain": "The small wheel turns clockwise and pushes on the teeth inside the big ring. Inside a ring gear the teeth meet on the same side, so the ring is carried along the same way, not reversed. The large wheel turns clockwise, just more slowly (answer B)."
+ },
+ {
+  "id": "m10",
+  "explain": "Both boxes are the same, but the right box sits farther from the pivot, so the board tips down on the right. To balance, box C needs a longer lever arm, so it must move away from the pivot in direction A. When C is as far from the pivot as the other box, the board levels out (answer A)."
+ },
+ {
+  "id": "m11",
+  "explain": "The large wheel has twice as many teeth as the small wheel (2 to 1). Watch the orange dots: each time the small wheel goes around once, the large wheel only goes halfway. After the small wheel makes 2 revolutions, the large wheel has made 1 revolution (answer A)."
+ },
+ {
+  "id": "m12",
+  "explain": "The board weighs 10 kg, and its weight acts at its middle. Board A rests on the pole at one end and on the ground at the other, so the two share it: about 5 kg each. Board B\u2019s pole is right under the middle, so that pole carries the whole 10 kg. Pole B bears more weight (answer B)."
+ },
+ {
+  "id": "m13",
+  "explain": "Rocking shifts your weight sideways over the stool\u2019s feet. Stool A\u2019s legs spread out, so its feet are far apart and your weight stays well inside them. Stool B\u2019s straight legs make a narrow base, so the same rocking tips it much more. The wider base makes stool A less wobbly (answer A)."
+ },
+ {
+  "id": "m14",
+  "explain": "A is a single fixed pulley: one rope holds the 50 kg, so you pull the full 50 kg. B has a moving pulley held by 2 ropes, so you pull about 25 kg, but your hand moves twice as far. C has 3 ropes holding the load, so the pull drops to about 17 kg. C needs the least effort (answer C)."
+ },
+ {
+  "id": "m15",
+  "explain": "Each dot marks where the rocket is after the same amount of time. On the way up gravity slows it down, so the dots get closer together. At the top, point B, it has stopped rising and only drifts sideways, so it is moving slowest there. After B it speeds up again on the way down (answer B)."
+ },
+ {
+  "id": "m16",
+  "explain": "Both carts carry the same rock on the same wheels. The pull needed depends on the load and how easily the wheels roll, not on how long the handle is. Both carts roll the same distance with the same effort (answer C)."
+ },
+ {
+  "id": "m17",
+  "explain": "Both pitchers hold the same amount of water at the same temperature, with the same amount of ice. A row or a pile doesn\u2019t change how much heat the water gives the ice, so the cubes shrink at the same rate. The ice is gone from both at the same moment (answer C)."
+ },
+ {
+  "id": "m19",
+  "explain": "The wind pushes sideways on both towers. Tower A is tall and only 2 boxes wide, so the wind acts high up with a lot of leverage over a narrow base, and it tips over its corner. Tower B is short and wide with a low center of gravity, so it barely moves. Tower A is more likely to fall (answer A)."
+ },
+ {
+  "id": "m20",
+  "explain": "B is the pivot (fulcrum), so pushing at B moves nothing. Object C sits close to the pivot, while the far end of the board is a long way from it. Pushing down at D, on that far end, uses the longest lever arm, so a small push lifts C. Point D is easiest (answer C)."
+ },
+ {
+  "id": "m21",
+  "explain": "The big gear drives both gears, pushing the same number of teeth past each of them every second. Gear A is the smallest, so it has to spin more times to keep up. Watch its orange dot lap B's dot. The smaller gear turns faster: gear A (answer A)."
+ },
+ {
+  "id": "m22",
+  "explain": "Count the ropes holding up each lower block: A has 2, B has 3 and C has 4. Pull every rope the same distance and the weight rises only 1/2, 1/3 or 1/4 as far as your hand. The more ropes share the weight, the smaller the pull, so C takes the least effort (answer C)."
+ }
+]

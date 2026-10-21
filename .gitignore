@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+app/gen.js
+app/local134-mech-set.html
+app/dump.json
+app/mathdump.json
+app/shots/
+app/_*.png

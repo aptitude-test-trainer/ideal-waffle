@@ -1,0 +1,301 @@
+[
+ {
+  "id": "b24",
+  "file": "/tmp/bt/q/b24.png",
+  "src": "Screenshot_20261019-175504.png",
+  "stem": "Let\u2019s assume that the wheels are made of rubber. In which direction the driving wheel (the left one) should be rotated to make wheel X to rotate in the direction indicated by the dashed arrow?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "The direction doesn\u2019t matter"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b25",
+  "file": "/tmp/bt/q/b25.png",
+  "src": "Screenshot_20261019-175511.png",
+  "stem": "If the lower gear rotates in the arrow direction, in which direction does the upper gear rotate?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "Don't know"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b26",
+  "file": "/tmp/bt/q/b26.png",
+  "src": "Screenshot_20261019-175518.png",
+  "stem": "Figures A, B and C have the same weight. Which one is harder to turn over?",
+  "choices": [
+   "Object A",
+   "Object B",
+   "Object C"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b27",
+  "file": "/tmp/bt/q/b27.png",
+  "src": "Screenshot_20261019-175525.png",
+  "stem": "Which piece of ice will cool a glass of water faster?",
+  "choices": [
+   "Piece A",
+   "Piece B",
+   "Piece C"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b28",
+  "file": "/tmp/bt/q/b28.png",
+  "src": "Screenshot_20261019-175531.png",
+  "stem": "Which figure shows how bombs can be dropped from a plane?",
+  "choices": [
+   "Figure A",
+   "Figure B",
+   "Figure C"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b29",
+  "file": "/tmp/bt/q/b29.png",
+  "src": "Screenshot_20261019-175538.png",
+  "stem": "Where will the car moving along the arrow skid while turning?",
+  "choices": [
+   "To any side",
+   "Towards A",
+   "Towards B"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b30",
+  "file": "/tmp/bt/q/b30.png",
+  "src": "Screenshot_20261019-175545.png",
+  "stem": "There is ice in the vessel. The ice thawed, how will the water level change as compared to the ice level?",
+  "choices": [
+   "The level will rise",
+   "The level will go down",
+   "The level won't change"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b31",
+  "file": "/tmp/bt/q/b31.png",
+  "src": "Screenshot_20261019-175552.png",
+  "stem": "Which stone, A or B, is it easier to move?",
+  "choices": [
+   "Stone A",
+   "Both require equal efforts",
+   "Stone B"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b32",
+  "file": "/tmp/bt/q/b32.png",
+  "src": "Screenshot_20261019-175601.png",
+  "stem": "Do the boxes have the same weight or is one of them heavier than the other?",
+  "choices": [
+   "Box A weighs less",
+   "Box B weighs less",
+   "Both boxes weigh the same"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b33",
+  "file": "/tmp/bt/q/b33.png",
+  "src": "Screenshot_20261019-175609.png",
+  "stem": "Bars A and B have the same cross-sectional area and are made of the same material. Which beam can bear a heavier load?",
+  "choices": [
+   "Both can bear the same",
+   "Bar A",
+   "Bar B"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b34",
+  "file": "/tmp/bt/q/b34.png",
+  "src": "Screenshot_20261019-175616.png",
+  "stem": "To what level will the water from the hose rise if it\u2019s released from tanks A and B filled to the brim?",
+  "choices": [
+   "As shown in Figure A",
+   "As shown in Figure B",
+   "To the level of the basins"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b35",
+  "file": "/tmp/bt/q/b35.png",
+  "src": "Screenshot_20261019-175623.png",
+  "stem": "Which of these all-metal objects will cool down faster if they are heated and put outdoors?",
+  "choices": [
+   "Object A",
+   "Object B",
+   "Object C"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b36",
+  "file": "/tmp/bt/q/b36.png",
+  "src": "Screenshot_20261019-175630.png",
+  "stem": "In which position will the wooden disk with a built-in metal circle stop if the disk is rolled?",
+  "choices": [
+   "In position A",
+   "In position B",
+   "In any position"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b37",
+  "file": "/tmp/bt/q/b37.png",
+  "src": "Screenshot_20261019-175637.png",
+  "stem": "Where will the stick break if its left end is pressed sharply?",
+  "choices": [
+   "At the point A",
+   "At the point B",
+   "At the point C"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b38",
+  "file": "/tmp/bt/q/b38.png",
+  "src": "Screenshot_20261019-175644.png",
+  "stem": "Which capacity marks are placed correctly?",
+  "choices": [
+   "On container A",
+   "On container B",
+   "On container C"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b39",
+  "file": "/tmp/bt/q/b39.png",
+  "src": "Screenshot_20261019-175652.png",
+  "stem": "Which figure displays water coming out of the vessel holes in a proper way?",
+  "choices": [
+   "Figure A",
+   "Figure B",
+   "Figure C"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b40",
+  "file": "/tmp/bt/q/b40.png",
+  "src": "Screenshot_20261019-175658.png",
+  "stem": "Which ice cream will melt faster?",
+  "choices": [
+   "In package A",
+   "In package B",
+   "In any package"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b41",
+  "file": "/tmp/bt/q/b41.png",
+  "src": "Screenshot_20261019-175704.png",
+  "stem": "How will a suspended load move if the upper wheel rotates in the arrow direction?",
+  "choices": [
+   "Downwards, in a discontinuous manner",
+   "Upwards, in a discontinuous manner",
+   "Upwards, in a continuous manner"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b42",
+  "file": "/tmp/bt/q/b42.png",
+  "src": "Screenshot_20261019-175712.png",
+  "stem": "Which of the wheels made of the same material will rotate longer if they are accelerated to the same speed?",
+  "choices": [
+   "Wheel A",
+   "Wheel B",
+   "Wheel C"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b43",
+  "file": "/tmp/bt/q/b43.png",
+  "src": "Screenshot_20261019-175718.png",
+  "stem": "What is the easiest method to draw the stone along a smooth road?",
+  "choices": [
+   "Method A",
+   "Method B",
+   "Method C"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b44",
+  "file": "/tmp/bt/q/b44.png",
+  "src": "Screenshot_20261019-175725.png",
+  "stem": "In which direction will the water move in the geared pump system if the gear rotates as shown by the arrows?",
+  "choices": [
+   "In the direction A",
+   "In the direction B",
+   "In both directions"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b45",
+  "file": "/tmp/bt/q/b45.png",
+  "src": "Screenshot_20261019-175732.png",
+  "stem": "With which type of bicycle gearing it will be harder to ride uphill?",
+  "choices": [
+   "Type A",
+   "Type B",
+   "Type C"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b46",
+  "file": "/tmp/bt/q/b46.png",
+  "src": "Screenshot_20261019-175738.png",
+  "stem": "There is sand covered with pebbles (small stones) on the bottom of the container. How will the level of the fill change if the sand and pebbles are mixed up?",
+  "choices": [
+   "It will rise",
+   "It will go down",
+   "It will remain the same"
+  ],
+  "answer": "B",
+  "corrected": false
+ }
+]

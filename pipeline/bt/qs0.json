@@ -1,0 +1,301 @@
+[
+ {
+  "id": "b01",
+  "file": "/tmp/bt/q/b01.png",
+  "src": "Screenshot_20261019-175126.png",
+  "stem": "If the left gear rotates in the direction indicated by the arrow, in which direction will the right gear rotate?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "Don\u2019t know"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b02",
+  "file": "/tmp/bt/q/b02.png",
+  "src": "Screenshot_20261019-175140.png",
+  "stem": "Which track should move faster for the tractor to turn in the direction of the arrow?",
+  "choices": [
+   "Track A",
+   "Track B",
+   "Don't know"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b03",
+  "file": "/tmp/bt/q/b03.png",
+  "src": "Screenshot_20261019-175149.png",
+  "stem": "In which direction will the gear move if the handle on the left is moved up and down as shown by the dashed arrows?",
+  "choices": [
+   "Back and forth according to arrows A-B",
+   "In the direction of arrow A",
+   "In the direction of arrow B"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b04",
+  "file": "/tmp/bt/q/b04.png",
+  "src": "Screenshot_20261019-175200.png",
+  "stem": "If the round disk in the figure is exposed to two equal forces 1 and 2, in which direction will the disc move?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "In the direction of arrow C"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b05",
+  "file": "/tmp/bt/q/b05.png",
+  "src": "Screenshot_20261019-175210.png",
+  "stem": "Are both chains required to support the load, or is just one chain enough? Which one?",
+  "choices": [
+   "Chain A is sufficient",
+   "Chain B is sufficient",
+   "Both chains are required"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b06",
+  "file": "/tmp/bt/q/b06.png",
+  "src": "Screenshot_20261019-175221.png",
+  "stem": "Three turbines are installed in the river with the flow direction shown by the arrow. Water falls down from the pipes above them. Which turbine will spin faster than the others?",
+  "choices": [
+   "Turbine A",
+   "Turbine B",
+   "Turbine C"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b07",
+  "file": "/tmp/bt/q/b07.png",
+  "src": "Screenshot_20261019-175230.png",
+  "stem": "Which wheel, A or B, will rotate in the same direction as wheel X?",
+  "choices": [
+   "Wheel A",
+   "Wheel B",
+   "Both wheels"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b08",
+  "file": "/tmp/bt/q/b08.png",
+  "src": "Screenshot_20261019-175247.png",
+  "stem": "Which chain is required to support the load?",
+  "choices": [
+   "Chain A",
+   "Chain B",
+   "Chain C"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b09",
+  "file": "/tmp/bt/q/b09.png",
+  "src": "Screenshot_20261019-175308.png",
+  "stem": "Which axis, A or B, rotates faster or do both axes rotate at the same speed?",
+  "choices": [
+   "Axis A rotates faster",
+   "Axis B rotates faster",
+   "At the same speed"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b10",
+  "file": "/tmp/bt/q/b10.png",
+  "src": "Screenshot_20261019-175317.png",
+  "stem": "If the lower wheel rotates in the direction indicated by the arrow, in which direction will axis X rotate?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "In both ways"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b11",
+  "file": "/tmp/bt/q/b11.png",
+  "src": "Screenshot_20261019-175325.png",
+  "stem": "Which car with liquid in the barrel is depicted at the time of braking?",
+  "choices": [
+   "Car A",
+   "Car B",
+   "Car C"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b12",
+  "file": "/tmp/bt/q/b12.png",
+  "src": "Screenshot_20261019-175332.png",
+  "stem": "In which direction will the propeller adapted for watering rotate if it\u2019s set in motion with water pressure?",
+  "choices": [
+   "In both directions",
+   "In the direction of arrow A",
+   "In the direction of arrow B"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b13",
+  "file": "/tmp/bt/q/b13.png",
+  "src": "Screenshot_20261019-175341.png",
+  "stem": "Which handle can be held down by the spring?",
+  "choices": [
+   "None",
+   "Handle A",
+   "Handle B"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b14",
+  "file": "/tmp/bt/q/b14.png",
+  "src": "Screenshot_20261019-175350.png",
+  "stem": "In which direction has been the bed moved for the last time?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "Don't know"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b15",
+  "file": "/tmp/bt/q/b15.png",
+  "src": "Screenshot_20261019-175359.png",
+  "stem": "The wheel and the brake shoe are made of the same material. Which will wear out faster \u2014 the wheel or the brake shoe?",
+  "choices": [
+   "The wheel will wear out faster",
+   "The brake shoe will wear out faster",
+   "Both, at the same time"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b16",
+  "file": "/tmp/bt/q/b16.png",
+  "src": "Screenshot_20261019-175407.png",
+  "stem": "Are the containers filled with liquids of the same density or is one liquid denser than the other (the balls are the same)?",
+  "choices": [
+   "Both liquids have the same density",
+   "Liquid A is the denser",
+   "Liquid B is the denser"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b17",
+  "file": "/tmp/bt/q/b17.png",
+  "src": "Screenshot_20261019-175416.png",
+  "stem": "In which direction will the fan driven by air flow rotate?",
+  "choices": [
+   "In the direction of arrow A",
+   "In the direction of arrow B",
+   "In both directions"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b18",
+  "file": "/tmp/bt/q/b18.png",
+  "src": "Screenshot_20261019-175423.png",
+  "stem": "In which position will the disc stop after free motion along the indicated line?",
+  "choices": [
+   "In any position",
+   "In position A",
+   "In position B"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b19",
+  "file": "/tmp/bt/q/b19.png",
+  "src": "Screenshot_20261019-175430.png",
+  "stem": "With which scissors is it easier to cut the sheet of iron?",
+  "choices": [
+   "With scissors A",
+   "With scissors B",
+   "With scissors C"
+  ],
+  "answer": "B",
+  "corrected": false
+ },
+ {
+  "id": "b20",
+  "file": "/tmp/bt/q/b20.png",
+  "src": "Screenshot_20261019-175437.png",
+  "stem": "Which wheel of the wheelchair spins faster when the wheelchair is moving?",
+  "choices": [
+   "Wheel A",
+   "At the same speed",
+   "Wheel B"
+  ],
+  "answer": "A",
+  "corrected": false
+ },
+ {
+  "id": "b21",
+  "file": "/tmp/bt/q/b21.png",
+  "src": "Screenshot_20261019-175443.png",
+  "stem": "How will the shape of the sealed thin-walled tin can change if it is heated?",
+  "choices": [
+   "As shown in Figure A",
+   "As shown in Figure B",
+   "As shown in Figure C"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b22",
+  "file": "/tmp/bt/q/b22.png",
+  "src": "Screenshot_20261019-175451.png",
+  "stem": "Which gear rotates faster?",
+  "choices": [
+   "Gear A",
+   "Gear B",
+   "Gear C"
+  ],
+  "answer": "C",
+  "corrected": false
+ },
+ {
+  "id": "b23",
+  "file": "/tmp/bt/q/b23.png",
+  "src": "Screenshot_20261019-175458.png",
+  "stem": "Which ball will collide with ball X, if it hits the barrier in the direction indicated by the solid arrow?",
+  "choices": [
+   "With ball A",
+   "With ball B",
+   "With ball C"
+  ],
+  "answer": "B",
+  "corrected": false
+ }
+]

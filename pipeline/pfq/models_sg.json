@@ -1,0 +1,1226 @@
+[
+ {
+  "id": "ex1",
+  "model": {
+   "folds": [
+    {
+     "k": "y",
+     "c": 12,
+     "sg": 1
+    },
+    {
+     "k": "x",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     23,
+     1
+    ],
+    [
+     13,
+     11
+    ]
+   ]
+  },
+  "holes": [
+   [
+    23,
+    1
+   ],
+   [
+    13,
+    11
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    11,
+    11
+   ],
+   [
+    23,
+    23
+   ],
+   [
+    13,
+    13
+   ],
+   [
+    1,
+    23
+   ],
+   [
+    11,
+    13
+   ]
+  ],
+  "matches_key": true,
+  "note": "Bottom up, left over right; 8 holes = D."
+ },
+ {
+  "id": "ex2",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     17,
+     11
+    ]
+   ]
+  },
+  "holes": [
+   [
+    17,
+    11
+   ],
+   [
+    7,
+    11
+   ]
+  ],
+  "matches_key": false,
+  "note": "Left over right; holes at middle of left/right. Key B is this result rotated 90 deg (guide's own explanation says to rotate)."
+ },
+ {
+  "id": "sg01",
+  "model": {
+   "folds": [
+    {
+     "k": "y",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     3,
+     9
+    ],
+    [
+     11,
+     9
+    ]
+   ]
+  },
+  "holes": [
+   [
+    3,
+    9
+   ],
+   [
+    11,
+    9
+   ],
+   [
+    3,
+    15
+   ],
+   [
+    11,
+    15
+   ]
+  ],
+  "matches_key": true,
+  "note": "Bottom up; 4 holes in a square on left = C."
+ },
+ {
+  "id": "sg02",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     7,
+     3
+    ],
+    [
+     19,
+     3
+    ],
+    [
+     21,
+     17
+    ]
+   ]
+  },
+  "holes": [
+   [
+    7,
+    3
+   ],
+   [
+    19,
+    3
+   ],
+   [
+    21,
+    17
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    19
+   ],
+   [
+    17,
+    21
+   ]
+  ],
+  "matches_key": true,
+  "note": "Bottom-left triangle onto top-right; 6 holes = D."
+ },
+ {
+  "id": "sg03",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 12,
+     "sg": 1
+    },
+    {
+     "k": "m",
+     "c": -12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     5,
+     5
+    ],
+    [
+     7,
+     15
+    ]
+   ]
+  },
+  "holes": [
+   [
+    5,
+    5
+   ],
+   [
+    7,
+    15
+   ],
+   [
+    3,
+    19
+   ],
+   [
+    19,
+    5
+   ],
+   [
+    17,
+    15
+   ],
+   [
+    21,
+    19
+   ]
+  ],
+  "matches_key": true,
+  "note": "Approximate: A is the only 6-hole option (2 top + 4 middle), but A draws the lower 4 as a square, which this fold geometry cannot produce exactly (gives a trapezoid)."
+ },
+ {
+  "id": "sg04",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": 1
+    },
+    {
+     "k": "p",
+     "c": 24,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     7,
+     11
+    ]
+   ]
+  },
+  "holes": [
+   [
+    7,
+    11
+   ],
+   [
+    13,
+    17
+   ],
+   [
+    11,
+    7
+   ],
+   [
+    17,
+    13
+   ]
+  ],
+  "matches_key": true,
+  "note": "Two diagonal folds; 4 holes in a diamond = B (slightly tilted since punch must be at odd coords)."
+ },
+ {
+  "id": "sg05",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": -12,
+     "sg": -1
+    },
+    {
+     "k": "y",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     7
+    ],
+    [
+     15,
+     7
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    7
+   ],
+   [
+    15,
+    7
+   ],
+   [
+    9,
+    17
+   ],
+   [
+    15,
+    17
+   ],
+   [
+    5,
+    21
+   ]
+  ],
+  "matches_key": true,
+  "note": "Bottom-left corner fold, then bottom up; 4 square + 1 lower-left = E."
+ },
+ {
+  "id": "sg06",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "p",
+     "c": 36,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     9,
+     15
+    ],
+    [
+     15,
+     15
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    9
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    9,
+    15
+   ],
+   [
+    15,
+    15
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    3,
+    3
+   ]
+  ],
+  "matches_key": true,
+  "note": "Diagram shows only 3 punches (would give 4 holes, matching no option); added a 4th punch at (15,15) on the bottom-right folded corner to get C's 6 holes."
+ },
+ {
+  "id": "sg07",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 12,
+     "sg": 1
+    },
+    {
+     "k": "m",
+     "c": -12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     7,
+     7
+    ]
+   ]
+  },
+  "holes": [
+   [
+    7,
+    7
+   ],
+   [
+    17,
+    7
+   ]
+  ],
+  "matches_key": true,
+  "note": "Right over left, bottom-left corner fold; 2 holes side by side = E (key draws them a bit lower)."
+ },
+ {
+  "id": "sg08",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 24,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     3,
+     3
+    ],
+    [
+     9,
+     9
+    ]
+   ]
+  },
+  "holes": [
+   [
+    3,
+    3
+   ],
+   [
+    9,
+    9
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    15,
+    15
+   ]
+  ],
+  "matches_key": true,
+  "note": "Bottom-right triangle onto top-left; 4 holes on main diagonal = A (A and D are drawn almost identically)."
+ },
+ {
+  "id": "sg09",
+  "model": {
+   "folds": [
+    {
+     "k": "y",
+     "c": 12,
+     "sg": 1
+    },
+    {
+     "k": "x",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     9
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    9
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    9,
+    15
+   ],
+   [
+    15,
+    15
+   ]
+  ],
+  "matches_key": true,
+  "note": "Bottom up, right over left; 4 holes square = B."
+ },
+ {
+  "id": "sg10",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 12,
+     "sg": 1
+    },
+    {
+     "k": "p",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     9
+    ],
+    [
+     15,
+     9
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    9
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    21,
+    3
+   ]
+  ],
+  "matches_key": false,
+  "note": "Top corner folds; result is an inverted V in top half. Key D is this rotated 180 deg / flipped (guide allows rotation)."
+ },
+ {
+  "id": "sg11",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     3,
+     3
+    ],
+    [
+     9,
+     11
+    ],
+    [
+     3,
+     21
+    ]
+   ]
+  },
+  "holes": [
+   [
+    3,
+    3
+   ],
+   [
+    9,
+    11
+   ],
+   [
+    3,
+    21
+   ],
+   [
+    21,
+    3
+   ],
+   [
+    15,
+    11
+   ],
+   [
+    21,
+    21
+   ]
+  ],
+  "matches_key": true,
+  "note": "Right over left; 4 corners + 2 middle = E."
+ },
+ {
+  "id": "sg12",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": 1
+    },
+    {
+     "k": "m",
+     "c": -12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     3,
+     9
+    ],
+    [
+     7,
+     15
+    ],
+    [
+     17,
+     21
+    ]
+   ]
+  },
+  "holes": [
+   [
+    3,
+    9
+   ],
+   [
+    7,
+    15
+   ],
+   [
+    17,
+    21
+   ],
+   [
+    3,
+    19
+   ],
+   [
+    9,
+    3
+   ],
+   [
+    15,
+    7
+   ],
+   [
+    21,
+    17
+   ],
+   [
+    19,
+    3
+   ]
+  ],
+  "matches_key": true,
+  "note": "Approximate: 8 holes, C is the only 8-hole option; key drawing positions are loose (off by ~2 cells)."
+ },
+ {
+  "id": "sg13",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "p",
+     "c": 36,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     17,
+     5
+    ]
+   ]
+  },
+  "holes": [
+   [
+    17,
+    5
+   ],
+   [
+    7,
+    5
+   ]
+  ],
+  "matches_key": true,
+  "note": "Left over right, corner fold unused by punch; 2 holes top = A."
+ },
+ {
+  "id": "sg14",
+  "model": {
+   "folds": [
+    {
+     "k": "y",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     3,
+     9
+    ],
+    [
+     9,
+     9
+    ]
+   ]
+  },
+  "holes": [
+   [
+    3,
+    9
+   ],
+   [
+    9,
+    9
+   ],
+   [
+    3,
+    15
+   ],
+   [
+    9,
+    15
+   ]
+  ],
+  "matches_key": true,
+  "note": "Bottom up; 4 holes square on left = E."
+ },
+ {
+  "id": "sg15",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": -1
+    },
+    {
+     "k": "m",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     5
+    ],
+    [
+     19,
+     15
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    5
+   ],
+   [
+    19,
+    15
+   ],
+   [
+    5,
+    9
+   ],
+   [
+    15,
+    19
+   ]
+  ],
+  "matches_key": true,
+  "note": "Approximate: 4 holes in a skewed diamond = D; corner fold doesn't affect the punches."
+ },
+ {
+  "id": "sg16",
+  "model": {
+   "folds": [
+    {
+     "k": "y",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "x",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     17,
+     17
+    ]
+   ]
+  },
+  "holes": [
+   [
+    17,
+    17
+   ],
+   [
+    7,
+    17
+   ],
+   [
+    17,
+    7
+   ],
+   [
+    7,
+    7
+   ]
+  ],
+  "matches_key": true,
+  "note": "Top down, left over right; 4 holes square = A."
+ },
+ {
+  "id": "sg17",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     7,
+     15
+    ]
+   ]
+  },
+  "holes": [
+   [
+    7,
+    15
+   ],
+   [
+    15,
+    7
+   ]
+  ],
+  "matches_key": true,
+  "note": "Approximate: 2 holes mirrored across the main diagonal = B (key draws the second hole closer to centre)."
+ },
+ {
+  "id": "sg18",
+  "model": {
+   "folds": [
+    {
+     "k": "x",
+     "c": 12,
+     "sg": 1
+    },
+    {
+     "k": "p",
+     "c": 12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     9
+    ],
+    [
+     9,
+     15
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    9
+   ],
+   [
+    9,
+    15
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    15,
+    15
+   ],
+   [
+    21,
+    3
+   ]
+  ],
+  "matches_key": true,
+  "note": "Right over left, top-left corner fold; 2 top corners + 4 middle = C."
+ },
+ {
+  "id": "sg19",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "m",
+     "c": -12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     9
+    ],
+    [
+     9,
+     15
+    ],
+    [
+     21,
+     3
+    ],
+    [
+     21,
+     21
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    9
+   ],
+   [
+    9,
+    15
+   ],
+   [
+    21,
+    3
+   ],
+   [
+    21,
+    21
+   ],
+   [
+    3,
+    21
+   ],
+   [
+    3,
+    3
+   ]
+  ],
+  "matches_key": true,
+  "note": "Two left corner folds; 4 corners + 2 left-middle = D."
+ },
+ {
+  "id": "sg20",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 0,
+     "sg": 1
+    },
+    {
+     "k": "m",
+     "c": -12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     9,
+     15
+    ]
+   ]
+  },
+  "holes": [
+   [
+    9,
+    15
+   ],
+   [
+    3,
+    21
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    21,
+    3
+   ]
+  ],
+  "matches_key": false,
+  "note": "Result is 4 holes on the anti-diagonal; key E is the same pattern rotated 90 deg (guide allows rotation)."
+ },
+ {
+  "id": "sg21",
+  "model": {
+   "folds": [
+    {
+     "k": "y",
+     "c": 12,
+     "sg": -1
+    },
+    {
+     "k": "m",
+     "c": -12,
+     "sg": -1
+    }
+   ],
+   "punches": [
+    [
+     7,
+     15
+    ],
+    [
+     9,
+     19
+    ]
+   ]
+  },
+  "holes": [
+   [
+    7,
+    15
+   ],
+   [
+    9,
+    19
+   ],
+   [
+    3,
+    19
+   ],
+   [
+    7,
+    21
+   ],
+   [
+    7,
+    9
+   ],
+   [
+    9,
+    5
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    7,
+    3
+   ]
+  ],
+  "matches_key": true,
+  "note": "Approximate: top down, bottom-left corner fold; 8 holes on left side = E (key positions loose)."
+ },
+ {
+  "id": "sg22",
+  "model": {
+   "folds": [
+    {
+     "k": "y",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     11,
+     7
+    ]
+   ]
+  },
+  "holes": [
+   [
+    11,
+    7
+   ],
+   [
+    11,
+    17
+   ]
+  ],
+  "matches_key": false,
+  "note": "One fold + one punch can only give 2 holes (vertical pair at centre); key D has 3 holes, impossible. Result is closest to C rotated 90 deg. Likely key/drawing error."
+ },
+ {
+  "id": "sg23",
+  "model": {
+   "folds": [
+    {
+     "k": "p",
+     "c": 24,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     3,
+     3
+    ]
+   ]
+  },
+  "holes": [
+   [
+    3,
+    3
+   ],
+   [
+    21,
+    21
+   ]
+  ],
+  "matches_key": true,
+  "note": "Bottom-right triangle onto top-left; 2 opposite corners = D."
+ },
+ {
+  "id": "sg24",
+  "model": {
+   "folds": [
+    {
+     "k": "m",
+     "c": 12,
+     "sg": 1
+    }
+   ],
+   "punches": [
+    [
+     5,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     5,
+     19
+    ],
+    [
+     15,
+     19
+    ]
+   ]
+  },
+  "holes": [
+   [
+    5,
+    9
+   ],
+   [
+    15,
+    9
+   ],
+   [
+    5,
+    19
+   ],
+   [
+    15,
+    19
+   ],
+   [
+    21,
+    3
+   ]
+  ],
+  "matches_key": true,
+  "note": "Top-right corner fold, one punch under it; 5 holes = D."
+ }
+]

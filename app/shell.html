@@ -1,0 +1,748 @@
+<meta charset="utf-8">
+<title>Local 134 Mechanical Set</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#EEF0EA; --surface:#FAFBF7; --surface-2:#E4E7DF; --ink:#1D2227; --muted:#5C656D; --line:#C8CCC2;
+  --accent:#2347A6; --accent-ink:#FFFFFF; --accent-soft:#DCE3F6; --mark:#F2C230; --mark-soft:#FBEBB5;
+  --good:#23734A; --good-soft:#D8EEDF; --bad:#B03629; --bad-soft:#F6DCD7;
+  --heat:#C2410C; --heat-soft:#FDE4D3; --heat-ink:#FFFFFF;
+  --gear:#D7DDE2; --metal:#B9C1C8; --rope:#8A5A2B; --water:#BCD6EC; --wood:#E5C68F; --sheet:#FFFFFF; --hole:#1D2227; --flap:#E6E9E2; --gshade:#C3C7C7;
+  --display:'Barlow Condensed','Arial Narrow',sans-serif; --body:'Source Sans 3','Segoe UI',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#14171A; --surface:#1C2024; --surface-2:#262B30; --ink:#E5E8E2; --muted:#9AA3AB; --line:#353B41;
+  --accent:#8EA8F2; --accent-ink:#0F1522; --accent-soft:#25304A; --mark:#E2B53A; --mark-soft:#4A3F1C;
+  --good:#6CC596; --good-soft:#1D3A2A; --bad:#EE8A7C; --bad-soft:#44241F;
+  --heat:#FB8B4E; --heat-soft:#43251A; --heat-ink:#1A0F0A;
+  --gear:#3A4249; --metal:#56606A; --rope:#D0A06A; --water:#27445E; --wood:#7C6441; --sheet:#DCDFD6; --hole:#14171A; --flap:#2A3036; --gshade:#4B535B;}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#14171A; --surface:#1C2024; --surface-2:#262B30; --ink:#E5E8E2; --muted:#9AA3AB; --line:#353B41;
+  --accent:#8EA8F2; --accent-ink:#0F1522; --accent-soft:#25304A; --mark:#E2B53A; --mark-soft:#4A3F1C;
+  --good:#6CC596; --good-soft:#1D3A2A; --bad:#EE8A7C; --bad-soft:#44241F;
+  --heat:#FB8B4E; --heat-soft:#43251A; --heat-ink:#1A0F0A;
+  --gear:#3A4249; --metal:#56606A; --rope:#D0A06A; --water:#27445E; --wood:#7C6441; --sheet:#DCDFD6; --hole:#14171A; --flap:#2A3036; --gshade:#4B535B;}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 var(--body);padding-inline:16px;padding-block:0 40px;overflow-x:clip}
+html{overflow-x:clip;-webkit-text-size-adjust:100%}
+.wrap{max-width:860px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:.01em;text-wrap:balance;margin:0;line-height:1.05}
+h1{font-size:clamp(34px,7vw,52px)}
+h2{font-size:28px}
+h3{font-size:21px}
+p{margin:0}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,summary:focus-visible,label:focus-within{outline:3px solid var(--mark);outline-offset:2px}
+.btn{min-height:46px;padding:0 18px;border-radius:8px;border:1.5px solid var(--line);background:var(--surface);font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.small{min-height:40px;padding:0 12px;font-size:14px}
+.btn[aria-pressed="true"]{background:var(--mark-soft);border-color:var(--mark)}
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono)}
+
+/* ---------- home ---------- */
+.home{display:grid;gap:28px;padding-top:28px}
+.hero{display:grid;gap:12px}
+.hero p{max-width:62ch;color:var(--muted)}
+.spec{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;background:var(--surface);border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.spec th,.spec td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line)}
+.spec th{font:600 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--surface-2)}
+.spec tr:last-child td{border-bottom:0}
+.spec td.n,.spec th.n{text-align:right}
+.nw{white-space:nowrap}
+.tablewrap{overflow-x:auto}
+@media (max-width:560px){.spec{table-layout:fixed}.spec th,.spec td{padding:8px 5px;font-size:13px;overflow-wrap:anywhere;hyphens:auto}.spec th{font-size:10px;letter-spacing:.03em}.spec th:first-child,.spec td:first-child{width:30%}}
+.badge{display:inline-block;font:700 11px/1 var(--body);letter-spacing:.08em;padding:4px 7px;border-radius:4px;background:var(--mark-soft);color:var(--ink);border:1px solid var(--mark);vertical-align:2px}
+.setup{display:grid;gap:18px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:18px}
+.field{display:grid;gap:8px}
+.field > span{font-weight:600}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{min-height:44px;padding:0 14px;display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;font-weight:600}
+.seg input:checked + span{color:var(--accent)}
+.seg label:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.code-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.code-row input{font:500 20px var(--mono);letter-spacing:.12em;text-transform:uppercase;width:9.5ch;min-height:46px;padding:0 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.start-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+details{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:0 18px}
+summary{min-height:52px;display:flex;align-items:center;font:700 20px var(--display);cursor:pointer}
+details .rules{display:grid;gap:10px;padding-bottom:18px}
+.rules dl{display:grid;grid-template-columns:minmax(110px,max-content) 1fr;gap:8px 16px;margin:0}
+.rules dt{font-weight:700}
+.rules dd{margin:0;color:var(--muted)}
+.history{display:grid;gap:6px}
+.history .row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+.disclaimer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
+
+/* ---------- exam ---------- */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin-inline:-16px;padding:10px 16px;border-bottom:1.5px solid var(--line);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.topbar .sec{flex:1 1 180px;min-width:0}
+.topbar .sec b{font:700 20px/1.1 var(--display);display:block}
+.topbar .sec span{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.clock{font:500 22px var(--mono);font-variant-numeric:tabular-nums;padding:6px 10px;border-radius:8px;background:var(--surface);border:1.5px solid var(--line)}
+.clock.low{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.qcard{display:grid;gap:16px;padding-top:20px}
+.stem{font-size:18px;line-height:1.45;max-width:66ch}
+.stem .qn{font:700 22px var(--display);margin-right:6px}
+.figure{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:14px;overflow-x:auto;display:flex;justify-content:center}
+.fig{width:100%;height:auto;display:block}
+.choices{display:grid;gap:10px;border:0;margin:0;padding:0}
+.choices legend{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.choice{position:relative;display:flex;align-items:center;gap:14px;min-height:56px;padding:8px 14px;background:var(--surface);border:1.5px solid var(--line);border-radius:10px;cursor:pointer}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice:hover{border-color:var(--ink)}
+.bubble{flex:none;width:32px;height:32px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font:700 15px var(--body)}
+.choice:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.choice:has(input:checked) .bubble{background:var(--ink);color:var(--surface)}
+.choice .ctext{font-size:17px;font-weight:600}
+.choices.pics{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))}
+.choices.pics .choice{flex-direction:column;align-items:center;padding:10px 8px 12px;gap:8px}
+.choices.pics .fig{max-width:120px}
+.navbar{display:flex;gap:10px;justify-content:space-between;align-items:center;padding-top:18px;flex-wrap:wrap}
+.keys{font-size:13px;color:var(--muted)}
+.keys kbd{font:500 12px var(--mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 5px;background:var(--surface)}
+.panel{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:14px;margin-top:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:6px}
+.grid button{min-height:44px;border-radius:6px;border:1.5px solid var(--line);background:var(--surface);font:600 14px var(--body);font-variant-numeric:tabular-nums;position:relative}
+.grid button.ans{background:var(--surface-2);border-color:var(--muted)}
+.grid button.flag::after{content:"";position:absolute;top:3px;right:3px;width:8px;height:8px;border-radius:2px;background:var(--mark)}
+.grid button.cur{border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.confirm{background:var(--mark-soft);border:1.5px solid var(--mark);border-radius:10px;padding:14px;display:grid;gap:10px}
+.confirm .btns{display:flex;gap:8px;flex-wrap:wrap}
+.inter{display:grid;gap:16px;padding-top:48px;max-width:560px}
+.inter .big{font:700 clamp(40px,9vw,64px)/1 var(--display)}
+.notice{background:var(--bad-soft);border:1.5px solid var(--bad);border-radius:10px;padding:12px 14px;font-weight:600}
+
+/* ---------- results ---------- */
+.results{display:grid;gap:26px;padding-top:28px}
+.score{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:baseline}
+.score .big{font:700 clamp(56px,14vw,88px)/.9 var(--display);font-variant-numeric:tabular-nums}
+.bar{height:10px;border-radius:5px;background:var(--surface-2);overflow:hidden;min-width:60px}
+.bar i{display:block;height:100%;background:var(--accent)}
+.bar i.lo{background:var(--bad)}
+.bar i.hi{background:var(--good)}
+.skills td:nth-child(2){width:45%}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.review{display:grid;gap:18px}
+.ritem{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:12px}
+.ritem.wrong{border-left:6px solid var(--bad)}
+.ritem.right{border-left:6px solid var(--good)}
+.ritem.blank{border-left:6px solid var(--muted)}
+.ritem .head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700}
+.ritem .figure{border:0;padding:0;background:transparent}
+.rch{display:grid;gap:6px}
+.rch.pics{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
+.rc{display:flex;align-items:center;gap:10px;padding:6px 10px;border-radius:8px;border:1.5px solid transparent}
+.rch.pics .rc{flex-direction:column}
+.rc.is-correct{background:var(--good-soft);border-color:var(--good)}
+.rc.is-picked{background:var(--bad-soft);border-color:var(--bad)}
+.rc .bubble{width:26px;height:26px;font-size:13px}
+.rc.is-correct .bubble{background:var(--good);border-color:var(--good);color:var(--surface)}
+.rc.is-picked .bubble{background:var(--bad);border-color:var(--bad);color:var(--surface)}
+.why{background:var(--surface-2);border-radius:8px;padding:10px 12px;font-size:15px;display:grid;gap:6px}
+.why b{font-weight:700}
+
+/* ---------- SVG parts ---------- */
+.fig text{font-family:var(--body);fill:var(--ink)}
+.fig .lbl{font-size:14px}
+.fig .lbl-s{font-size:14px;fill:var(--muted);font-weight:600}
+.fig .lbl-xs{font-size:10.5px;font-weight:700}
+.fig .lbl-b{font-size:15px;font-weight:700}
+.fig .lbl-sb{font-size:13.5px;font-weight:700}
+.fig .lbl-q{font-size:22px;font-weight:700;fill:var(--accent)}
+.fig .lbl-acc{font-size:14px;font-weight:700;fill:var(--accent)}
+.fig .glbl{font-size:15px;font-weight:700}
+.fig .ink{stroke:var(--ink);stroke-width:2;fill:none;stroke-linejoin:round}
+.fig .ink-thin{stroke:var(--ink);stroke-width:1.2;fill:none}
+.fig .gear{fill:var(--gear);stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round}
+.fig .hub{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}
+.fig .wheel{fill:var(--gear);stroke:var(--ink);stroke-width:2}
+.fig .spoke{stroke:var(--ink);stroke-width:3;stroke-linecap:round}
+.fig .acc{stroke:var(--accent);stroke-width:2.8;fill:none;stroke-linecap:round}
+.fig .acc-f{fill:var(--accent)}
+.fig .mut-f{fill:var(--muted)}
+.fig .belt{stroke:var(--ink);stroke-width:4.5;stroke-linecap:round}
+.fig .rope{stroke:var(--rope);stroke-width:2.6;fill:none;stroke-linecap:round}
+.fig .sheave{fill:var(--gear);stroke:var(--ink);stroke-width:1.5}
+.fig .strap{stroke:var(--muted);stroke-width:3}
+.fig .dot{fill:var(--ink)}
+.fig .metal{fill:var(--metal);stroke:var(--ink);stroke-width:1.2}
+.fig .hatch{stroke:var(--muted);stroke-width:1.2}
+.fig .ground{stroke:var(--ink);stroke-width:2}
+.fig .load{fill:var(--wood);stroke:var(--ink);stroke-width:1.6}
+.fig .unknown{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2;stroke-dasharray:5 4}
+.fig .crate{fill:var(--wood);stroke:var(--ink);stroke-width:1.6}
+.fig .beam{fill:var(--wood);stroke:var(--ink);stroke-width:1.5}
+.fig .fulcrum{fill:var(--metal);stroke:var(--ink);stroke-width:1.6}
+.fig .ramp{fill:var(--surface-2);stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.fig .dim{stroke:var(--muted);stroke-width:1.2}
+.fig .fluid,.fig .water{fill:var(--water)}
+.fig .surface{stroke:var(--accent);stroke-width:2;stroke-dasharray:8 5}
+.fig .rod{stroke:var(--ink);stroke-width:5;stroke-linecap:round}
+.fig .spring{stroke:var(--ink);stroke-width:2.2;fill:none;stroke-linejoin:round}
+.fig .pt{fill:var(--ink);stroke:var(--surface);stroke-width:2}
+.fig .block{fill:var(--surface-2);stroke:var(--ink);stroke-width:2}
+.fig .cg{fill:var(--surface);stroke:var(--accent);stroke-width:2}
+.fig .cgx{stroke:var(--accent);stroke-width:1.5}
+.fig .wire{stroke:var(--ink);stroke-width:2.2;fill:none;stroke-linecap:round}
+.fig .gap{fill:var(--surface)}
+.fig .lamp{fill:var(--mark-soft);stroke:var(--ink);stroke-width:2}
+.fig .plate{stroke:var(--ink);stroke-width:2.5}
+.fig .plate-thick{stroke:var(--ink);stroke-width:5}
+.fig .ghost{fill:none;stroke:var(--line);stroke-width:1.3;stroke-dasharray:4 4}
+.fig .flap{fill:var(--flap);stroke:var(--muted);stroke-width:1.3;stroke-dasharray:5 4}
+.fig .paper{fill:var(--sheet);stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round}
+.fig .sheet{fill:var(--sheet);stroke:var(--ink);stroke-width:1.6}
+.fig .hole{fill:var(--hole)}
+.fig .pf-sheet{fill:#fff;stroke:#1D2227;stroke-width:1.2;stroke-linejoin:round}.fig .pf-shade{fill:#C3C7C7;stroke:#1D2227;stroke-width:1.2}.fig .pf-arr{fill:none;stroke:#1D2227;stroke-width:1.3}.fig .pf-head{fill:#1D2227}.fig .pf-dot{fill:#1D2227}
+.fig .pf-img{mix-blend-mode:multiply}
+.fig:has(:is(.pf-sheet,.pf-img)){background:#F4F5F1;border-radius:8px}
+.figure:has(:is(.pf-sheet,.pf-img)){background:#F4F5F1;border-color:#C9CCC4}
+.choice:has(:is(.pf-sheet,.pf-img)){background:#F4F5F1;border-color:#C9CCC4;color:#1D2227}
+.choice:has(:is(.pf-sheet,.pf-img)) .bubble{background:#E6E9E2;color:#1D2227;border-color:#1D2227}
+.choice:has(:is(.pf-sheet,.pf-img)):has(input:checked){background:#DDE8F5;border-color:var(--accent)}
+.choice:has(:is(.pf-sheet,.pf-img)):has(input:checked) .bubble{background:#1D2227;color:#fff}
+.ritem .figure:has(:is(.pf-sheet,.pf-img)){background:#F4F5F1;padding:10px;border:1.5px solid #C9CCC4}
+.rc:has(:is(.pf-sheet,.pf-img)){background:#F4F5F1;color:#1D2227}
+.rc:has(:is(.pf-sheet,.pf-img)) .bubble{border-color:#1D2227;color:#1D2227}
+.rc.is-correct:has(:is(.pf-sheet,.pf-img)){background:#DCEFE0;border-color:var(--good)}
+.rc.is-picked:has(:is(.pf-sheet,.pf-img)){background:#F6DCDC;border-color:var(--bad)}
+.rc.is-correct:has(:is(.pf-sheet,.pf-img)) .bubble,.rc.is-picked:has(:is(.pf-sheet,.pf-img)) .bubble{color:#fff}
+
+.fig .lbl-L{font-size:17px;font-weight:700}
+.fig .lbl-on{font-size:17px;font-weight:700;paint-order:stroke;stroke:var(--surface);stroke-width:6px;stroke-linejoin:round}
+.fig .vflap{stroke:var(--accent);stroke-width:4;stroke-linecap:round}
+.fig .ink-a{stroke:var(--ink);stroke-width:2;fill:none}
+.fig .ink-fill{fill:var(--ink)}
+.fig .post,.fig .wood{fill:var(--wood);stroke:var(--ink);stroke-width:1.6}
+.fig .wire2{stroke:var(--ink);stroke-width:1.8;fill:none}
+.fig .concrete{fill:var(--metal);stroke:var(--ink);stroke-width:1.5}
+.fig .cable{stroke:var(--ink);stroke-width:2;fill:none;stroke-linejoin:round}
+.fig .cable2{stroke:var(--ink);stroke-width:3;stroke-linecap:round}
+.fig .bank{fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:3 3}
+.fig .deck{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.fig .strut{stroke:var(--ink);stroke-width:3}
+.fig .rim{fill:var(--metal);stroke:var(--ink);stroke-width:2}
+.fig .spoke-s{stroke:var(--ink);stroke-width:4;stroke-linecap:round}
+.fig .road{fill:none;stroke:var(--ink);stroke-width:2.5}
+.fig .path-acc{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-dasharray:9 6}
+.fig .car{fill:var(--surface-2);stroke:var(--ink);stroke-width:1.8}
+.fig .orbit{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:4 5}
+.fig .string{stroke:var(--ink);stroke-width:1.5}
+.fig .opt{fill:none;stroke:var(--ink);stroke-width:2;stroke-dasharray:6 4}
+.fig .ball{fill:var(--accent);stroke:var(--ink);stroke-width:1.5}
+.fig .gate{fill:var(--flap);stroke:var(--ink);stroke-width:2}
+.fig .rail{fill:var(--wood);stroke:var(--ink);stroke-width:1.2}
+.fig .latch{fill:var(--ink)}
+.fig .brace{fill:var(--wood);stroke:var(--ink);stroke-width:1.8}
+.fig .ref{stroke:var(--muted);stroke-width:1.4;stroke-dasharray:7 5}
+.fig .hose-o{fill:none;stroke:var(--ink);stroke-width:12;stroke-linejoin:round}
+.fig .hose-i{fill:none;stroke:var(--surface);stroke-width:7;stroke-linejoin:round}
+.fig .spray{stroke:var(--accent);stroke-width:1.6;stroke-dasharray:3 3}
+.fig .wall{fill:none;stroke:var(--ink);stroke-width:3.5}
+.fig .flap{stroke:var(--accent);stroke-width:4;stroke-linecap:round}
+.fig .rodline{stroke:var(--ink);stroke-width:3}
+.fig .handle{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round}
+.fig .hook{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round}
+.fig .chain{fill:none;stroke:var(--ink);stroke-width:4;stroke-dasharray:8 3;stroke-linecap:butt}
+.fig .rack{fill:var(--metal);stroke:var(--ink);stroke-width:1.2;stroke-linejoin:round}
+.fig .tire{fill:none;stroke:var(--ink);stroke-width:5}
+.fig .chainline{stroke:var(--ink);stroke-width:2}
+.fig .sprocket{fill:var(--gear);stroke:var(--ink);stroke-width:1.8}
+.fig .crank{stroke:var(--ink);stroke-width:4;stroke-linecap:round}
+.fig .pedal{stroke:var(--ink);stroke-width:5;stroke-linecap:round}
+.fig .drum{fill:var(--gear);stroke:var(--ink);stroke-width:2}
+.fig .knob{fill:var(--wood);stroke:var(--ink);stroke-width:1.6}
+.fig .hull{fill:var(--wood);stroke:var(--ink);stroke-width:2}
+.fig .track{fill:var(--ink)}
+.fig .sand{fill:var(--mark-soft)}
+.fig .waterline{stroke:var(--water);stroke-width:2.5}
+.fig .solid1{fill:var(--surface);stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round}
+.fig .solid2{fill:var(--surface-2);stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round}
+.fig .solid3{fill:var(--gear);stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round}
+.fig .hidden{fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:4 4}
+.fig .wheel2{fill:var(--surface);stroke:var(--ink);stroke-width:2.5}
+.fig .link-o{stroke:var(--ink);stroke-width:12;stroke-linecap:round}
+.fig .link-i{stroke:var(--surface);stroke-width:8;stroke-linecap:round}
+.fig .pin{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.fig .housing{fill:var(--water);stroke:var(--ink);stroke-width:8}
+.fig .stone{fill:var(--metal);stroke:var(--ink);stroke-width:2}
+.fig .shaft{stroke:var(--ink);stroke-width:7;stroke-linecap:round}
+.fig .pole{stroke:var(--ink);stroke-width:2.5;stroke-linecap:round}
+.fig .glass{fill:var(--surface);stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round}
+.fig .jet{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:5 3}
+.fig .wall2{stroke:var(--ink);stroke-width:3;stroke-linecap:square}
+.fig .tap{fill:var(--ink)}
+.fig .wooddisk{fill:var(--wood);stroke:var(--ink);stroke-width:2.5}
+.fig .insert{fill:var(--muted);stroke:var(--ink);stroke-width:2}
+.fig .hanger{fill:none;stroke:var(--ink);stroke-width:2}
+.fig .ball2{fill:var(--ink)}
+.fig .cross{stroke:var(--ink);stroke-width:3.5;stroke-linecap:round}
+.fig .pebble{fill:var(--surface);stroke:var(--ink);stroke-width:1.6}
+.fig .sand2{fill:var(--mark-soft)}
+.fig .sanddot{fill:var(--muted)}
+.fig .ice{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}
+.fig .tie{stroke:var(--wood);stroke-width:6}
+.fig .rail{fill:none;stroke:var(--ink);stroke-width:3}
+.fig .gear{fill:var(--gear);stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round}
+.fig .boxc{fill:var(--wood);stroke:var(--ink);stroke-width:1.2}
+.fig .seat{fill:var(--wood);stroke:var(--ink);stroke-width:2}
+.fig .leg{stroke:var(--ink);stroke-width:4;stroke-linecap:round}
+.fig .leg2{stroke:var(--muted);stroke-width:3;stroke-linecap:round}
+.fig .carbody{fill:var(--surface-2);stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.fig .tire2{fill:var(--ink)}
+.fig .tire3{fill:var(--ink)}
+.fig .ring{fill:var(--gear);stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round}
+.fig .postd{fill:var(--muted);stroke:var(--ink);stroke-width:1.2}
+.fig .plank{fill:var(--wood);stroke:var(--ink);stroke-width:1.6}
+.fig .stick{stroke:var(--ink);stroke-width:4;stroke-linecap:round}
+.fig .bag{fill:var(--wood);stroke:var(--ink);stroke-width:1.6}
+.fig .person{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.fig .personl{stroke:var(--ink);stroke-width:3;stroke-linecap:round}
+.fig .drum2{fill:var(--metal);stroke:var(--ink);stroke-width:2}
+.fig .ratchet{fill:var(--gear);stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round}
+.fig .pawl{stroke:var(--accent);stroke-width:6;stroke-linecap:round}
+.fig .cup{fill:none;stroke:var(--ink);stroke-width:4;stroke-linecap:round}
+.fig .cupin{fill:var(--metal);opacity:.55}
+.fig .front{opacity:.72}
+.fig .cleat{stroke:var(--surface-2);stroke-width:2}
+.fig .water2{fill:var(--mark-soft)}
+.fig .woodblk{fill:var(--wood);stroke:var(--ink);stroke-width:1.8}
+.fig .tube{fill:none;stroke:var(--ink);stroke-width:5;stroke-linejoin:round}
+.fig .ball3{fill:var(--surface-2);stroke:var(--ink);stroke-width:2.5}
+.fig .push{stroke:var(--ink);stroke-width:5;stroke-linecap:round}
+.fig .clockcase{fill:var(--wood);stroke:var(--ink);stroke-width:2}
+.fig .clockface{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}
+.fig .hourhand{stroke:var(--ink);stroke-width:5;stroke-linecap:round}
+.fig .minhand{stroke:var(--ink);stroke-width:2.5;stroke-linecap:round}
+.fig .volute{fill:var(--water);stroke:var(--ink);stroke-width:3}
+.fig .pipe{fill:var(--metal);stroke:var(--ink);stroke-width:1.6}
+.fig .hubring{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.fig .vane{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round}
+.fig .oil{fill:var(--mark-soft)}
+.fig .syrup{fill:var(--wood)}
+.fig .mixliq{fill:var(--water)}
+.fig .bubble{fill:var(--mark-soft);stroke:var(--muted);stroke-width:.8}
+.fig .bottle{fill:var(--surface);stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round}
+.fig .cshade{fill:var(--muted)}
+.fig .cdot{fill:var(--ink)}
+.fig .cring{fill:none;stroke:var(--ink);stroke-width:2}
+.fig .cface{fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round}
+.ritem .figure .fig,.results .fig{max-height:none}
+.figure{position:relative;flex-wrap:wrap}.zoomhint{flex-basis:100%;text-align:center;font:600 12px var(--body);color:#5C656D;margin-top:6px}
+.zoomov{position:fixed;inset:0;z-index:50;background:rgba(20,23,26,.92);display:flex;flex-direction:column}
+.zoombar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;color:#fff;font-size:14px}
+.sgstem{display:grid;gap:8px;color:#1D2227;width:100%;font:500 17px/1.45 var(--body)}.sgstem p{margin:0}.sgstem .sgimg{display:flex;justify-content:flex-start}
+.figure:has(.sgstem){background:#F4F5F1;border-color:#C9CCC4}
+.mtx{font:600 17px/1.4 var(--body)}.mtx .fr,.sgstem .fr{font-size:.85em}
+.zoombox{flex:1;overflow:auto;background:#fff;-webkit-overflow-scrolling:touch}.zoombox svg{display:block}
+/* ---------- tabs ---------- */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:16px}
+.tabs button{display:grid;gap:2px;text-align:left;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);min-height:56px}
+.tabs button b{font:700 18px/1.1 var(--display)}.tabs button span{font-size:13px;color:var(--muted)}
+.tabs button[aria-selected="true"]{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 -3px 0 var(--accent)}
+.shared{padding-top:20px}
+/* ---------- math ---------- */
+.mathblk{font:400 24px/1.7 'Cambria Math','STIX Two Math','Times New Roman',serif;text-align:center;padding:4px 2px;overflow-x:auto}
+.mathblk .wds,.wds{font:600 16px/1.45 var(--body);text-align:left;margin:0}
+.mch{font-family:'Cambria Math','STIX Two Math','Times New Roman',serif;font-size:20px;font-weight:400}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .12em;font-size:.9em;line-height:1.2}
+.fr>span:first-child{border-bottom:1.5px solid currentColor;padding:0 .2em .05em}.fr>span:last-child{padding:.05em .2em 0}
+.sqrt{white-space:nowrap}.sqrt>span{border-top:1.5px solid currentColor;padding:0 .15em;display:inline-block}
+.series{font:600 26px/1.5 var(--mono);letter-spacing:.02em}
+.vt{border-collapse:collapse;font:500 15px var(--mono);font-variant-numeric:tabular-nums;margin:0 auto}
+.vt th,.vt td{border:1px solid var(--muted);padding:2px 12px;text-align:center}.vt th{font-style:italic;background:var(--surface-2)}
+.fig.gr .gr-grid{stroke:var(--line);stroke-width:.8}.fig.gr .gr-axis{stroke:var(--ink);stroke-width:1.4}
+.fig.gr .gr-t{font:600 10px var(--body);fill:var(--muted);text-anchor:middle}.fig.gr text.gr-t[text-anchor="end"]{text-anchor:end}
+.fig.gr .gr-line{stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}.fig.gr .gr-line.l2{stroke:var(--heat);stroke-dasharray:7 4}
+.fig.gr .gr-pt{fill:var(--accent)}.fig.gr .gr-pt.l2{fill:var(--heat)}.fig.gr .gr-pl{font:600 9px var(--body);fill:var(--ink)}
+.choices.pics .fig.gr{max-width:180px}.choices.pics .choice .mch{font-size:18px}
+.choices.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:520px){.mathblk{font-size:21px}.series{font-size:21px}}
+/* ---------- animated walkthroughs ---------- */
+.anim-slot{display:grid}
+.anim{display:grid;gap:8px;border:1.5px solid var(--accent);border-radius:12px;padding:12px;background:var(--surface)}
+.anim-light{background:#F4F5F1;color:#1D2227;border-color:#9DB0E0}
+.anim-light .anim-step{color:#5C656D}
+.anim-step{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.anim-svg{max-height:min(62vh,440px);margin:0 auto}
+.anim-stage{display:flex;justify-content:center}.anim-stage .fig{max-height:min(62vh,440px)}
+.anim-cap{font-size:16px;line-height:1.45;min-height:3em;font-weight:600}
+.anim-ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.anim-ctl .anim-rng{flex:1 1 140px;min-width:0;accent-color:var(--accent)}
+.anim-light .btn{background:#fff;color:#1D2227;border-color:#C9CCC4}
+
+/* ---------- meltdown (endless) ---------- */
+.melt-card{display:grid;gap:12px;padding:20px;border-radius:14px;border:2px solid var(--heat);background:linear-gradient(135deg,var(--heat-soft),var(--surface) 70%)}
+.melt-card .title{font:700 clamp(40px,9vw,60px)/.9 var(--display);letter-spacing:.02em;color:var(--heat)}
+.melt-card p{max-width:62ch}
+.melt-card .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn.heat{background:var(--heat);border-color:var(--heat);color:var(--heat-ink)}
+.btn.heat:hover{filter:brightness(1.08)}
+.melt-bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin-inline:-16px;padding:10px 16px;border-bottom:2px solid var(--heat);display:grid;gap:8px}
+.mpace{border:1px solid var(--heat);border-radius:8px;padding:10px 12px;margin:10px 0;display:grid;gap:6px}.mpace legend{font-weight:700;padding:0 6px}.mpace-in{display:flex;gap:14px;flex-wrap:wrap}.mpace-in input{width:72px;min-height:36px;font:inherit;padding:2px 6px}
+.qtimer{display:flex;align-items:center;gap:10px;font:600 13px var(--mono,monospace)}.qtimer b{min-width:3ch;text-align:right;font-size:16px}.qbar{flex:1;height:8px;border-radius:4px;background:var(--heat-soft);overflow:hidden}.qbar i{display:block;height:100%;background:var(--heat);transition:width .5s linear}.qbar i.low{background:#d33}
+.melt-bar .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.melt-bar .name{font:700 24px/1 var(--display);color:var(--heat);flex:1 1 auto;letter-spacing:.03em}
+.chip{font:600 14px/1 var(--body);padding:7px 10px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);font-variant-numeric:tabular-nums;white-space:nowrap}
+.chip b{font-weight:700}
+.chip.lvl{border-color:var(--heat);background:var(--heat-soft)}
+.heatbar{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden}
+.heatbar i{display:block;height:100%;background:var(--heat);transition:width .3s}
+.melt-q .choice{text-align:left;width:100%}
+.melt-q .choice[aria-disabled="true"]{cursor:default}
+.choices.locked .choice{cursor:default}.choices.locked .choice.good{border-color:var(--good);background:var(--good-soft)}.choices.locked .choice.badpick{border-color:var(--bad);background:var(--bad-soft)}
+.melt-q .choice.good{border-color:var(--good);background:var(--good-soft)}
+.melt-q .choice.badpick{border-color:var(--bad);background:var(--bad-soft)}
+.fb{display:grid;gap:14px;padding:16px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);margin-top:14px}
+.fb .verdict{font:700 30px/1 var(--display)}
+.fb .verdict.ok{color:var(--good)}
+.fb .verdict.no{color:var(--bad)}
+.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.board div{background:var(--surface-2);border-radius:8px;padding:8px 10px;display:grid;gap:2px}
+.board span{font:600 11px/1.2 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.board b{font:700 24px/1 var(--display);font-variant-numeric:tabular-nums}
+.board .up b{color:var(--heat)}
+.levelup{font:700 22px/1 var(--display);color:var(--heat)}
+@media (max-width:520px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.heatbar i{transition:none}}
+
+/* ---------- saving & resuming ---------- */
+.resume-panel{display:grid;gap:14px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:18px}
+.textin{font:500 17px var(--body);min-height:46px;padding:0 12px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%;max-width:340px}
+.code-row input#rcode{width:auto;flex:1 1 180px;max-width:320px;text-transform:none;letter-spacing:.04em;font:500 17px var(--mono)}
+.rmsg{font-size:14px;font-weight:600}
+.rmsg.err{color:var(--bad)}
+.rmsg.ok{color:var(--good)}
+.saved{display:grid;gap:8px;margin-top:6px}
+.saved .srow{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg)}
+.saved .srow b{font-weight:700}
+.tag{font:700 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:4px;border:1px solid var(--line);background:var(--surface-2)}
+.tag.paused{background:var(--mark-soft);border-color:var(--mark)}
+.tag.active{background:var(--accent-soft);border-color:var(--accent)}
+.tag.done{background:var(--good-soft);border-color:var(--good)}
+.custom{background:var(--bg);padding:0 14px}
+.custom summary{font:700 17px var(--body)}
+.custom-grid{display:grid;grid-template-columns:minmax(110px,max-content) 100px 100px;gap:8px 12px;align-items:center;padding-bottom:12px}
+.numin{font:500 17px var(--mono);min-height:44px;padding:0 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);width:100%}
+.codebox{display:grid;gap:8px;padding:14px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface)}
+.rc-big{font-size:30px;font-weight:500;letter-spacing:.14em}
+.fullcode{width:100%;font-size:12px;padding:8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);resize:vertical;word-break:break-all}
+.board-t td,.board-t th{white-space:nowrap}
+.board-t tr.me td{background:var(--heat-soft)}
+@media (max-width:520px){.custom-grid{grid-template-columns:minmax(0,1fr) 72px 72px;gap:8px 8px}.numin{padding:0 6px;min-width:0}}
+@media (max-width:520px){.stem{font-size:17px}.clock{font-size:19px}.choices.pics{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:no-preference){.choice,.btn,.grid button{transition:background-color .12s,border-color .12s}}
+</style>
+
+<div class="wrap">
+
+<nav class="tabs" id="tabs" role="tablist" aria-label="Which test">
+  <button type="button" role="tab" id="tab-gan" aria-selected="true" aria-controls="home"><b>GAN Battery</b><span>Paper folding &amp; mechanical</span></button>
+  <button type="button" role="tab" id="tab-eta" aria-selected="false" aria-controls="etahome"><b>Electrical Training Alliance</b><span>Algebra &amp; functions</span></button>
+</nav>
+<section id="home" class="home" aria-labelledby="h-home">
+  <div class="hero">
+    <span class="eyebrow">GAN-style practice · IBEW Local 134 layout</span>
+    <h1 id="h-home">Paper Folding &amp; Mechanical Reasoning</h1>
+    <p>Two timed sections built like the Local 134 aptitude battery. The mechanical section is all picture questions with no numbers and no arithmetic: you judge each drawing (gears, belts, levers, ramps, cables, pumps, linkages, chains) and compare. Every test code builds a different test, with each diagram drawn from the same values the answer is checked against. Enter the same code again to retake the exact same test.</p>
+  </div>
+
+  <div class="tablewrap">
+  <table class="spec">
+    <thead><tr><th>Section</th><th class="n">Qs</th><th class="n">Time</th><th class="n">Choices</th></tr></thead>
+    <tbody>
+      <tr><td>1 · Paper Folding</td><td class="n">24</td><td class="n nw">15 min</td><td class="n nw">A–E</td></tr>
+      <tr><td>2 · Mechanical Reasoning</td><td class="n">45</td><td class="n nw">20 min</td><td class="n nw">A–C</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="muted" style="font-size:14px;max-width:70ch"><span class="badge">PARTIAL</span> Counts and times come from a third-party breakdown of the Local 134 battery, not an official source. The order, choice count and style may differ on test day. Check against the study guide EJATT hands out at registration. No calculator.</p>
+
+
+
+  <form class="setup" id="setup" autocomplete="off">
+    <div class="field" role="radiogroup" aria-labelledby="l-mode"><span id="l-mode">Mode</span>
+      <div class="seg">
+        <label><input type="radio" name="pmode" id="pm-test" value="test" checked><span>Test mode (score at the end, like test day)</span></label>
+        <label><input type="radio" name="pmode" id="pm-prac" value="practice"><span>Practice mode (right/wrong after every question, replays, a timer per question)</span></label>
+      </div>
+      <span class="muted" style="font-size:14px">Practice uses the same questions, counts and section times as the test. Each question gets the test pace (about 38 s for paper folding, 27 s for mechanical). Seconds you don’t use carry over to the next question, up to 60 s.</span></div>
+    <div class="field" role="radiogroup" aria-labelledby="l-src"><span id="l-src">Questions</span>
+      <div class="seg">
+        <label><input type="radio" name="qsrc" id="src-rand" value="rand" checked><span>Randomized (new questions every test)</span></label>
+        <label><input type="radio" name="qsrc" id="src-sg" value="sg"><span>Study guide (exact questions from your study materials, reshuffled)</span></label>
+      </div>
+      <p class="muted" id="src-note" style="font-size:14px;margin:6px 0 0">Study guide uses only your study materials: paper folding from the GAN Study Guide and GAN Practice Problems, and mechanical questions from the GAN Study Guide and the Bennett test. Missed questions come with an animated replay. (The box folding drill always uses generated questions.)</p></div>
+    <div class="field" role="radiogroup" aria-labelledby="l-sec"><span id="l-sec">Sections</span>
+      <div class="seg">
+        <label><input type="radio" name="sections" id="sec-both" value="both" checked><span>Both, in order</span></label>
+        <label><input type="radio" name="sections" id="sec-fold" value="fold"><span>Paper Folding only</span></label>
+        <label><input type="radio" name="sections" id="sec-mech" value="mech"><span>Mechanical only</span></label>
+        <label><input type="radio" name="sections" id="sec-concept" value="concept"><span>Tricky concepts drill (45 in 20 min)</span></label>
+        <label><input type="radio" name="sections" id="sec-net" value="net"><span>Box folding drill (optional, 15 in 10 min)</span></label>
+      </div></div>
+    <div class="field" role="radiogroup" aria-labelledby="l-flevel"><span id="l-flevel">Paper folding level</span>
+      <div class="seg">
+        <label><input type="radio" name="flevel" id="fl-std" value="std" checked><span>Standard (test-like)</span></label>
+        <label><input type="radio" name="flevel" id="fl-hard" value="hard"><span>Hard</span></label>
+        <label><input type="radio" name="flevel" id="fl-expert" value="expert"><span>Expert</span></label>
+      </div>
+      <span class="muted" style="font-size:14px">Standard matches the GAN practice test: half folds, diagonal folds and small corner folds, 1–3 folds. Hard and Expert use the same kinds of folds but more of them (up to 4), more holes and closer look-alike answers. Box (cube) folding is not on the paper folding test; it has its own optional drill above.</span></div>
+    <div class="field" role="radiogroup" aria-labelledby="l-mlevel"><span id="l-mlevel">Mechanical level</span>
+      <div class="seg">
+        <label><input type="radio" name="mlevel" id="ml-std" value="std" checked><span>Standard (test-like)</span></label>
+        <label><input type="radio" name="mlevel" id="ml-hard" value="hard"><span>Hard</span></label>
+        <label><input type="radio" name="mlevel" id="ml-expert" value="expert"><span>Expert</span></label>
+      </div>
+      <span class="muted" style="font-size:14px">Hard gives every question its trickiest version with no hints. Expert adds multi-step comparisons: longer gear trains with idlers, levers loaded away from the end, presses and springs built from several parts, and look-alike setups that turn out to be equal. Nothing in it needs numbers or arithmetic. Applies to the mechanical section and the concepts drill.</span></div>
+    <div class="field" role="radiogroup" aria-labelledby="l-time"><span id="l-time">Timing</span>
+      <div class="seg">
+        <label><input type="radio" name="timing" id="t-real" value="real" checked><span>Timed</span></label>
+        <label><input type="radio" name="timing" id="t-none" value="untimed"><span>Untimed</span></label>
+      </div></div>
+    <details class="custom" id="custom">
+      <summary>Change time and number of questions</summary>
+      <div class="custom-grid">
+        <span></span><span class="eyebrow">Minutes</span><span class="eyebrow">Questions</span>
+        <span>Paper Folding</span><input id="fold-min" class="numin" type="number" min="1" max="180" value="15" aria-label="Paper Folding minutes"><input id="fold-n" class="numin" type="number" min="1" max="150" value="24" aria-label="Paper Folding questions">
+        <span>Mechanical</span><input id="mech-min" class="numin" type="number" min="1" max="180" value="20" aria-label="Mechanical minutes"><input id="mech-n" class="numin" type="number" min="1" max="150" value="45" aria-label="Mechanical questions">
+        <span>Concepts drill</span><input id="concept-min" class="numin" type="number" min="1" max="180" value="20" aria-label="Concepts drill minutes"><input id="concept-n" class="numin" type="number" min="1" max="150" value="45" aria-label="Concepts drill questions">
+      </div>
+      <div class="start-row"><button type="button" class="btn small" id="cdefault">Reset to test defaults (24 in 15 min, 45 in 20 min)</button><span class="muted" style="font-size:14px">1–180 minutes, 1–150 questions.</span></div>
+    </details>
+    <div class="field"><label for="code"><span style="font-weight:600">Test code</span></label>
+      <div class="code-row"><input id="code" maxlength="6" spellcheck="false" aria-describedby="code-help"><button type="button" class="btn small" id="newcode">New code</button></div>
+      <span id="code-help" class="muted" style="font-size:14px">Write the code down if you want to retake this exact test later.</span></div>
+    <div class="start-row"><button type="submit" class="btn primary" id="start">Start test</button><span class="keys">Keys: <kbd>A</kbd>–<kbd>E</kbd> or <kbd>1</kbd>–<kbd>5</kbd> answer · <kbd>N</kbd>/<kbd>P</kbd> next/prev · <kbd>F</kbd> flag</span></div>
+  </form>
+
+  <section class="melt-card" aria-labelledby="h-melt">
+    <span class="eyebrow">Endless mode</span>
+    <div class="title" id="h-melt">MELTDOWN ∞</div>
+    <p>Paper folding and mechanical questions, mixed, one after another with no end. Each question has its own countdown; run out and it counts as a miss. Answer inside half the time for a x1.25 bonus. Time you have left after a correct answer (up to 60 s) carries over to the next question; a miss or a time-out wipes the bank. The limit tightens a little each level, down to 80% of your starting time. Every 4 right answers pushes you up a level and the questions get harder: more folds, corner flaps, turned answers and cube patterns; jammed gears, differential winches and trick "same" answers. Streaks multiply your points.</p>
+    <fieldset class="mpace"><legend>Time per question (Level 1)</legend>
+      <label><input type="radio" name="mpace" value="std" checked> <b>Aptitude pace</b> (default): paper folding 38 s, mechanical 27 s <span class="muted">(24 in 15 min, 45 in 20 min)</span></label>
+      <label><input type="radio" name="mpace" value="easy"> <b>Relaxed</b>: paper folding 60 s, mechanical 40 s <span class="muted">(30 in 30 min, 45 in 30 min)</span></label>
+      <label><input type="radio" name="mpace" value="custom"> <b>Custom</b></label>
+      <div class="mpace-in"><label>Paper folding <input type="number" id="mp-fold" min="5" max="300" value="38" inputmode="numeric"> s</label><label>Mechanical <input type="number" id="mp-mech" min="5" max="300" value="27" inputmode="numeric"> s</label></div>
+    </fieldset>
+    <div class="row"><button type="button" class="btn heat" id="melt-go">Start Meltdown</button><span class="muted" id="melt-best"></span></div>
+    <div id="melt-board-wrap"><h3 style="margin-bottom:6px">High scores</h3><div class="tablewrap" id="melt-board"></div></div>
+  </section>
+
+  <details>
+    <summary>The rules that answer most questions</summary>
+    <div class="rules">
+      <dl>
+        <dt>Gears</dt><dd>Meshed gears turn opposite ways. Count the chain: odd number of gears, the last turns like the first. Three gears touching in a loop lock up.</dd>
+        <dt>Gear speed</dt><dd>The smaller gear (fewer teeth) turns faster; the bigger gear turns slower. An idler changes direction, never speed.</dd>
+        <dt>Belts</dt><dd>Open belt keeps the direction; crossed belt reverses it. The smaller pulley turns faster.</dd>
+        <dt>Pulleys</dt><dd>Count the rope segments holding up the moving block. More segments: less force, but more rope to pull.</dd>
+        <dt>Levers</dt><dd>The closer the pivot is to the load (and the farther the effort is from the pivot), the less effort you need.</dd>
+        <dt>Ramps</dt><dd>A gentler (less steep) ramp takes less force. A longer ramp to the same height is gentler.</dd>
+        <dt>Hydraulics</dt><dd>Pressure is equal everywhere. The wider the big piston is compared with the small one, the more the press multiplies your push.</dd>
+        <dt>Springs</dt><dd>End to end (series): stretches add. Side by side (parallel): they share the load.</dd>
+        <dt>Water pressure</dt><dd>Depends only on depth below the surface, not on tank shape or width.</dd>
+        <dt>Spinning wheels</dt><dd>Same turns per minute everywhere, but points farther out move faster.</dd>
+        <dt>Tipping</dt><dd>An object falls when its center of gravity passes over its edge. Low and wide is stable.</dd>
+        <dt>Circuits</dt><dd>Current needs a closed loop. Series: one open switch kills everything. Parallel: an open switch kills only its own branch.</dd>
+        <dt>Cables</dt><dd>A cable can only pull. Put it where the load stretches it: under a bridge deck, from the top hinge corner to the low free corner of a gate. A stiff brace goes the other way.</dd>
+        <dt>Cable angles</dt><dd>Flatter cables and slings pull much harder for the same load. Guy wires work best attached at the top and anchored far out.</dd>
+        <dt>Hanging chains</dt><dd>The higher hook holds more of the chain's weight.</dd>
+        <dt>Leverage</dt><dd>A chain or brace holds best far from the pivot and close to a right angle.</dd>
+        <dt>Rolling gears</dt><dd>A gear between a moving rack and a fixed rack moves its center half as far as the rack.</dd>
+        <dt>Bikes &amp; winches</dt><dd>Big front / small rear sprocket = hard but fast. Bigger winch drum or shorter handle = harder to turn.</dd>
+        <dt>Movable pulley</dt><dd>A pulley riding on the load halves the force and doubles the rope you must pull.</dd>
+        <dt>Flywheels</dt><dd>More mass at the rim = harder to start, harder to stop, spins longer.</dd>
+        <dt>Motion</dt><dd>Things keep going straight. A skidding car slides to the outside of the curve; a released ball flies off along the tangent.</dd>
+        <dt>Water</dt><dd>A jet rises only to the level of its source. Tank width doesn't matter.</dd>
+        <dt>Pumps</dt><dd>Both valves in a lift pump open upward. A gear pump carries fluid around the outside of the gears.</dd>
+        <dt>Linkages</dt><dd>If the driven wheel's pin is farther from its center than the driving pin, it rocks back and forth instead of turning all the way.</dd>
+                <dt>Stepped pulleys</dt><dd>Work one belt at a time. Small driving big slows down; big driving small speeds up.</dd>
+        <dt>Wheelbarrows</dt><dd>The load closer to the wheel is easier to lift.</dd>
+        <dt>Capacity marks</dt><dd>Marks bunch up where the container is wider; straight walls get even marks.</dd>
+        <dt>Cooling</dt><dd>More surface area (fins, thin flat shapes) = cools or melts faster. A ball holds heat longest.</dd>
+        <dt>Jets &amp; taps</dt><dd>Deeper holes spurt harder. Connected columns share one water level.</dd>
+        <dt>Balance</dt><dd>A weighted disk stops heavy side down. A steelyard: box weight × its distance = counterweight × its distance.</dd>
+        <dt>Breaking</dt><dd>A stick levered over a support bends most (and breaks) right over the support.</dd>
+        <dt>Thrown balls</dt><dd>Lower on the path = faster. Same height = same speed.</dd>
+        <dt>Curves</dt><dd>The outer rail is set higher so the track leans into the turn.</dd>
+        <dt>Mixing &amp; ice</dt><dd>Fine stuff fills the air gaps in coarse stuff, so the level drops. Ice takes a little% more room than water; floating ice melts with no level change.</dd>
+        <dt>One-tooth wheel</dt><dd>A driver with a single tooth moves the gear in stop-and-go steps.</dd>
+        <dt>Ring gears</dt><dd>A gear meshing inside a ring turns the same way as the ring. Only outside-to-outside meshes reverse.</dd>
+        <dt>Chains &amp; arms</dt><dd>On an arm pinned to a post, a chain works from above to the loaded end or from below to the other end.</dd>
+        <dt>Ratchets</dt><dd>The catch rides up the gentle slope of each tooth and jams against the steep face.</dd>
+        <dt>Floating</dt><dd>Floats higher = heavier liquid. Same water, sits deeper = heavier block. Oil floats on water.</dd>
+        <dt>Siphons</dt><dd>Faster when the outlet is farther below the water surface it drains.</dd>
+        <dt>Inertia</dt><dd>A hanging ball leans back when a vehicle speeds up and forward when it brakes. Braking loads the front wheels.</dd>
+        <dt>Supports</dt><dd>The support closer to the load (or to the middle of a plank) carries more.</dd>
+        <dt>Bevel gears</dt><dd>Where two bevel gears touch, their teeth move the same way. The back of a turning disk moves opposite to its front.</dd>
+        <dt>Falling</dt><dd>Dropped and thrown-sideways balls from the same height land at the same time. Things dropped from a moving plane keep moving forward. Open parachutes fall at a steady speed.</dd>
+        <dt>Stability</dt><dd>Low and wide is steady: crouching, drooping balance poles, short wide blocks on slopes. A crane with a flatter boom tips more easily.</dd>
+        <dt>Strength</dt><dd>A board on edge is much stiffer than the same board flat. Deeper trusses are stronger. Dams arch toward the water. More umbrella ribs, less flipping.</dd>
+        <dt>Flow &amp; pressure</dt><dd>Pressure depends only on depth, not jar shape. Lower hydrants spray harder. A pipe twice as wide carries four times as much. Closed jars need air in to drain.</dd>
+        <dt>Heat</dt><dd>Hot water rises, cool water sinks. Dark surfaces get hotter in the sun. Thick glass cracks more easily with boiling water. Cold bottles collect droplets. Water boils cooler up a mountain.</dd>
+        <dt>Steering</dt><dd>A boat turns toward the side the rudder’s back edge points. Backing a trailer: turn the wheels opposite to where the trailer should go. Swivel wheels trail behind.</dd>
+        <dt>Sound &amp; light</dt><dd>Smaller, shorter, tighter = higher note. Tunnels make sounds louder. Objects under water look higher than they are, so aim below.</dd>
+        <dt>Wires</dt><dd>Longer or thinner wire resists more, so less current flows.</dd>
+        <dt>Cube patterns</dt><dd>Faces opposite each other on the box can never be seen together. Faces around a corner come in one order only; the mirror order is impossible.</dd>
+        <dt>Paper folding</dt><dd>Unfold last fold first. Mirror every hole across each crease. Each fold doubles the holes: 1 punch, 2 folds = 4 holes. Exception: if a narrow strip is folded over, only holes punched through that strip get a mirror copy.</dd>
+      </dl>
+    </div>
+  </details>
+
+</section>
+
+<section id="etahome" class="home" hidden aria-labelledby="h-eta">
+  <div class="hero">
+    <span class="eyebrow">Electrical Training Alliance · IBEW apprenticeship aptitude test</span>
+    <h1 id="h-eta">Algebra &amp; Functions</h1>
+    <p>The math section of the ETA test: 33 multiple-choice questions in 46 minutes, no calculator. Every test code builds a new test with the same mix of question types as your practice tests, mixed through the test the way the real one is. Every answer is worked out and checked before it goes in.</p>
+  </div>
+  <div class="tablewrap"><table class="spec">
+    <thead><tr><th>Section</th><th class="n">Qs</th><th class="n">Time</th><th class="n">Choices</th></tr></thead>
+    <tbody><tr><td>Algebra &amp; Functions</td><td class="n">33</td><td class="n nw">46 min</td><td class="n nw">A–D</td></tr>
+      <tr><td class="muted">Reading Comprehension (coming later)</td><td class="n muted">36</td><td class="n nw muted">51 min</td><td class="n nw muted">A–D</td></tr></tbody>
+  </table></div>
+  <p class="muted" style="font-size:14px;max-width:70ch">About 84 seconds a question. No penalty for guessing, so answer everything. The real test is scored 1–9 for both sections together; a 4 is the usual minimum for an interview.</p>
+  <form class="setup" id="eta-setup" autocomplete="off">
+    <div class="field" role="radiogroup" aria-labelledby="l-esrc"><span id="l-esrc">Questions</span>
+      <div class="seg">
+        <label><input type="radio" name="esrc" id="es-rand" value="rand" checked><span>Randomized (new questions every test)</span></label>
+        <label><input type="radio" name="esrc" id="es-sg" value="sg"><span>Study guide (exact questions from your practice tests, reshuffled)</span></label>
+      </div>
+      <span class="muted" style="font-size:14px">Study guide draws 33 at a time from 261 questions taken exactly as printed in Timed Simulations 1–4, the Math Diagnostic and the three IBEW practice tests.</span></div>
+    <div class="field" role="radiogroup" aria-labelledby="l-emode"><span id="l-emode">Mode</span>
+      <div class="seg">
+        <label><input type="radio" name="emode" id="em-test" value="test" checked><span>Test mode (score at the end, like test day)</span></label>
+        <label><input type="radio" name="emode" id="em-prac" value="practice"><span>Practice mode (right/wrong after every question, a timer per question)</span></label>
+      </div>
+      <span class="muted" style="font-size:14px">Practice gives each question about 84 seconds. Seconds you don’t use carry over to the next question, up to 60 s.</span></div>
+    <div class="field" role="radiogroup" aria-labelledby="l-etime"><span id="l-etime">Timing</span>
+      <div class="seg">
+        <label><input type="radio" name="etiming" value="real" checked><span>Timed</span></label>
+        <label><input type="radio" name="etiming" value="untimed"><span>Untimed</span></label>
+      </div></div>
+    <details class="custom" id="eta-custom">
+      <summary>Change time and number of questions</summary>
+      <div class="custom-grid">
+        <span></span><span class="eyebrow">Minutes</span><span class="eyebrow">Questions</span>
+        <span>Algebra &amp; Functions</span><input id="eta-min" class="numin" type="number" min="1" max="180" value="46" aria-label="Minutes"><input id="eta-n" class="numin" type="number" min="1" max="150" value="33" aria-label="Questions">
+      </div>
+      <div class="start-row"><button type="button" class="btn small" id="eta-default">Reset to test defaults (33 in 46 min)</button></div>
+    </details>
+    <div class="field"><label for="eta-code"><span style="font-weight:600">Test code</span></label>
+      <div class="code-row"><input id="eta-code" maxlength="6" spellcheck="false"><button type="button" class="btn small" id="eta-newcode">New code</button></div>
+      <span class="muted" style="font-size:14px">Write the code down if you want to retake this exact test later.</span></div>
+    <div class="start-row"><button type="submit" class="btn primary" id="eta-start">Start test</button><span class="keys">Keys: <kbd>A</kbd>–<kbd>D</kbd> answer · <kbd>N</kbd>/<kbd>P</kbd> next/prev · <kbd>F</kbd> flag</span></div>
+  </form>
+  <details>
+    <summary>How to work each kind of question</summary>
+    <div class="rules"><dl>
+      <dt>Number series</dt><dd>Write the gaps between numbers under the series. If the gaps don’t make a pattern, try “times something, then plus/minus something”, or two series taking turns (every other number).</dd>
+      <dt>Plugging in</dt><dd>Put the given numbers in first, then solve. With answer choices, you can also try each choice and see which makes both sides equal.</dd>
+      <dt>Simplify &amp; expand</dt><dd>Multiply the number outside the brackets by every term inside, then combine like terms (x³ with x³, x² with x²). Watch minus signs in front of brackets.</dd>
+      <dt>Factoring</dt><dd>For x² + bx + c, find two numbers that multiply to c and add to b. For a common factor, take out the biggest number and the lowest power of each letter. Multiply back to check.</dd>
+      <dt>Which statement is true</dt><dd>Find where each letter crosses zero (set the other to 0). Decide if they move the same way (positive slope) or opposite ways. A statement is only true if it works for <b>every</b> value in its range; partly-true ones are traps.</dd>
+      <dt>Same relationship</dt><dd>Turn everything into y = mx + b, then test two points (x = 0 and one more) in every choice.</dd>
+      <dt>Graphs</dt><dd>b is where the line crosses the y-axis. Slope = rise over run: up when positive, down when negative.</dd>
+      <dt>Isolate a variable</dt><dd>Undo things in reverse order: move added terms first, then multiply/divide, then powers (square root last).</dd>
+      <dt>Proportions</dt><dd>Cross-multiply, then solve. Systems: put each choice into both equations.</dd>
+    </dl></div>
+  </details>
+</section>
+<div id="shared" class="home shared">
+  <section class="resume-panel" aria-labelledby="h-resume">
+    <h3 id="h-resume">Player &amp; saved progress</h3>
+    <div class="field"><label for="pname"><span style="font-weight:600">Player name</span></label>
+      <input id="pname" class="textin" maxlength="24" spellcheck="false" placeholder="Player 1" autocomplete="off"></div>
+    <div class="field"><label for="rcode"><span style="font-weight:600">Resume code</span></label>
+      <div class="code-row"><input id="rcode" class="textin mono" spellcheck="false" placeholder="e.g. T7KQ2M" autocomplete="off" aria-describedby="rcode-help"><button type="button" class="btn small primary" id="rgo">Resume</button></div>
+      <span id="rcode-help" class="muted" style="font-size:14px">Paste a short code from this device, or a full code copied from another device.</span>
+      <span id="rmsg" class="rmsg" role="status"></span></div>
+    <div id="saved-wrap" hidden><span class="eyebrow">Saved on this device</span><div id="saved" class="saved"></div></div>
+  </section>
+  <div id="hist-wrap" hidden>
+    <h3 style="margin-bottom:8px">Recent attempts</h3>
+    <div class="history" id="history"></div>
+  </div>
+  <p class="disclaimer">Unofficial practice material. Not affiliated with IBEW, NECA, EJATT, GAN Human Resources, Pearson/TalentLens, or any test publisher. Generated questions are original and model the question types; study-guide questions come from your own study materials.</p>
+</div>
+<section id="exam" hidden>
+  <div class="topbar">
+    <div class="sec"><b id="secname">Paper Folding</b><span id="qpos">Question 1 of 30</span></div>
+    <div class="clock" id="clock" aria-live="off">30:00</div>
+    <button class="btn small" id="flagbtn" aria-pressed="false">Flag</button>
+    <button class="btn small" id="gridbtn" aria-expanded="false" aria-controls="gridpanel">Grid</button>
+    <button class="btn small" id="pausebtn">Pause</button>
+    <div class="qtimer" id="pq" hidden style="flex:1 1 100%"><span>Question time</span><b id="pq-t">0</b><div class="qbar"><i id="pq-bar"></i></div></div>
+  </div>
+  <div id="gridpanel" class="panel" hidden>
+    <div class="legend"><span>■ gray = answered</span><span style="color:var(--ink)"><span style="display:inline-block;width:9px;height:9px;background:var(--mark);border-radius:2px"></span> flagged</span><span>white = blank</span></div>
+    <div class="grid" id="grid"></div>
+    <div class="start-row"><button class="btn" id="endsec">Finish section</button><span class="muted" id="gridsum" style="font-size:14px"></span></div>
+    <div class="confirm" id="confirm" hidden>
+      <p id="confirm-msg"></p>
+      <div class="btns"><button class="btn small" id="keep">Keep working</button><button class="btn small primary" id="really">Finish section</button></div>
+    </div>
+  </div>
+  <div class="qcard">
+    <p class="stem" id="stem"></p>
+    <div class="figure" id="figure"></div>
+    <fieldset class="choices" id="choices"><legend>Answer choices</legend></fieldset>
+    <div class="fb" id="pfb" hidden></div>
+  </div>
+  <div class="navbar">
+    <button class="btn" id="prev">← Previous</button>
+    <span class="keys"><kbd>A</kbd>–<kbd>E</kbd> answer · <kbd>F</kbd> flag</span>
+    <button class="btn primary" id="next">Next →</button>
+  </div>
+</section>
+
+<section id="inter" class="inter" hidden aria-live="polite">
+  <div id="timeup" class="notice" hidden>Time’s up for Paper Folding. Your answers are saved.</div>
+  <span class="eyebrow" id="inter-eye">Section 2 of 2</span>
+  <div class="big" id="inter-name">Mechanical Reasoning</div>
+  <p class="muted" id="inter-desc"></p>
+  <div><button class="btn primary" id="inter-go">Start section</button></div>
+</section>
+
+<section id="results" class="results" hidden></section>
+<section id="paused" class="inter" hidden aria-live="polite">
+  <span class="eyebrow" id="p-eye">Paused</span>
+  <div class="big" id="p-title">Test paused</div>
+  <p id="p-desc" class="muted"></p>
+  <div class="codebox"><span class="eyebrow">Resume code</span><div class="code-row"><span class="rc-big mono" id="p-code"></span><button type="button" class="btn small" id="p-copy">Copy</button></div>
+    <span class="muted" style="font-size:14px">On this device, come back any time and pick it from the saved list or type this code.</span></div>
+  <div class="codebox"><span class="eyebrow">Full code for another device</span><textarea id="p-full" class="fullcode mono" rows="3" readonly aria-label="Full resume code"></textarea><div class="start-row"><button type="button" class="btn small" id="p-copyfull">Copy full code</button><span class="muted" style="font-size:14px">This one works on any phone or computer. It contains your whole progress.</span></div></div>
+  <div class="start-row"><button class="btn primary" id="p-resume">Resume now</button><button class="btn" id="p-home">Back to home</button></div>
+</section>
+
+<section id="melt" hidden>
+  <div class="melt-bar">
+    <div class="top"><span class="name">MELTDOWN ∞</span><span class="chip lvl">Level <b id="m-lvl">1</b></span><span class="chip">Score <b id="m-score">0</b></span><span class="chip"><b id="m-clock">00:00</b></span><button class="btn small" id="m-pause">Pause</button><button class="btn small" id="m-end">End run</button></div>
+    <div class="heatbar" aria-label="Progress to next level"><i id="m-heat" style="width:0%"></i></div>
+    <div class="qtimer" aria-label="Time left for this question"><span id="m-ql">Question time</span><b id="m-qt">--</b><div class="qbar"><i id="m-qbar" style="width:100%"></i></div></div>
+  </div>
+  <div id="m-play">
+    <div class="qcard melt-q">
+      <p class="stem" id="m-stem"></p>
+      <div class="figure" id="m-fig"></div>
+      <fieldset class="choices" id="m-choices"><legend>Answer choices</legend></fieldset>
+    </div>
+    <div class="fb" id="m-fb" hidden aria-live="polite"></div>
+  </div>
+  <div id="m-over" class="results" hidden></div>
+</section>
+
+
+
+</div>

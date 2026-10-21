@@ -1,0 +1,86 @@
+[
+ {
+  "id": "b47",
+  "explain": "The bottom rack is fixed, so the gear has to roll along it like a wheel on the ground. The top of a rolling wheel moves twice as fast as its centre, so the centre only keeps up with half of rack X's travel. So when rack X slides half a metre, the gear's centre moves a quarter metre, 25 cm (answer B)."
+ },
+ {
+  "id": "b48",
+  "explain": "Gear A turns the middle gear, and the middle gear turns B. The middle gear only passes the motion along and reverses it, so each tooth of A pushes exactly one tooth of B. A and B have the same number of teeth, so their marks go round together: they turn at the same speed (answer B)."
+ },
+ {
+  "id": "b49",
+  "explain": "Both horses go round the same bend side by side, turning through the same angle in the same time. Horse A is on the outside lane, so its arc is longer than horse B's. To cover more ground in the same time and stay level, horse A has to run faster (answer A)."
+ },
+ {
+  "id": "b50",
+  "explain": "The tanks are joined at the bottom, so the water stands at the same level in all of them. Tap A is only a little below that level, while tap B is much deeper, so there is far more water pressing down on B. The deeper tap gives the faster, longer jet: water jet B is more powerful (answer B)."
+ },
+ {
+  "id": "b51",
+  "explain": "Pull both rope ends down the same distance. Load A hangs on a pulley held up by two strands of rope, so it rises only half as far as load B, which hangs on a single strand. Because two strands share its weight, load A needs only about half the pull: it is lifted with less effort (answer A)."
+ },
+ {
+  "id": "b52",
+  "explain": "Seen from above, the hexagon of A fits inside the same a × a square as B, but its corners are cut away. That leaves the hexagon only about two-thirds of the square's area, and both objects have the same height a. Same material, less volume: object A weighs less (answer A)."
+ },
+ {
+  "id": "b53",
+  "explain": "The ball is shown once every equal moment of time. Low on the path, around A, it jumps a long way between moments, but as it climbs it slows down and the dots bunch up near the top, around B. Higher means slower, so the ball moves faster at point A (answer B)."
+ },
+ {
+  "id": "b54",
+  "explain": "On a curve the carriage is thrown outward, away from the centre of the turn and against the outer rail A. Raising rail A tilts the track and carriage in toward the centre, so the track itself pushes the train round the bend instead of letting it press on or tip over the outer rail. So the outer rail, rail A, should be higher (answer A)."
+ },
+ {
+  "id": "b55",
+  "explain": "The chain sags to a lowest point that sits much closer to hook B than to hook A. Everything left of that point hangs from hook A, everything right of it hangs from hook B, and the left part is far longer. So more of the chain's weight pulls on hook A (answer B)."
+ },
+ {
+  "id": "b56",
+  "explain": "Watch pump B: as the piston rises, the bottom valve swings up to let water in, while the piston valve stays shut and lifts the water above it out of the spout. As the piston goes down, the bottom valve shuts and the piston valve swings up, letting the water pass to the top side. In A and C the piston valve hangs underneath and can only open downward, so water never gets above the piston: valves B are placed correctly (answer B)."
+ },
+ {
+  "id": "b57",
+  "explain": "The belt from A drives the small pulley on shaft B, so B spins about two and a half times faster than A. The big pulley on B then drives the even smaller pulley on C through the crossed belt, so C spins faster again (and the other way). Every step speeds things up, so axis A, with the big pulley, rotates most slowly (answer A)."
+ },
+ {
+  "id": "b58",
+  "explain": "The same load hangs from the middle of each cable. Cable B already hangs in a deep V, so its two halves lift the load at a steep angle and each only needs a moderate pull. Cable A is almost straight: it must stretch just to sag a little, and holding a load up from such a flat angle takes many times the load's weight. So cable A bears more strain (answer A)."
+ },
+ {
+  "id": "b59",
+  "explain": "Both boats have to travel the same distance d to reach the bank. Boat B is tied straight to its vehicle, so the vehicle and the boat move the same amount. Boat A's rope runs round a pulley on the boat and back to a fixed post, so vehicle A must pull out two lengths of rope for every length the boat moves. Vehicle A has to drive twice as far (answer A)."
+ },
+ {
+  "id": "b60",
+  "explain": "The free end of each gate tends to drop under its own weight. In gate A the cable runs from the bottom hinge up to the latch side, and a sagging gate only shortens that diagonal, so the cable goes slack and the gate droops. In gate B the cable runs from the top hinge down to the bottom of the free end, the very diagonal that a sag would stretch, so the taut cable holds the gate up. The cable is fixed better at wicket B (answer C)."
+ },
+ {
+  "id": "b61",
+  "explain": "Count the rope strands that hold up each bottom block. Block A hangs on 3 strands, while block B hangs on 4. Each strand carries an equal share, so the pull needed is about a third of the load with A but only a quarter with B. It is easier to hoist the load with tackle block B (answer B)."
+ },
+ {
+  "id": "b62",
+  "explain": "Wheel X touches cone A near A's thin end and cone B near B's thick end. Where they touch, each cone's surface must move as fast as the rim of X, so the cone with the smaller radius there has to spin more turns to keep up. Cone A is thin at that point, so cone A rotates faster (answer A)."
+ },
+ {
+  "id": "b63",
+  "explain": "The small wheel turns all the way round, carrying the top of the rod in a circle. The bottom of the rod is pinned to the big wheel, and the rod only pushes it part of the way round before dragging it back again. So the big wheel just rocks to and fro, turning first one way and then the other: in both directions (answer B)."
+ },
+ {
+  "id": "b64",
+  "explain": "The overhead wire pulls the top of each column sideways. Cable A is tied halfway down, so the top half of the column is left to bend over. Cable B reaches the top but runs almost straight down, so it has to pull very hard to cancel a sideways tug. Cable C is tied at the top and spreads out the widest, so it holds the column with the least strain: cable C (answer C)."
+ },
+ {
+  "id": "b65",
+  "explain": "Both drums wind the same rope, so the rope pulls equally hard on each side of the load's pulley. That pull acts at the rim of each drum, and drum A is twice as thick, so the rope has twice the leverage against winch A. With cranks of the same length, winch A needs about twice the force on its handle (it also winds its rope in faster), so it is harder to lift the load with winch A (answer A)."
+ },
+ {
+  "id": "b66",
+  "explain": "Put a load on the middle of each bridge, remembering that a steel cable can only pull, never push. In A the cable sits above the deck where it would have to push like a strut, so it goes slack and the deck sags. In B the cables only tie the ends to the banks, and nothing holds up the middle. In C the post presses the load down onto the cable slung underneath, pulling it tight, so the cable carries the load: figure C (answer C)."
+ },
+ {
+  "id": "b67",
+  "explain": "The same turning force tries to swing each bracket up about its pivot (the dot), and the chain must hold it back by pulling. A pull holds better the farther its line passes from the pivot. Chain B hangs from the very end of the arm, so its line is farther from the pivot than chain A's, and it needs less pull to hold the same load: chain B is exposed to less strain (answer B)."
+ }
+]
