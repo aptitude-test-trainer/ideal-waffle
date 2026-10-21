@@ -7,6 +7,25 @@ crops = json.load(open(HERE + '/eta/crops.json'))
 NAMES = {'ts1': 'Timed Simulation 1', 'ts2': 'Timed Simulation 2', 'ts3': 'Timed Simulation 3', 'ts4': 'Timed Simulation 4', 'diag': 'Math Diagnostic', 'i33': 'IBEW 33-question test', 'i34': 'IBEW 34-question test', 'i34b': 'IBEW 34-question test (2)'}
 L = 'ABCD'
 
+# vector versions of the pictures (vec.py): sharp at any size. Letter outlines are shared by all pictures.
+import sys
+sys.path.insert(0, HERE)
+import vec as _vec
+_vf = os.path.join(HERE, 'eta', 'vec.json')
+VEC, GLYPHS = _vec.pack(json.load(open(_vf))) if os.path.exists(_vf) else ({}, {})
+USED_GLYPHS = set()
+
+
+def pic(e):
+    """one picture: [inner svg, width px, height px] when a vector version exists, else a PNG data URL"""
+    k = _vec.key(e[3]) if len(e) > 3 else None
+    if k in VEC:
+        inner = VEC[k][0]
+        USED_GLYPHS.update(re.findall(r'href=[\'"]#(gg[0-9a-f]+)', inner))
+        return [inner, e[1], e[2]]
+    return reenc(e)
+
+
 def reenc(e):
     """smaller PNG: gray 8 levels unless the crop has colour"""
     im = Image.open(io.BytesIO(base64.b64decode(e[0].split(',')[1]))).convert('RGB')
@@ -42,18 +61,25 @@ for t, items in crops.items():
         a = ans.get(it['q'])
         if not a or not a.get('answer') or a.get('answer') not in L or a.get('confidence') == 'low' or (a.get('flag') and (t, it['q']) != ('ts4', 18)):
             skipped.append((t, it['q'], (a or {}).get('flag'))); continue
-        ch = [reenc(c) if c else None for c in it['choices']] if it.get('choices') else None
+        ch = [pic(c) if c else None for c in it['choices']] if it.get('choices') else None
         if ch and any(c is None for c in ch): skipped.append((t, it['q'], 'missing choice crop')); continue
         ex = a.get('explain') or ''
         sp = []
         for p in (it.get('stemp') or ([{'img': it['stem']}] if it['stem'] else [])):
-            sp.append(['t', math_text(p['t'])] if 't' in p else ['i', reenc(p['img'])])
+            sp.append(['t', math_text(p['t'])] if 't' in p else ['i', pic(p['img'])])
         cht = it.get('choicesT') or [None] * 4
         chs = [(['t', math_text(cht[k])] if cht[k] else (['i', ch[k]] if ch else None)) for k in range(4)] if (ch or any(cht)) else None
         bank.append({'s': NAMES[t] + ' · Q' + str(it['q']), 'sp': sp, 'ch': chs, 'g': bool(it.get('grid')), 'a': L.index(a['answer']), 'ex': ex, 'exh': math_text(ex)})
-js = '/* ---- ETA study guide: exact questions from the practice PDFs (Timed Simulations 1-4, Math Diagnostic, IBEW 33/34 tests) ---- */\nconst SGETA=' + json.dumps(bank, separators=(',', ':')) + r''';
+glyph_defs = ''.join(f'<path id="{g}" d="{GLYPHS[g]}"/>' for g in sorted(USED_GLYPHS))
+js = ('/* ---- ETA study guide: exact questions from the practice PDFs (Timed Simulations 1-4, Math Diagnostic, IBEW 33/34 tests) ---- */\nconst SGETA=' + json.dumps(bank, separators=(',', ':'))
+      + ';\n/* letter outlines shared by the vector pictures (one hidden copy on the page) */\nconst SGETA_GLYPHS=' + json.dumps(glyph_defs)) + r''';
+function sgEtaGlyphs(){if(typeof document==='undefined'||document.getElementById('sgeta-glyphs'))return;
+  const put=()=>{if(document.getElementById('sgeta-glyphs'))return;const d=document.createElement('div');d.innerHTML=`<svg id="sgeta-glyphs" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg"><defs>${SGETA_GLYPHS}</defs></svg>`;document.body.appendChild(d.firstChild);};
+  if(document.body)put();else document.addEventListener('DOMContentLoaded',put);}
 function sgEtaItems(code,n){const R=RNG(hashSeed('sgeta',code||'x'));const L='ABCD';
-  const im=(c,lab)=>sgSvg(c[0],c[1],c[2],Math.round(c[1]*0.72),lab);
+  /* vector pictures: [inner svg in PDF points, width px, height px]; older PNG pictures: [data url, width px, height px] */
+  const im=(c,lab)=>c[0][0]==='<'?`<svg class="fig" viewBox="0 0 ${c[1]} ${c[2]}" style="max-width:${Math.round(c[1]*0.72)}px" role="img" aria-label="${esc(lab)}" xmlns="http://www.w3.org/2000/svg"><g class="pf-img" transform="scale(2)">${c[0]}</g></svg>`:sgSvg(c[0],c[1],c[2],Math.round(c[1]*0.72),lab);
+  sgEtaGlyphs();
   const all=SGETA.map((q,i)=>{const fig=`<div class="sgstem">${q.sp.map(p=>p[0]==='t'?`<p>${p[1]}</p>`:`<div class="sgimg">${im(p[1],'question')}</div>`).join('')}</div>`;
     const choices=q.ch?q.ch.map((c,j)=>c[0]==='t'?{h:`<span class="mtx">${c[1]}</span>`,t:'Choice '+L[j],key:j,note:null}:(q.g?{svg:im(c[1],'choice '+L[j]),t:'Choice '+L[j],key:j,note:null}:{h:im(c[1],'choice '+L[j]),t:'Choice '+L[j],key:j,note:null}))
       :[0,1,2,3].map(j=>({t:L[j],key:j,note:null}));

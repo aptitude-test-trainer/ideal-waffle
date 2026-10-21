@@ -15,17 +15,28 @@ def lines_of(page):
         out.append(dict(x0=float(l[0]), y0=float(l[1]), x1=float(l[2]), y1=float(l[3]), words=words, text=' '.join(w[4] for w in words)))
     return out
 
+CUR = [None, None]  # (test, page) being cropped; every picture records where on that PDF page it came from
+
+
+def cut(im, box):
+    """crop that remembers its offset on the page render, so enc() can record the PDF box"""
+    ox, oy = getattr(im, 'off', (0, 0))
+    c = im.crop(box); c.off = (ox + box[0], oy + box[1])
+    return c
+
 def trim(im, pad=8):
     a = np.array(im.convert('L')) < 200
     ys, xs = np.where(a)
     if not len(xs): return None
     x0, y0, x1, y1 = max(0, xs.min() - pad), max(0, ys.min() - pad), min(im.size[0], xs.max() + pad + 1), min(im.size[1], ys.max() + pad + 1)
-    return im.crop((x0, y0, x1, y1))
+    return cut(im, (x0, y0, x1, y1))
 
 def enc(im):
     q = im.convert('RGB').quantize(24, method=Image.MEDIANCUT, dither=Image.NONE)
     b = io.BytesIO(); q.save(b, 'PNG', optimize=True)
-    return ['data:image/png;base64,' + base64.b64encode(b.getvalue()).decode(), im.size[0], im.size[1]]
+    ox, oy = getattr(im, 'off', (0, 0))  # [test, page, x0, y0, x1, y1] in PDF points
+    box = [CUR[0], CUR[1], round(ox / S, 2), round(oy / S, 2), round((ox + im.size[0]) / S, 2), round((oy + im.size[1]) / S, 2)]
+    return ['data:image/png;base64,' + base64.b64encode(b.getvalue()).decode(), im.size[0], im.size[1], box]
 
 
 def parts_of(im, L, x0, y0, x1, y1, textmin_x=None, allow_short=False):
@@ -71,7 +82,7 @@ def parts_of(im, L, x0, y0, x1, y1, textmin_x=None, allow_short=False):
             out.append({'t': cls[k][2]}); k += 1; continue
         j = k
         while j < len(cls) and cls[j][2] is None: j += 1
-        c = trim(im.crop((X0, cls[k][0], X1, cls[j - 1][1])), pad=5)
+        c = trim(cut(im, (X0, cls[k][0], X1, cls[j - 1][1])), pad=5)
         if c: out.append({'img': enc(c)})
         k = j
     return out
@@ -173,7 +184,7 @@ def split_cols(im, L, labs, top, bot):
     stemp = joined
     ch, chT = {}, {}
     for k, r in R.items():
-        c = trim(im.crop((P(r['x0']), P(r['y0']), P(r['x1']), P(r['y1']))), pad=6)
+        c = trim(cut(im, (P(r['x0']), P(r['y0']), P(r['x1']), P(r['y1']))), pad=6)
         ch[k] = enc(c) if c else None
         pp = parts_of(im, L, r['x0'], r['y0'], r['x1'], r['y1'], allow_short=True)
         if pp and all('t' in q for q in pp): chT[k] = ' '.join(q['t'] for q in pp)
@@ -193,6 +204,7 @@ for t in TESTS:
             ft=[l for l in L if l['y0']>730]
             ws=[{'y0':(min(l['y0'] for l in ft) if ft else 750)}]
         qn = int(qh[0]['text'].split()[1])
+        CUR[:] = [t, pi + 1]
         im = Image.open(HERE + f'/eta/{t}/h-{pi + 1:02d}.png' if len(pages) < 100 else '').convert('RGB')
         top = qh[0]['y1'] + 4; bot = ws[0]['y0'] - 4
         labs = []
@@ -204,17 +216,17 @@ for t in TESTS:
         ok = letters and sorted(letters) == ['A', 'B', 'C', 'D'] and len(labs) == 4
         rec = {'test': t, 'q': qn, 'page': pi + 1}
         if not ok:
-            st = trim(im.crop((int(30 * S), int(top * S), int(585 * S), int(bot * S))))
+            st = trim(cut(im, (int(30 * S), int(top * S), int(585 * S), int(bot * S))))
             rec.update(stem=enc(st), choices=None, labels=letters)
         else:
             # rows of labels
             if (t, qn) in SPLIT:
                 stemp, ch, chT = split_cols(im, L, labs, top, bot)
-                st = trim(im.crop((int(30 * S), int(top * S), int(585 * S), int(bot * S))))
+                st = trim(cut(im, (int(30 * S), int(top * S), int(585 * S), int(bot * S))))
                 rec.update(stemp=stemp, stem=enc(st), choices=[ch[k] for k in 'ABCD'], grid=True, choicesT=[chT.get(k) for k in 'ABCD'])
                 items.append(rec); continue
             if t.startswith('i') and any(w[0] > 250 for w in labs):
-                st = trim(im.crop((int(30 * S), int(top * S), int(585 * S), int(bot * S))))
+                st = trim(cut(im, (int(30 * S), int(top * S), int(585 * S), int(bot * S))))
                 rec.update(stem=enc(st), choices=None, labels=letters); items.append(rec); continue
             if any(w[0] > 250 for w in labs) and any(w[0] < 250 for w in labs):
                 ch = {}; ys0 = min(w[1] for w in labs)
@@ -225,9 +237,9 @@ for t in TESTS:
                         x0 = w[2] + 1
                         right = [o for o in labs if o[0] > w[0] + 40 and o[1] < y1 - 4 and (next((c for c in sorted([z for z in labs if abs(z[0]-o[0])<60 and z[1]>o[1]], key=lambda z:z[1])), None) or [0, bot])[1] > y0 + 4]
                         x1 = (min(o[0] for o in right) - 4) if right else 585
-                        c = trim(im.crop((int(x0 * S), int(y0 * S), int(x1 * S), int(y1 * S))), pad=6)
+                        c = trim(cut(im, (int(x0 * S), int(y0 * S), int(x1 * S), int(y1 * S))), pad=6)
                         ch[w[4][0]] = enc(c) if c else None
-                stem = trim(im.crop((int(30 * S), int(top * S), int(585 * S), int((ys0 - 3) * S))))
+                stem = trim(cut(im, (int(30 * S), int(top * S), int(585 * S), int((ys0 - 3) * S))))
                 rec['stemp'] = parts_of(im, L, 30, top, 585, ys0 - 3, textmin_x=60)
                 rec.update(stem=enc(stem) if stem else None, choices=[ch.get(k) for k in 'ABCD'], grid=True)
                 items.append(rec); continue
@@ -252,7 +264,7 @@ for t in TESTS:
                 lo = (rows[ri - 1][0][3]) if ri else max(top, r[0][1] - 30)
                 tops.append(gap(lo, r[0][1]))
             first_y = tops[0]
-            stem = trim(im.crop((int(30 * S), int(top * S), int(585 * S), int(first_y * S))))
+            stem = trim(cut(im, (int(30 * S), int(top * S), int(585 * S), int(first_y * S))))
             rec['stemp'] = parts_of(im, L, 30, top, 585, first_y, textmin_x=60)
             ch = {}; chT = {}
             for ri, r in enumerate(rows):
@@ -261,7 +273,7 @@ for t in TESTS:
                 ry1 = tops[ri + 1] if ri + 1 < len(rows) else bot
                 for ci, w in enumerate(r):
                     x0 = w[2] + 2; x1 = (r[ci + 1][0] - 4) if ci + 1 < len(r) else 585
-                    c = trim(im.crop((int(x0 * S), int(ry0 * S), int(x1 * S), int(ry1 * S))), pad=6)
+                    c = trim(cut(im, (int(x0 * S), int(ry0 * S), int(x1 * S), int(ry1 * S))), pad=6)
                     ch[w[4][0]] = enc(c) if c else None
                     if not grid:
                         pp = parts_of(im, L, x0, ry0, x1, ry1, allow_short=True)

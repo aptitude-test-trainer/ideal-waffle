@@ -1,0 +1,29 @@
+{
+ "i34b_p1_x5.svg": {
+  "note": "'(0, −7)': the closing bracket touches the curve, so the end of the label is placed by hand (position refined against the photo)",
+  "clear": [
+   [
+    314,
+    374,
+    349,
+    392
+   ]
+  ],
+  "place": [
+   {
+    "text": "−7)",
+    "w": "b",
+    "size": 17.2,
+    "at": [
+     331.5,
+     383.2
+    ]
+   }
+  ],
+  "colour": "#1f2a36"
+ },
+ "ts3_p22_x145.svg": {
+  "note": "a sine curve and nothing else: every plotted stroke is traced as a curve",
+  "curves_only": true
+ }
+}
