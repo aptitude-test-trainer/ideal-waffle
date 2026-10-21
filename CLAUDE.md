@@ -58,5 +58,7 @@ Playwright + Chromium are needed for the .py browser checks.
 
 - `pipeline/mk_sg2.py` rebuilds `app/nb4.js` from `pipeline/nb4.orig.js` (GAN SG images), `gp/` (Practice Problems crops), `bt/` (Bennett: qs.json with answers read from screenshots, q/*.png crops, anim/*.svg replays), `gm/` (GAN mech replays), `pfq/` (paper-fold models for replays).
 - `pipeline/mk_nb7.py` rebuilds `app/nb7.js` from `eta/crops.json` + `eta/ans_*.json` (verified keys).
-- `pipeline/crop.py` re-crops the ETA PDFs; it needs page renders that are not committed: for each PDF run `pdftotext -bbox` -> `eta/<t>/bbox.html` and `pdftoppm -r 144 -png` -> `eta/<t>/h-NN.png`.
+- `pipeline/crop.py` re-crops the ETA PDFs; it needs page renders that are not committed: for each PDF run `pdftotext -bbox-layout` -> `eta/<t>/bbox.html` and `pdftoppm -r 144 -png` -> `eta/<t>/h-NN.png` (ts1-4 = Timed_Simulation_1-4, diag = Math_Diagnostic, i33 = IBEW_33, i34 = IBEW_34_..._Test.pdf, i34b = IBEW_34_..._Test-1.pdf). Plain `-bbox` gives 0 questions. With those renders it reproduces `eta/crops.json` byte for byte.
+- IBEW questions listed in `SPLIT` (crop.py) have their A-D graphs split into one picture per choice so graph choices can be shown large; questions with one shared graph (lines tagged A-D) stay one picture.
+- ETA graph choices (`isGraphQ` in app.js): one per row on a phone, two per row from 700px; tapping the picture enlarges it without choosing, the letter bar chooses.
 - Paper-fold replays only exist when the model matches the printed figure and key; models are in `pfq/models_*.json`.

@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Local 134 Mechanical Set</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -337,7 +338,7 @@ details .rules{display:grid;gap:10px;padding-bottom:18px}
 .fig .cface{fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round}
 .ritem .figure .fig,.results .fig{max-height:none}
 .figure{position:relative;flex-wrap:wrap}.zoomhint{flex-basis:100%;text-align:center;font:600 12px var(--body);color:#5C656D;margin-top:6px}
-.zoomov{position:fixed;inset:0;z-index:50;background:rgba(20,23,26,.92);display:flex;flex-direction:column}
+.zoomov{position:fixed;inset:0;z-index:50;background:#14171A;display:flex;flex-direction:column}
 .zoombar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;color:#fff;font-size:14px}
 .sgstem{display:grid;gap:8px;color:#1D2227;width:100%;font:500 17px/1.45 var(--body)}.sgstem p{margin:0}.sgstem .sgimg{display:flex;justify-content:flex-start}
 .figure:has(.sgstem){background:#F4F5F1;border-color:#C9CCC4}
@@ -440,6 +441,30 @@ details .rules{display:grid;gap:10px;padding-bottom:18px}
 @media (max-width:520px){.custom-grid{grid-template-columns:minmax(0,1fr) 72px 72px;gap:8px 8px}.numin{padding:0 6px;min-width:0}}
 @media (max-width:520px){.stem{font-size:17px}.clock{font-size:19px}.choices.pics{grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion:no-preference){.choice,.btn,.grid button{transition:background-color .12s,border-color .12s}}
+/* ETA graph answer choices: one per row at full width on a phone, two per row on a computer.
+   The picture opens an enlarged view; the letter bar picks the answer. */
+.choices.graphs{grid-template-columns:minmax(0,1fr);gap:12px}
+.choices.graphs .ghint{grid-column:1/-1;margin:0;font-size:14px;color:var(--muted)}
+.choices.graphs .choice{flex-direction:column;align-items:stretch;gap:6px;padding:4px 8px 10px}
+.gpick{display:flex;align-items:center;gap:12px;min-height:46px;padding:0 4px}
+.gpick-t{font:600 14px var(--body);color:var(--muted)}
+.gpick-t::before{content:"Tap here to choose"}
+.choice:has(input:checked) .gpick-t::before{content:"Your answer"}
+.choices.locked .gpick-t::before{content:""}
+.choices.locked .choice.good .gpick-t::before{content:"Correct answer"}
+.choices.locked .choice.badpick .gpick-t::before{content:"Your answer"}
+.gfig{display:block;cursor:zoom-in;border-radius:6px}
+.gfig:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.choices.graphs .fig,.rch.graphs .fig{max-width:none!important;width:100%;height:auto;max-height:75vh}
+.choices.graphs .choice .mch{font-size:18px;padding:2px 4px 4px}
+.choices.graphs .fig.gr .gr-grid,.rch.graphs .fig.gr .gr-grid,.zoombox .fig.gr .gr-grid{stroke:var(--muted);stroke-opacity:.42}
+.choices.graphs .fig.gr .gr-t,.rch.graphs .fig.gr .gr-t,.zoombox .fig.gr .gr-t{fill:var(--ink)}
+.rch.graphs{grid-template-columns:minmax(0,1fr);gap:8px}
+.rch.graphs .rc{flex-direction:column;align-items:stretch;gap:6px}
+.rch.graphs .rc .bubble{align-self:flex-start}
+.zoombox.gr-z{background:var(--surface)}
+.zoombar .btn{color:var(--ink)}
+@media (min-width:700px){.choices.graphs,.rch.graphs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 
 <div class="wrap">

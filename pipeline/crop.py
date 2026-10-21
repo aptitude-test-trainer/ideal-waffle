@@ -77,6 +77,109 @@ def parts_of(im, L, x0, y0, x1, y1, textmin_x=None, allow_short=False):
     return out
 
 
+# IBEW questions whose four answer choices (mostly graphs) are laid out in two columns, each letter above
+# or beside its own picture. They are split into one picture per choice so each graph can be shown large.
+# Questions with one shared graph (lines tagged A-D) or with formula choices stay one picture.
+SPLIT = {('i33', 20), ('i33', 21), ('i33', 22), ('i33', 23), ('i33', 24), ('i34', 15), ('i34', 16), ('i34', 17), ('i34', 19),
+         ('i34b', 1), ('i34b', 9), ('i34b', 10), ('i34b', 13), ('i34b', 14), ('i34b', 34)}
+
+
+def split_cols(im, L, labs, top, bot):
+    """two-column layout -> (stem parts, {letter: picture}, {letter: text}). Boxes are in PDF points."""
+    from PIL import ImageDraw
+    im = im.copy(); dr = ImageDraw.Draw(im)
+    for w in labs:  # the A)-D) letters are drawn by the app, so they are removed from the pictures
+        dr.rectangle((int((w[0] - 1) * S), int((w[1] - 1) * S), int((w[2] + 1) * S), int((w[3] + 1) * S)), fill='white')
+    L = [dict(l, words=[x for x in l['words'] if x not in labs]) for l in L]
+    L = [dict(l, x0=min(x[0] for x in l['words']), x1=max(x[2] for x in l['words']), text=' '.join(x[4] for x in l['words'])) for l in L if l['words']]
+    g = np.array(im.convert('L')) < 200
+    P = lambda v: int(round(v * S))
+    def vstrip(xa, xb, ya, yb):
+        """middle of the widest blank vertical strip in x [xa, xb) over rows [ya, yb)"""
+        xa, xb, ya, yb = P(xa), P(xb), P(ya), P(yb)
+        if xb <= xa or yb <= ya: return None
+        col = g[ya:yb, xa:xb].any(0); best = None; i = 0
+        while i < len(col):
+            if not col[i]:
+                j = i
+                while j < len(col) and not col[j]: j += 1
+                if best is None or j - i > best[1] - best[0]: best = (i, j)
+                i = j
+            else: i += 1
+        return (xa + (best[0] + best[1]) / 2) / S if best and best[1] - best[0] >= 4 else None
+    def hstrip(xa, xb, ya, yb):
+        """middle of the blank horizontal strip nearest to yb in rows [ya, yb) over x [xa, xb)"""
+        xa, xb, ya, yb = P(xa), P(xb), P(ya), P(yb)
+        row = g[ya:yb, xa:xb].any(1); j = len(row)
+        while j > 0 and row[j - 1]: j -= 1
+        if j == 0: return None
+        i = j
+        while i > 0 and not row[i - 1]: i -= 1
+        return (ya + (i + j) / 2) / S
+    def content_end(r):
+        """bottom of a box's content: the first blank band of 8pt or more below its letter"""
+        row = g[P(r['w'][1]):P(r['y1']), P(r['x0']):P(r['x1'])].any(1); run = 0
+        for k, d in enumerate(row):
+            run = 0 if d else run + 1
+            if run >= 8 * S and k + 1 > run: return r['w'][1] + (k + 1 - run) / S
+        return r['y1']
+    left = lambda w: w[0] < 200
+    R = {w[4][0]: dict(w=w, L=left(w)) for w in labs}
+    def below(w):
+        ys = [o[1] for o in labs if o is not w and o[1] > w[1] + 6 and left(o) == left(w)]
+        return min(ys) if ys else bot
+    for r in R.values():
+        w = r['w']; r['y0'] = w[1] - 3; r['y1'] = below(w) - 3
+        r['x0'] = 30 if r['L'] else w[0] - 3; r['x1'] = 585
+    for _ in range(3):
+        for r in R.values():
+            w = r['w']
+            if not r['L']:
+                r['x0'] = vstrip(w[0] - 45, w[0] - 1, r['y0'], r['y1']) or (w[0] - 3)
+            else:
+                rs = [o for o in R.values() if not o['L'] and o['y0'] < r['y1'] - 4 and content_end(o) > r['y0'] + 4]
+                r['x1'] = min(o['x0'] for o in rs) if rs else 585
+        for r in R.values():
+            if r['L']: continue
+            w = r['w']  # a right-column box also stops where a left-column box below it reaches across
+            ys = [o['w'][1] for o in R.values() if o['L'] and o['w'][1] > w[1] + 6 and o['x1'] > r['x0'] + 15]
+            r['y1'] = min([below(w)] + ys) - 3
+    for r in R.values():
+        w = r['w']
+        beside = g[P(w[1]):P(w[3]), P(w[2] + 2):P(w[2] + 25)].any()
+        if beside:  # letter left of its choice: start at the blank line just above the letter
+            y = hstrip(r['x0'], r['x1'], w[1] - 14, w[1] + 1)
+        else:  # letter above its choice: start at the blank line between the letter row and the picture
+            y = hstrip(r['x0'], r['x1'], w[1] - 2, w[3] + 15)
+        if y is not None: r['y0'] = y
+    for r in R.values():  # end each box where the box below it starts
+        ys = [o['y0'] for o in R.values() if o['w'][1] > r['w'][1] + 6 and o['x0'] < r['x1'] - 15 and o['x1'] > r['x0'] + 15]
+        if ys: r['y1'] = min([r['y1']] + ys)
+    ys0 =min(r['y0'] for r in R.values())
+    stemp = parts_of(im, L, 30, top, 585, ys0, textmin_x=60, allow_short=True)
+    for side in (True, False):  # stem content (a table, a given graph) sitting beside the first choices
+        rs = [r for r in R.values() if r['L'] == side]
+        if not rs: continue
+        fy = min(r['y0'] for r in rs)
+        if fy - ys0 < 10: continue
+        if side: xa, xb = 30, min([o['x0'] for o in R.values() if not o['L'] and o['y0'] < fy] or [585])
+        else: xa, xb = max([o['x1'] for o in R.values() if o['L'] and o['y0'] < fy] or [30]), 585
+        stemp += parts_of(im, L, xa, ys0, xb, fy, textmin_x=xa + 30, allow_short=True)
+    joined = []  # a long line that stops mid-sentence continues on the next text line
+    for p in stemp:
+        if 't' in p and joined and 't' in joined[-1] and len(joined[-1]['t']) > 60 and not joined[-1]['t'].rstrip().endswith(('.', '?', ':', '!')):
+            joined[-1] = {'t': joined[-1]['t'] + ' ' + p['t']}
+        else: joined.append(p)
+    stemp = joined
+    ch, chT = {}, {}
+    for k, r in R.items():
+        c = trim(im.crop((P(r['x0']), P(r['y0']), P(r['x1']), P(r['y1']))), pad=6)
+        ch[k] = enc(c) if c else None
+        pp = parts_of(im, L, r['x0'], r['y0'], r['x1'], r['y1'], allow_short=True)
+        if pp and all('t' in q for q in pp): chT[k] = ' '.join(q['t'] for q in pp)
+    return stemp, ch, chT
+
+
 out = {}
 for t in TESTS:
     pages = open(HERE + f'/eta/{t}/bbox.html').read().split('<page ')[1:]
@@ -105,6 +208,11 @@ for t in TESTS:
             rec.update(stem=enc(st), choices=None, labels=letters)
         else:
             # rows of labels
+            if (t, qn) in SPLIT:
+                stemp, ch, chT = split_cols(im, L, labs, top, bot)
+                st = trim(im.crop((int(30 * S), int(top * S), int(585 * S), int(bot * S))))
+                rec.update(stemp=stemp, stem=enc(st), choices=[ch[k] for k in 'ABCD'], grid=True, choicesT=[chT.get(k) for k in 'ABCD'])
+                items.append(rec); continue
             if t.startswith('i') and any(w[0] > 250 for w in labs):
                 st = trim(im.crop((int(30 * S), int(top * S), int(585 * S), int(bot * S))))
                 rec.update(stem=enc(st), choices=None, labels=letters); items.append(rec); continue

@@ -55,9 +55,18 @@ $('#code').addEventListener('input',e=>{e.target.value=e.target.value.toUpperCas
 $('#setup').addEventListener('submit',e=>{e.preventDefault();curTab='gan';let code=$('#code').value.trim();if(!code){code=newCode();$('#code').value=code;}
   const secs=document.querySelector('input[name="sections"]:checked').value;const timing=document.querySelector('input[name="timing"]:checked').value;const level=document.querySelector('input[name="flevel"]:checked').value,mlevel=document.querySelector('input[name="mlevel"]:checked').value;const cfg=cfgFromForm();cfg.practice=(document.querySelector('input[name="pmode"]:checked')||{}).value==='practice';store.set('fm-cfg2',cfg);store.set('fm-player',$('#pname').value.trim());const src=(document.querySelector('input[name="qsrc"]:checked')||{}).value||'rand';store.set('fm-qsrc',src);let order=secs==='both'?['fold','mech']:[secs];if(src==='sg')order=order.map(s=>s==='concept'?'sgmech':s==='net'?'net':'sg'+s);startRun(code,order,timing,level,mlevel,cfg);});
 /* ---------- tap a wide picture to enlarge it ---------- */
-function zoomOpen(svg){const o=document.createElement('div');o.className='zoomov';o.innerHTML=`<div class="zoombar"><span>Pinch or scroll to look around</span><button type="button" class="btn small">Close ✕</button></div><div class="zoombox">${svg.outerHTML}</div>`;
-  document.body.appendChild(o);const s=o.querySelector('svg');s.style.maxWidth='none';s.style.width=Math.max(window.innerWidth*1.9,700)+'px';s.style.maxHeight='none';
+function zoomOpen(svg,graph){const o=document.createElement('div');o.className='zoomov';o.innerHTML=`<div class="zoombar"><span>${graph&&window.innerWidth>=700?'Enlarged choice':'Pinch or scroll to look around'}</span><button type="button" class="btn small">Close ✕</button></div><div class="zoombox${svg.classList.contains('gr')?' gr-z':''}">${svg.outerHTML}</div>`;
+  document.body.appendChild(o);const s=o.querySelector('svg');s.style.maxWidth='none';s.style.maxHeight='none';
+  if(graph){/* answer-choice graph: big enough to read every grid line and label; fills the screen on a computer, wider than the screen (pan) on a phone */
+    const vb=(svg.getAttribute('viewBox')||'0 0 1 1').split(' ').map(Number),ar=vb[3]/vb[2],W=window.innerWidth,H=window.innerHeight-70;
+    s.style.width=Math.round(W<700?W*1.8:Math.min(W-40,H/ar))+'px';s.style.margin='0 auto';}
+  else s.style.width=Math.max(window.innerWidth*1.9,700)+'px';
+  o.querySelector('button').focus();
   const close=()=>o.remove();o.querySelector('button').onclick=close;document.addEventListener('keydown',function f(e){if(e.key==='Escape'){close();document.removeEventListener('keydown',f);}});}
+/* graph answer choices: tapping the picture enlarges it and does NOT pick the answer (the label's default action is cancelled) */
+const gfigOf=t=>t&&t.closest&&t.closest('.choices.graphs .gfig, .rch.graphs .gfig');
+document.addEventListener('click',e=>{const f=gfigOf(e.target);if(!f)return;e.preventDefault();e.stopPropagation();zoomOpen(f.querySelector('svg'),true);},true);
+document.addEventListener('keydown',e=>{const f=gfigOf(e.target);if(!f||(e.key!=='Enter'&&e.key!==' '))return;e.preventDefault();e.stopPropagation();zoomOpen(f.querySelector('svg'),true);},true);
 document.addEventListener('click',e=>{const s=e.target.closest&&e.target.closest('#figure svg, .ritem .figure svg');if(!s)return;const vb=(s.getAttribute('viewBox')||'').split(' ').map(Number);
   if(vb[2]>900&&s.getBoundingClientRect().width<vb[2]*0.6)zoomOpen(s);});
 /* ---------- ETA math tab ---------- */
@@ -111,6 +120,10 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState!==
   autoSaveAll();});
 window.addEventListener('pagehide',autoSaveAll);
 const SRO='position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)';
+const isGraphQ=it=>it.skill==='Math'&&!!it.grid;
+function graphBody(c,i){return c.svg?`<span class="gfig" role="button" tabindex="0" aria-label="Enlarge choice ${LET[i]}">${c.svg}</span>`:`<div class="mch">${c.h||esc(c.t)}</div>`;}
+/* shown big, the drawn graphs' built-in margins become wide empty bands: frame each one to its drawing (display only) */
+function tightGraphs(root){root.querySelectorAll('.gfig svg.gr').forEach(s=>{try{const b=s.getBBox();if(b.width>0&&b.height>0)s.setAttribute('viewBox',[b.x-3,b.y-3,b.width+6,b.height+6].map(v=>+v.toFixed(1)).join(' '));}catch(e){}});}
 function choiceBody(c,pics){return pics?(c.svg||`<div class="mch">${c.h||esc(c.t)}</div>`):`<span class="ctext${c.h?' mch':''}">${c.h||esc(c.t)}</span>`;}
 function stemHtml(it,n){if(it.stemH)return `<span class="qn">${n}.</span>${it.stemH}`;return (it.type==='fold'||it.type==='cubenet'||it.type==='sgfold')?`<span class="qn">${n}.</span><span style="${SRO}">${esc(it.stem)}</span>`:`<span class="qn">${n}.</span>${esc(it.stem)}`;}
 function items(){return run.test[run.order[run.sIdx]];}
@@ -118,8 +131,10 @@ function renderQ(){
   const sec=run.order[run.sIdx],list=items(),it=list[run.q];
   $('#secname').textContent=SEC[sec].name;$('#qpos').textContent=`Question ${run.q+1} of ${list.length}`;
   $('#stem').innerHTML=stemHtml(it,run.q+1);$('#figure').innerHTML=it.svg;$('#figure').hidden=!it.svg;{const s=[...document.querySelectorAll('#figure svg')].sort((p,q)=>(+(q.getAttribute('viewBox')||'0 0 0').split(' ')[2])-(+(p.getAttribute('viewBox')||'0 0 0').split(' ')[2]))[0];const vb=s?(s.getAttribute('viewBox')||'').split(' ').map(Number):[];if(vb[2]>900&&s.getBoundingClientRect().width<vb[2]*0.6)$('#figure').insertAdjacentHTML('beforeend','<span class="zoomhint">Tap the picture to enlarge</span>');}
-  const pics=!!it.choices[0].svg||!!it.grid;const fs=$('#choices');fs.className='choices'+(pics?' pics':'');
-  fs.innerHTML='<legend>Answer choices</legend>'+it.choices.map((c,i)=>`<label class="choice" for="c${i}"><input type="radio" name="ans" id="c${i}" value="${i}"${run.ans[it.id]===i?' checked':''}><span class="bubble" aria-hidden="true">${LET[i]}</span>${choiceBody(c,pics)}${pics&&c.svg?`<span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${LET[i]}: ${esc(c.t)}</span>`:''}</label>`).join('');
+  const pics=!!it.choices[0].svg||!!it.grid;const gq=isGraphQ(it);const fs=$('#choices');fs.className='choices'+(pics?' pics':'')+(gq?' graphs':'');
+  if(gq)fs.innerHTML='<legend>Answer choices</legend><p class="ghint">Tap a picture to enlarge it. Tap the letter bar to choose.</p>'+it.choices.map((c,i)=>`<label class="choice" for="c${i}"><input type="radio" name="ans" id="c${i}" value="${i}"${run.ans[it.id]===i?' checked':''}><span class="gpick"><span class="bubble" aria-hidden="true">${LET[i]}</span><span class="gpick-t" aria-hidden="true"></span></span>${graphBody(c,i)}${c.svg?`<span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${LET[i]}: ${esc(c.t)}</span>`:''}</label>`).join('');
+  else fs.innerHTML='<legend>Answer choices</legend>'+it.choices.map((c,i)=>`<label class="choice" for="c${i}"><input type="radio" name="ans" id="c${i}" value="${i}"${run.ans[it.id]===i?' checked':''}><span class="bubble" aria-hidden="true">${LET[i]}</span>${choiceBody(c,pics)}${pics&&c.svg?`<span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${LET[i]}: ${esc(c.t)}</span>`:''}</label>`).join('');
+  if(gq)tightGraphs(fs);
   fs.querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{if(isPrac()){pracAnswer(+inp.value);return;}run.ans[it.id]=+inp.value;renderGrid();saveRun('active');}));
   pracRender(it);
   $('#flagbtn').setAttribute('aria-pressed',run.flag[it.id]?'true':'false');$('#flagbtn').textContent=run.flag[it.id]?'Flagged':'Flag';
@@ -181,13 +196,13 @@ function showResults(){
 }
 function renderReview(filter){
   let html='';run.order.forEach(sec=>{run.test[sec].forEach((it,i)=>{const a=run.ans[it.id],ok=a===it.correct,blank=a===undefined;
-    if(filter==='miss'&&ok)return;if(filter==='flag'&&!run.flag[it.id])return;const pics=!!it.choices[0].svg||!!it.grid;
-    const ch=it.choices.map((c,j)=>`<div class="rc${j===it.correct?' is-correct':''}${j===a&&!ok?' is-picked':''}"><span class="bubble">${LET[j]}</span>${choiceBody(c,pics)}</div>`).join('');
+    if(filter==='miss'&&ok)return;if(filter==='flag'&&!run.flag[it.id])return;const pics=!!it.choices[0].svg||!!it.grid;const gq=isGraphQ(it);
+    const ch=it.choices.map((c,j)=>`<div class="rc${j===it.correct?' is-correct':''}${j===a&&!ok?' is-picked':''}"><span class="bubble">${LET[j]}</span>${gq?graphBody(c,j):choiceBody(c,pics)}</div>`).join('');
     const why=(!ok&&!blank&&it.choices[a].note)?`<p><b>Your pick (${LET[a]}):</b> ${esc(it.choices[a].note)}</p>`:'';
     html+=`<article class="ritem ${ok?'right':blank?'blank':'wrong'}"><div class="head"><span>${SEC[sec].name} · Q${i+1}${run.flag[it.id]?' · flagged':''}</span><span>${ok?'Correct':blank?'Blank · answer '+LET[it.correct]:'Missed · answer '+LET[it.correct]}</span></div>
-      ${(it.type==='fold'||it.type==='cubenet'||it.type==='sgfold')?'':`<p>${it.stemH||esc(it.stem)}</p>`}${it.svg?`<div class="figure">${it.svg}</div>`:''}<div class="rch${pics?' pics':''}">${ch}</div>
+      ${(it.type==='fold'||it.type==='cubenet'||it.type==='sgfold')?'':`<p>${it.stemH||esc(it.stem)}</p>`}${it.svg?`<div class="figure">${it.svg}</div>`:''}<div class="rch${pics?' pics':''}${gq?' graphs':''}">${ch}</div>
       <div class="why">${why}<p><b>How to get it:</b> ${it.explainH||esc(it.explain)}</p><p class="muted" style="font-size:13px">${esc(it.sub)}</p></div>${G.ANIM.can(it)?`<div class="anim-slot"><button type="button" class="btn small primary anim-go" data-sec="${sec}" data-i="${i}">▶ Watch it worked out</button></div>`:''}</article>`;});});
-  $('#review').innerHTML=html||'<p class="muted">Nothing to show here.</p>';
+  $('#review').innerHTML=html||'<p class="muted">Nothing to show here.</p>';tightGraphs($('#review'));
   $('#review').querySelectorAll('.anim-go').forEach(b=>b.onclick=()=>G.ANIM.mount(b.parentElement,run.test[b.dataset.sec][+b.dataset.i],true));
 }
 
