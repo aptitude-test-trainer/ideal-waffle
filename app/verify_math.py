@@ -191,7 +191,8 @@ for it in items:
             oks = [F(numval(c['t'])) == val for c in it['choices']]; one_right(it, oks)
         elif t == 'etaPoly':
             e = fig_expr(it); e = e.split('=')[-1]
-            vs = letters(e); pts = [{v: F(rnd.randint(-9, 9), rnd.randint(1, 5)) for v in vs} for _ in range(4)]
+            # never 0: with x = 0 or y = 0 every factored form of a common-factor question is 0 and would 'match'
+            vs = letters(e); pts = [{v: F(rnd.choice([k for k in range(-9, 10) if k]), rnd.randint(1, 5)) for v in vs} for _ in range(12)]
             oks = []
             for c in it['choices']:
                 ce = html_to_expr(c['h'])
