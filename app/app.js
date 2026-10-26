@@ -6,7 +6,7 @@ const LET='ABCDE';
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
 function newCode(){const a='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<6;i++)s+=a[Math.floor(Math.random()*a.length)];return s;}
-function show(id){['home','etahome','exam','inter','results','melt','paused'].forEach(x=>$('#'+x).hidden=x!==id);const hm=id==='home'||id==='etahome';$('#tabs').hidden=!hm;$('#shared').hidden=!hm;window.scrollTo(0,0);}
+function show(id){['home','etahome','exam','inter','results','melt','paused'].forEach(x=>$('#'+x).hidden=x!==id);const hm=id==='home'||id==='etahome';$('#tabs').hidden=!hm;$('#brand').hidden=!hm;$('#shared').hidden=!hm;window.scrollTo(0,0);}
 let curTab='gan';try{curTab=localStorage.getItem('fm-tab')==='eta'?'eta':'gan';}catch(e){}
 function setTab(t){curTab=t;try{localStorage.setItem('fm-tab',t);}catch(e){}$('#tab-gan').setAttribute('aria-selected',String(t==='gan'));$('#tab-eta').setAttribute('aria-selected',String(t==='eta'));show(t==='eta'?'etahome':'home');}
 const mmss=s=>{s=Math.max(0,Math.round(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');};

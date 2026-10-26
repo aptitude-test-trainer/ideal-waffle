@@ -466,10 +466,45 @@ details .rules{display:grid;gap:10px;padding-bottom:18px}
 .zoombox.gr-z{background:var(--surface)}
 .zoombar .btn{color:var(--ink)}
 @media (min-width:700px){.choices.graphs,.rch.graphs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- look: graph-paper background, cards with soft shadows, brand bar ---------- */
+:root{--paper:#F4F6F1;--grid-minor:rgba(35,71,166,.065);--grid-major:rgba(35,71,166,.14);--shadow:0 1px 2px rgba(22,32,52,.06),0 6px 20px rgba(22,32,52,.07);--shadow-up:0 2px 4px rgba(22,32,52,.08),0 12px 28px rgba(22,32,52,.10);--line:#CDD2C8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#12151A;--grid-minor:rgba(142,168,242,.045);--grid-major:rgba(142,168,242,.10);--shadow:0 1px 2px rgba(0,0,0,.45),0 6px 20px rgba(0,0,0,.28);--shadow-up:0 2px 4px rgba(0,0,0,.5),0 12px 28px rgba(0,0,0,.35);--line:#353B41}}
+:root[data-theme="dark"]{--paper:#12151A;--grid-minor:rgba(142,168,242,.045);--grid-major:rgba(142,168,242,.10);--shadow:0 1px 2px rgba(0,0,0,.45),0 6px 20px rgba(0,0,0,.28);--shadow-up:0 2px 4px rgba(0,0,0,.5),0 12px 28px rgba(0,0,0,.35);--line:#353B41}
+body{background:transparent}
+html{background-color:var(--paper);background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);background-size:120px 120px,120px 120px,24px 24px,24px 24px;background-position:-1px -1px}
+.brand{display:flex;align-items:center;gap:12px;padding-top:18px}
+.brand .logo{width:42px;height:42px;flex:none;border-radius:10px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:var(--shadow)}
+.brand .logo svg{width:28px;height:28px}
+.brand b{display:block;font:700 23px/1 var(--display);letter-spacing:.02em}
+.brand .bsub{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.tabs{padding-top:14px}
+.tabs button{box-shadow:var(--shadow);transition:box-shadow .15s,border-color .15s}
+.tabs button:hover{box-shadow:var(--shadow-up)}
+#home>.hero,#etahome>.hero{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 22px 24px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+#home>.hero::before,#etahome>.hero::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(var(--accent),var(--mark))}
+#home>.hero .eyebrow,#etahome>.hero .eyebrow{color:var(--accent)}
+.spec,.setup,details,.figure,.panel,.ritem,.melt-card,.resume-panel,.confirm{box-shadow:var(--shadow)}
+.spec,.setup,details,.figure,.panel,.ritem{border-width:1px}
+.choice{border-width:1px;box-shadow:0 1px 2px rgba(22,32,52,.05);transition:box-shadow .15s,border-color .15s,transform .15s}
+.choice:hover{box-shadow:var(--shadow-up)}
+.seg label{transition:border-color .15s,background .15s}
+.btn{transition:box-shadow .15s,border-color .15s,filter .15s}
+.btn.primary{box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 4px 12px rgba(35,71,166,.28)}
+.btn:not(.primary):not(.heat){box-shadow:0 1px 2px rgba(22,32,52,.06)}
+.topbar{background:color-mix(in srgb,var(--paper) 86%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 4px 14px rgba(22,32,52,.06)}
+.clock{box-shadow:inset 0 1px 2px rgba(22,32,52,.06)}
+.stem{background:color-mix(in srgb,var(--paper) 70%,transparent);border-radius:8px}
+summary{list-style:none}summary::-webkit-details-marker{display:none}
+summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg) translate(-3px,-3px);transition:transform .2s}
+details[open]>summary::after{transform:rotate(225deg) translate(-3px,-3px)}
+.disclaimer{background:color-mix(in srgb,var(--paper) 80%,transparent);border-radius:8px;padding:14px 4px 0}
+@media (prefers-reduced-motion:reduce){.choice,.btn,.tabs button,summary::after{transition:none}}
 </style>
 
 <div class="wrap">
 
+<header class="brand" id="brand"><span class="logo" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none"><path d="M4 9h20M4 14h20M4 19h20M9 4v20M14 4v20M19 4v20" stroke="currentColor" stroke-opacity=".35" stroke-width="1"/><path d="M15.5 3.5 8 15.5h5.5L11.5 24.5 20 11.5h-5.5z" fill="var(--mark)" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></span><span><b>Aptitude Trainer</b><span class="bsub">Practice for IBEW apprenticeship aptitude tests</span></span></header>
 <nav class="tabs" id="tabs" role="tablist" aria-label="Which test">
   <button type="button" role="tab" id="tab-gan" aria-selected="true" aria-controls="home"><b>GAN Battery</b><span>Math, mechanical &amp; paper folding</span></button>
   <button type="button" role="tab" id="tab-eta" aria-selected="false" aria-controls="etahome"><b>Electrical Training Alliance</b><span>Algebra &amp; functions</span></button>
