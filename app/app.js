@@ -1,7 +1,7 @@
 (function(){
 'use strict';
 const G=window.GEN;const $=s=>document.querySelector(s);
-const SEC={fold:{name:'Paper Folding',min:15,pace:38,count:24,choices:5},mech:{name:'Mechanical Reasoning',min:20,pace:27,count:45,choices:3},concept:{name:'Tricky Concepts Drill',min:20,pace:27,count:45,choices:3},net:{name:'Box Folding Drill',min:10,pace:40,count:15,choices:4},sgfold:{name:'Study Guide: Paper Folding',min:15,pace:38,count:24,choices:5},sgmech:{name:'Study Guide: Mechanical',min:20,pace:27,count:45,choices:'2 to 4'},sgnet:{name:'Study Guide: Box Folding',min:10,pace:40,count:15,choices:4},eta:{name:'Algebra & Functions',min:46,pace:84,count:33,choices:4},sgeta:{name:'Study Guide: Algebra & Functions',min:46,pace:84,count:33,choices:4}};
+const SEC={fold:{name:'Paper Folding',min:15,pace:38,count:24,choices:5},mech:{name:'Mechanical Reasoning',min:20,pace:27,count:45,choices:3},concept:{name:'Tricky Concepts Drill',min:20,pace:27,count:45,choices:3},net:{name:'Box Folding Drill',min:10,pace:40,count:15,choices:4},sgfold:{name:'Study Guide: Paper Folding',min:15,pace:38,count:24,choices:5},sgmech:{name:'Study Guide: Mechanical',min:20,pace:27,count:45,choices:'2 to 4'},sgnet:{name:'Study Guide: Box Folding',min:10,pace:40,count:15,choices:4},eta:{name:'Algebra & Functions',min:46,pace:84,count:33,choices:4},ncomp:{name:'Numerical Computation',min:26,pace:52,count:30,choices:5},nreason:{name:'Numerical Reasoning',min:22,pace:66,count:20,choices:5},sgeta:{name:'Study Guide: Algebra & Functions',min:46,pace:84,count:33,choices:4}};
 const LET='ABCDE';
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
@@ -42,18 +42,18 @@ function renderSaved(){const all=Object.values(store.get(SAVES,{})).sort((a,b)=>
   $('#saved').querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>resumeState(store.get(SAVES,{})[b.dataset.r]));
   $('#saved').querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{if(b.dataset.armed){dropSave(b.dataset.d);const bd=store.get(BOARD,{});if(bd[b.dataset.d]&&bd[b.dataset.d].status!=='finished'){bd[b.dataset.d].status='finished';store.set(BOARD,bd);}renderSaved();renderBoard();}else{b.dataset.armed='1';b.textContent='Tap again to delete';}});}
 function cfgFromForm(){const g=(id,d,lo,hi)=>{const n=Math.round(+$('#'+id).value);return isFinite(n)&&n>=lo&&n<=hi?n:d;};
-  return{fold:{min:g('fold-min',15,1,180),count:g('fold-n',24,1,150)},mech:{min:g('mech-min',20,1,180),count:g('mech-n',45,1,150)},concept:{min:g('concept-min',20,1,180),count:g('concept-n',45,1,150)},net:{min:10,count:15}};}
-$('#cdefault').onclick=()=>{[['fold-min',15],['fold-n',24],['mech-min',20],['mech-n',45],['concept-min',20],['concept-n',45]].forEach(([i,v])=>$('#'+i).value=v);store.set('fm-cfg2',null);};
+  return{fold:{min:g('fold-min',15,1,180),count:g('fold-n',24,1,150)},mech:{min:g('mech-min',20,1,180),count:g('mech-n',45,1,150)},concept:{min:g('concept-min',20,1,180),count:g('concept-n',45,1,150)},ncomp:{min:g('ncomp-min',26,1,180),count:g('ncomp-n',30,1,150)},nreason:{min:g('nreason-min',22,1,180),count:g('nreason-n',20,1,150)},net:{min:10,count:15}};}
+$('#cdefault').onclick=()=>{[['fold-min',15],['fold-n',24],['mech-min',20],['mech-n',45],['concept-min',20],['concept-n',45],['ncomp-min',26],['ncomp-n',30],['nreason-min',22],['nreason-n',20]].forEach(([i,v])=>$('#'+i).value=v);store.set('fm-cfg2',null);};
 {const c=store.get('fm-cfg2',null);if(c&&c.practice){const el=document.getElementById('pm-prac');if(el)el.checked=true;}}
 {const q=store.get('fm-qsrc','rand');const el=document.getElementById(q==='sg'?'src-sg':'src-rand');if(el)el.checked=true;}
-{const c=store.get('fm-cfg2',null);if(c){['fold','mech','concept'].forEach(s=>{$('#'+s+'-min').value=c[s].min;$('#'+s+'-n').value=c[s].count;});}}
+{const c=store.get('fm-cfg2',null);if(c){['fold','mech','concept','ncomp','nreason'].forEach(s=>{if(c[s]){$('#'+s+'-min').value=c[s].min;$('#'+s+'-n').value=c[s].count;}});}}
 
 /* ---------- home ---------- */
 $('#code').value=newCode();
 $('#newcode').onclick=()=>{$('#code').value=newCode();};
 $('#code').addEventListener('input',e=>{e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'');});
 $('#setup').addEventListener('submit',e=>{e.preventDefault();curTab='gan';let code=$('#code').value.trim();if(!code){code=newCode();$('#code').value=code;}
-  const secs=document.querySelector('input[name="sections"]:checked').value;const timing=document.querySelector('input[name="timing"]:checked').value;const level=document.querySelector('input[name="flevel"]:checked').value,mlevel=document.querySelector('input[name="mlevel"]:checked').value;const cfg=cfgFromForm();cfg.practice=(document.querySelector('input[name="pmode"]:checked')||{}).value==='practice';store.set('fm-cfg2',cfg);store.set('fm-player',$('#pname').value.trim());const src=(document.querySelector('input[name="qsrc"]:checked')||{}).value||'rand';store.set('fm-qsrc',src);let order=secs==='both'?['fold','mech']:[secs];if(src==='sg')order=order.map(s=>s==='concept'?'sgmech':s==='net'?'net':'sg'+s);startRun(code,order,timing,level,mlevel,cfg);});
+  const secs=document.querySelector('input[name="sections"]:checked').value;const timing=document.querySelector('input[name="timing"]:checked').value;const level=document.querySelector('input[name="flevel"]:checked').value,mlevel=document.querySelector('input[name="mlevel"]:checked').value;const cfg=cfgFromForm();cfg.practice=(document.querySelector('input[name="pmode"]:checked')||{}).value==='practice';store.set('fm-cfg2',cfg);store.set('fm-player',$('#pname').value.trim());const src=(document.querySelector('input[name="qsrc"]:checked')||{}).value||'rand';store.set('fm-qsrc',src);let order=secs==='full'?['ncomp','nreason','mech','fold']:secs==='math'?['ncomp','nreason']:secs==='both'?['fold','mech']:[secs];if(src==='sg')order=order.map(s=>s==='concept'?'sgmech':s==='net'||s==='ncomp'||s==='nreason'?s:'sg'+s);startRun(code,order,timing,level,mlevel,cfg);});
 /* ---------- tap a wide picture to enlarge it ---------- */
 function zoomOpen(svg,graph){const o=document.createElement('div');o.className='zoomov';o.innerHTML=`<div class="zoombar"><span>${graph&&window.innerWidth>=700?'Enlarged choice':'Pinch or scroll to look around'}</span><button type="button" class="btn small">Close ✕</button></div><div class="zoombox${svg.classList.contains('gr')?' gr-z':''}">${svg.outerHTML}</div>`;
   document.body.appendChild(o);const s=o.querySelector('svg');s.style.maxWidth='none';s.style.maxHeight='none';
@@ -86,10 +86,10 @@ function renderHistory(){const h=store.get('fm-history',[]);$('#hist-wrap').hidd
 renderHistory();
 
 /* ---------- exam ---------- */
-const DEF_CFG={fold:{min:15,count:24},mech:{min:20,count:45},concept:{min:20,count:45},net:{min:10,count:15}};
+const DEF_CFG={fold:{min:15,count:24},mech:{min:20,count:45},concept:{min:20,count:45},net:{min:10,count:15},ncomp:{min:26,count:30},nreason:{min:22,count:20}};
 const SGBASE={sgfold:'fold',sgmech:'mech',sgnet:'net',sgeta:'eta'};
 const secMin=sec=>{const k=SGBASE[sec]||sec;return run&&run.cfg&&run.cfg[k]?run.cfg[k].min:SEC[sec].min;};
-function counts(cfg){if(!cfg.net)cfg.net={min:10,count:15};if(!cfg.eta)cfg.eta={min:46,count:33};return{fold:cfg.fold.count,mech:cfg.mech.count,concept:cfg.concept.count,net:cfg.net.count,eta:cfg.eta.count};}
+function counts(cfg){if(!cfg.net)cfg.net={min:10,count:15};if(!cfg.eta)cfg.eta={min:46,count:33};if(!cfg.ncomp)cfg.ncomp={min:26,count:30};if(!cfg.nreason)cfg.nreason={min:22,count:20};return{fold:cfg.fold.count,mech:cfg.mech.count,concept:cfg.concept.count,net:cfg.net.count,eta:cfg.eta.count,ncomp:cfg.ncomp.count,nreason:cfg.nreason.count};}
 function startRun(code,order,timing,level,mlevel,cfg){
   level=level||'std';mlevel=mlevel||'std';cfg=cfg||DEF_CFG;const test=G.buildTest(code,level,mlevel,counts(cfg));
   run={tout:{},bank:0,rid:rcode('T'),name:player(),code,order,timing,level,mlevel,cfg,test,sIdx:0,q:0,ans:{},flag:{},used:{},timedOut:{},remaining:0,elapsed:0,stage:'exam'};

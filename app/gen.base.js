@@ -2019,7 +2019,8 @@ function buildTest(code,level,mlevel,counts){mlevel=mlevel||'std';const mk2=mlev
   const net=Array.from({length:nN},(_,i)=>{let it,salt=0;do{it=genCubeNet(hashSeed(code,'netdrill',level||'std',i,salt++),nd);}while(seen.has(sig(it))&&salt<50);seen.add(sig(it));it.id='N'+(i+1);return it;});
   const sg=sgItems(code,counts);
   const eta=ETA.buildMath(code,counts.eta||33);const sgeta=sgEtaItems(code,counts.eta||33);
-  return {fold,mech,concept,net,sgfold:sg.sgfold,sgmech:sg.sgmech,sgnet:sg.sgnet,eta,sgeta};
+  const ncomp=GANM.build(code,'ncomp',Math.max(1,Math.min(150,counts.ncomp||30))),nreason=GANM.build(code,'nreason',Math.max(1,Math.min(150,counts.nreason||20)));
+  return {fold,mech,concept,net,sgfold:sg.sgfold,sgmech:sg.sgmech,sgnet:sg.sgnet,eta,sgeta,ncomp,nreason};
 }
 /* ---- endless mode: one question at a time, harder as the level climbs ---- */
 const ALL_MECH=CALC_TYPES.concat(CONCEPT_TYPES);
@@ -2027,6 +2028,6 @@ function endlessDiffs(level){const fd=level<=1?1:level<=3?2:level<=5?3:level<=7?
 function endlessItem(seed,level,recent){const R=RNG(seed);const {fd,md}=endlessDiffs(level);recent=recent||[];
   if(R.chance(0.4)){const it=genFold(hashSeed(seed,'f'),fd);it.sec='fold';return it;}
   let t;for(let k=0;k<20;k++){t=R.pick(ALL_MECH);if(!recent.includes(t))break;}const it=GENS[t](hashSeed(seed,'m',t),md);it.sec='mech';return it;}
-const API={PF:{clipPoly,nextShape,fRefl,moved,fSide,ALL_PTS,N2,area},ETA,ANIM,buildTest,endlessItem,endlessDiffs,genFold,genCubeNet,CALC_TYPES,GENS,CGENS,hashSeed,RNG,MECH_PLAN,CONCEPT_TYPES};
+const API={PF:{clipPoly,nextShape,fRefl,moved,fSide,ALL_PTS,N2,area},ETA,GANM,ANIM,buildTest,endlessItem,endlessDiffs,genFold,genCubeNet,CALC_TYPES,GENS,CGENS,hashSeed,RNG,MECH_PLAN,CONCEPT_TYPES};
 if(typeof module!=='undefined'&&module.exports)module.exports=API;else root.GEN=API;
 })(typeof window!=='undefined'?window:this);
