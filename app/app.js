@@ -1,7 +1,7 @@
 (function(){
 'use strict';
 const G=window.GEN;const $=s=>document.querySelector(s);
-const SEC={fold:{name:'Paper Folding',min:15,pace:38,count:24,choices:5},mech:{name:'Mechanical Reasoning',min:20,pace:27,count:45,choices:3},concept:{name:'Tricky Concepts Drill',min:20,pace:27,count:45,choices:3},net:{name:'Box Folding Drill',min:10,pace:40,count:15,choices:4},sgfold:{name:'Study Guide: Paper Folding',min:15,pace:38,count:24,choices:5},sgmech:{name:'Study Guide: Mechanical',min:20,pace:27,count:45,choices:'2 to 4'},sgnet:{name:'Study Guide: Box Folding',min:10,pace:40,count:15,choices:4},eta:{name:'Algebra & Functions',min:46,pace:84,count:33,choices:4},ncomp:{name:'Numerical Computation',min:26,pace:52,count:30,choices:5},nreason:{name:'Numerical Reasoning',min:22,pace:66,count:20,choices:5},sgeta:{name:'Study Guide: Algebra & Functions',min:46,pace:84,count:33,choices:4}};
+const SEC={fold:{name:'Paper Folding',min:15,pace:38,count:24,choices:5},mech:{name:'Mechanical Reasoning',min:20,pace:27,count:45,choices:3},concept:{name:'Tricky Concepts Drill',min:20,pace:27,count:45,choices:3},net:{name:'Box Folding Drill',min:10,pace:40,count:15,choices:4},sgfold:{name:'Study Guide: Paper Folding',min:15,pace:38,count:24,choices:5},sgmech:{name:'Study Guide: Mechanical',min:20,pace:27,count:45,choices:'2 to 4'},sgnet:{name:'Study Guide: Box Folding',min:10,pace:40,count:15,choices:4},eta:{name:'Algebra & Functions',min:46,pace:84,count:33,choices:4},ncomp:{name:'Numerical Computation',min:26,pace:52,count:30,choices:5},nreason:{name:'Numerical Reasoning',min:22,pace:66,count:20,choices:5},sgncomp:{name:'Study Guide: Numerical Computation',min:26,pace:52,count:30,choices:'4 to 5'},sgnreason:{name:'Study Guide: Numerical Reasoning',min:22,pace:66,count:17,choices:5},sgeta:{name:'Study Guide: Algebra & Functions',min:46,pace:84,count:33,choices:4}};
 const LET='ABCDE';
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
@@ -44,7 +44,7 @@ function renderSaved(){const all=Object.values(store.get(SAVES,{})).sort((a,b)=>
 function cfgFromForm(){const g=(id,d,lo,hi)=>{const n=Math.round(+$('#'+id).value);return isFinite(n)&&n>=lo&&n<=hi?n:d;};
   return{fold:{min:g('fold-min',15,1,180),count:g('fold-n',24,1,150)},mech:{min:g('mech-min',20,1,180),count:g('mech-n',45,1,150)},concept:{min:g('concept-min',20,1,180),count:g('concept-n',45,1,150)},ncomp:{min:g('ncomp-min',26,1,180),count:g('ncomp-n',30,1,150)},nreason:{min:g('nreason-min',22,1,180),count:g('nreason-n',20,1,150)},net:{min:10,count:15}};}
 $('#cdefault').onclick=()=>{[['fold-min',15],['fold-n',24],['mech-min',20],['mech-n',45],['concept-min',20],['concept-n',45],['ncomp-min',26],['ncomp-n',30],['nreason-min',22],['nreason-n',20]].forEach(([i,v])=>$('#'+i).value=v);store.set('fm-cfg2',null);};
-{const c=store.get('fm-cfg2',null);if(c&&c.practice){const el=document.getElementById('pm-prac');if(el)el.checked=true;}}
+{const c=store.get('fm-cfg2',null);if(c&&c.practice){const el=document.getElementById('pm-prac');if(el)el.checked=true;}if(c&&c.gmlevel){const el=document.getElementById('gml-'+c.gmlevel);if(el)el.checked=true;}}
 {const q=store.get('fm-qsrc','rand');const el=document.getElementById(q==='sg'?'src-sg':'src-rand');if(el)el.checked=true;}
 {const c=store.get('fm-cfg2',null);if(c){['fold','mech','concept','ncomp','nreason'].forEach(s=>{if(c[s]){$('#'+s+'-min').value=c[s].min;$('#'+s+'-n').value=c[s].count;}});}}
 
@@ -53,7 +53,7 @@ $('#code').value=newCode();
 $('#newcode').onclick=()=>{$('#code').value=newCode();};
 $('#code').addEventListener('input',e=>{e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'');});
 $('#setup').addEventListener('submit',e=>{e.preventDefault();curTab='gan';let code=$('#code').value.trim();if(!code){code=newCode();$('#code').value=code;}
-  const secs=document.querySelector('input[name="sections"]:checked').value;const timing=document.querySelector('input[name="timing"]:checked').value;const level=document.querySelector('input[name="flevel"]:checked').value,mlevel=document.querySelector('input[name="mlevel"]:checked').value;const cfg=cfgFromForm();cfg.practice=(document.querySelector('input[name="pmode"]:checked')||{}).value==='practice';store.set('fm-cfg2',cfg);store.set('fm-player',$('#pname').value.trim());const src=(document.querySelector('input[name="qsrc"]:checked')||{}).value||'rand';store.set('fm-qsrc',src);let order=secs==='full'?['ncomp','nreason','mech','fold']:secs==='math'?['ncomp','nreason']:secs==='both'?['fold','mech']:[secs];if(src==='sg')order=order.map(s=>s==='concept'?'sgmech':s==='net'||s==='ncomp'||s==='nreason'?s:'sg'+s);startRun(code,order,timing,level,mlevel,cfg);});
+  const secs=document.querySelector('input[name="sections"]:checked').value;const timing=document.querySelector('input[name="timing"]:checked').value;const level=document.querySelector('input[name="flevel"]:checked').value,mlevel=document.querySelector('input[name="mlevel"]:checked').value;const cfg=cfgFromForm();cfg.gmlevel=(document.querySelector('input[name="gmlevel"]:checked')||{}).value||'std';cfg.practice=(document.querySelector('input[name="pmode"]:checked')||{}).value==='practice';store.set('fm-cfg2',cfg);store.set('fm-player',$('#pname').value.trim());const src=(document.querySelector('input[name="qsrc"]:checked')||{}).value||'rand';store.set('fm-qsrc',src);let order=secs==='full'?['ncomp','nreason','mech','fold']:secs==='math'?['ncomp','nreason']:secs==='both'?['fold','mech']:[secs];if(src==='sg')order=order.map(s=>s==='concept'?'sgmech':s==='net'?'net':'sg'+s);startRun(code,order,timing,level,mlevel,cfg);});
 /* ---------- tap a wide picture to enlarge it ---------- */
 function zoomOpen(svg,graph){const o=document.createElement('div');o.className='zoomov';o.innerHTML=`<div class="zoombar"><span>${graph&&window.innerWidth>=700?'Enlarged choice':'Pinch or scroll to look around'}</span><button type="button" class="btn small">Close ✕</button></div><div class="zoombox${svg.classList.contains('gr')?' gr-z':''}">${svg.outerHTML}</div>`;
   document.body.appendChild(o);const s=o.querySelector('svg');s.style.maxWidth='none';s.style.maxHeight='none';
@@ -87,9 +87,9 @@ renderHistory();
 
 /* ---------- exam ---------- */
 const DEF_CFG={fold:{min:15,count:24},mech:{min:20,count:45},concept:{min:20,count:45},net:{min:10,count:15},ncomp:{min:26,count:30},nreason:{min:22,count:20}};
-const SGBASE={sgfold:'fold',sgmech:'mech',sgnet:'net',sgeta:'eta'};
+const SGBASE={sgfold:'fold',sgmech:'mech',sgnet:'net',sgeta:'eta',sgncomp:'ncomp',sgnreason:'nreason'};
 const secMin=sec=>{const k=SGBASE[sec]||sec;return run&&run.cfg&&run.cfg[k]?run.cfg[k].min:SEC[sec].min;};
-function counts(cfg){if(!cfg.net)cfg.net={min:10,count:15};if(!cfg.eta)cfg.eta={min:46,count:33};if(!cfg.ncomp)cfg.ncomp={min:26,count:30};if(!cfg.nreason)cfg.nreason={min:22,count:20};return{fold:cfg.fold.count,mech:cfg.mech.count,concept:cfg.concept.count,net:cfg.net.count,eta:cfg.eta.count,ncomp:cfg.ncomp.count,nreason:cfg.nreason.count};}
+function counts(cfg){if(!cfg.net)cfg.net={min:10,count:15};if(!cfg.eta)cfg.eta={min:46,count:33};if(!cfg.ncomp)cfg.ncomp={min:26,count:30};if(!cfg.nreason)cfg.nreason={min:22,count:20};return{fold:cfg.fold.count,mech:cfg.mech.count,concept:cfg.concept.count,net:cfg.net.count,eta:cfg.eta.count,ncomp:cfg.ncomp.count,nreason:cfg.nreason.count,gmlevel:cfg.gmlevel||'std'};}
 function startRun(code,order,timing,level,mlevel,cfg){
   level=level||'std';mlevel=mlevel||'std';cfg=cfg||DEF_CFG;const test=G.buildTest(code,level,mlevel,counts(cfg));
   run={tout:{},bank:0,rid:rcode('T'),name:player(),code,order,timing,level,mlevel,cfg,test,sIdx:0,q:0,ans:{},flag:{},used:{},timedOut:{},remaining:0,elapsed:0,stage:'exam'};
@@ -241,32 +241,34 @@ let M=null,mtick=null;
 function meltBestText(){const b=store.get('fm-melt-best',null);$('#melt-best').textContent=b?`Best: ${b.score.toLocaleString()} points · level ${b.level} · longest streak ${b.streak}`:'No runs yet.';}
 meltBestText();
 $('#melt-go').onclick=startMelt;
-function startMelt(){store.set('fm-player',$('#pname').value.trim());M={rid:rcode('M'),name:player(),seed:Math.floor(Math.random()*1e9),n:0,right:0,score:0,streak:0,bestStreak:0,level:1,el:0,t0:Date.now(),recent:[],recentBefore:[],genLevel:1,cur:null,locked:false,byType:{},bank:0};const pc=mpaceRead();M.pf=pc.fold;M.pm=pc.mech;
+function startMelt(){store.set('fm-player',$('#pname').value.trim());M={rid:rcode('M'),name:player(),seed:Math.floor(Math.random()*1e9),n:0,right:0,score:0,streak:0,bestStreak:0,level:1,el:0,t0:Date.now(),recent:[],recentBefore:[],genLevel:1,cur:null,locked:false,byType:{},bank:0};const pc=mpaceRead();M.pf=pc.fold;M.pm=pc.mech;M.pc=pc.comp;M.pr=pc.reason;M.mix=mmixRead();
   enterMelt();nextMelt();}
 function meltEl(){return M.el+(Date.now()-M.t0)/1000;}
 const BANKCAP=60;
-const MPACE={std:[38,27],easy:[60,40]};
-function mpaceGet(){const c=store.get('fm-mpace',null);return c&&c.mode?c:{mode:'std',fold:38,mech:27};}
-function mpaceForm(){const c=mpaceGet();document.querySelector('input[name="mpace"][value="'+c.mode+'"]').checked=true;$('#mp-fold').value=c.fold;$('#mp-mech').value=c.mech;}
-function mpaceRead(){const mode=document.querySelector('input[name="mpace"]:checked').value;const cl=v=>Math.max(5,Math.min(300,Math.round(+v)||5));const c=mode==='custom'?{mode,fold:cl($('#mp-fold').value),mech:cl($('#mp-mech').value)}:{mode,fold:MPACE[mode][0],mech:MPACE[mode][1]};store.set('fm-mpace',c);return c;}
-document.querySelectorAll('input[name="mpace"]').forEach(r=>r.onchange=()=>{if(r.value!=='custom'){$('#mp-fold').value=MPACE[r.value][0];$('#mp-mech').value=MPACE[r.value][1];}});
-['mp-fold','mp-mech'].forEach(i=>$('#'+i).oninput=()=>{document.querySelector('input[name="mpace"][value="custom"]').checked=true;});
+const MPACE={std:[38,27,52,66],easy:[60,40,80,100]};
+function mpaceGet(){const c=store.get('fm-mpace',null);const d={mode:'std',fold:38,mech:27,comp:52,reason:66};return c&&c.mode?Object.assign(d,c):d;}
+function mpaceForm(){const c=mpaceGet();document.querySelector('input[name="mpace"][value="'+c.mode+'"]').checked=true;$('#mp-fold').value=c.fold;$('#mp-mech').value=c.mech;$('#mp-comp').value=c.comp;$('#mp-reason').value=c.reason;
+  const m=store.get('fm-mmix',null);if(m)['fold','mech','math'].forEach(k=>{$('#mx-'+k).checked=m[k]!==false;});}
+function mmixRead(){const m={fold:$('#mx-fold').checked,mech:$('#mx-mech').checked,math:$('#mx-math').checked};if(!m.fold&&!m.mech&&!m.math){m.fold=m.mech=m.math=true;['fold','mech','math'].forEach(k=>$('#mx-'+k).checked=true);}store.set('fm-mmix',m);return m;}
+function mpaceRead(){const mode=document.querySelector('input[name="mpace"]:checked').value;const cl=v=>Math.max(5,Math.min(300,Math.round(+v)||5));const c=mode==='custom'?{mode,fold:cl($('#mp-fold').value),mech:cl($('#mp-mech').value),comp:cl($('#mp-comp').value),reason:cl($('#mp-reason').value)}:{mode,fold:MPACE[mode][0],mech:MPACE[mode][1],comp:MPACE[mode][2],reason:MPACE[mode][3]};store.set('fm-mpace',c);return c;}
+document.querySelectorAll('input[name="mpace"]').forEach(r=>r.onchange=()=>{if(r.value!=='custom'){$('#mp-fold').value=MPACE[r.value][0];$('#mp-mech').value=MPACE[r.value][1];$('#mp-comp').value=MPACE[r.value][2];$('#mp-reason').value=MPACE[r.value][3];}});
+['mp-fold','mp-mech','mp-comp','mp-reason'].forEach(i=>$('#'+i).oninput=()=>{document.querySelector('input[name="mpace"][value="custom"]').checked=true;});
 mpaceForm();
-function qLimit(it,lv){const base=it.sec==='fold'?M.pf:M.pm;return Math.max(5,Math.round(base*Math.max(0.8,1-0.02*(lv-1))));}
+function qLimit(it,lv){const base=it.sec==='fold'?M.pf:it.sec==='ncomp'?(M.pc||52):it.sec==='nreason'?(M.pr||66):M.pm;return Math.max(5,Math.round(base*Math.max(0.8,1-0.02*(lv-1))));}
 function qElapsed(){return (M.qUsed||0)+(Date.now()-M.qT0)/1000;}
 function meltQTick(){if(!M||!M.cur||M.locked)return;const e=qElapsed(),left=Math.max(0,M.qLimit-e),f=left/M.qLimit;$('#m-qt').textContent=Math.ceil(left)+'s';$('#m-ql').textContent=M.bank?`Question time (+${M.bank}s banked)`:'Question time';const b=$('#m-qbar');b.style.width=(f*100)+'%';b.className=f<.25?'low':'';if(left<=0)answerMelt(-1);}
 function enterMelt(){show('melt');$('#m-over').hidden=true;$('#m-play').hidden=false;clearInterval(mtick);M.t0=Date.now();mtick=setInterval(()=>{$('#m-clock').textContent=mmss(meltEl());meltQTick();if(Date.now()-lastAuto>8000){lastAuto=Date.now();saveMelt('active');}},500);}
-function meltState(status){return{k:'M',rid:M.rid,name:M.name,status,saved:Date.now(),seed:M.seed,n:M.n,right:M.right,score:M.score,streak:M.streak,bestStreak:M.bestStreak,level:M.level,el:Math.round(meltEl()),recent:M.recent,recentBefore:M.recentBefore,genLevel:M.genLevel,locked:M.locked,byType:M.byType,bank:M.bank||0,pf:M.pf,pm:M.pm,qUsed:(M.cur&&!M.locked)?Math.round(qElapsed()):0};}
+function meltState(status){return{k:'M',rid:M.rid,name:M.name,status,saved:Date.now(),seed:M.seed,n:M.n,right:M.right,score:M.score,streak:M.streak,bestStreak:M.bestStreak,level:M.level,el:Math.round(meltEl()),recent:M.recent,recentBefore:M.recentBefore,genLevel:M.genLevel,locked:M.locked,byType:M.byType,bank:M.bank||0,pf:M.pf,pm:M.pm,pc:M.pc,pr:M.pr,mix:M.mix||null,qUsed:(M.cur&&!M.locked)?Math.round(qElapsed()):0};}
 function boardPut(status){const bd=store.get(BOARD,{});const answered=M.locked?M.n:M.n-1;if(answered<=0&&!bd[M.rid])return;bd[M.rid]={rid:M.rid,name:M.name,score:M.score,level:M.level,streak:M.bestStreak,answered,right:M.right,time:Math.round(meltEl()),status,date:Date.now()};store.set(BOARD,bd);}
 function saveMelt(status){if(!M||M.over)return;putSave(meltState(status));boardPut(status==='paused'?'paused':'active');}
 function resumeMelt(st){M=Object.assign({},st,{t0:Date.now(),cur:null,byType:st.byType||{}});M.el=st.el||0;M.carry=st.locked?0:(st.qUsed||0);if(!M.pf){M.pf=60;M.pm=40;}if(!M.name)M.name=player();enterMelt();
   if(st.locked){nextMelt();}else{M.n=st.n-1;M.recent=(st.recentBefore||[]).slice();M.level=st.genLevel||st.level;nextMelt();M.level=st.level;}updateMeltBar();saveMelt('active');}
 $('#m-pause').onclick=()=>{clearInterval(mtick);saveMelt('paused');showPaused(meltState('paused'));};
 function meltLevel(){return 1+Math.floor(M.right/4);}
-function nextMelt(){M.n++;M.recentBefore=M.recent.slice();M.genLevel=M.level;let it=null;for(let k=0;k<5&&!it;k++){try{it=G.endlessItem(G.hashSeed(M.seed,M.n,k),M.level,M.recent);}catch(e){it=null;}}
+function nextMelt(){M.n++;M.recentBefore=M.recent.slice();M.genLevel=M.level;let it=null;for(let k=0;k<5&&!it;k++){try{it=G.endlessItem(G.hashSeed(M.seed,M.n,k),M.level,M.recent,M.mix||undefined);}catch(e){it=null;}}
   M.cur=it;M.locked=false;M.qStart=Date.now();M.baseLimit=qLimit(it,M.level);M.qLimit=M.baseLimit+(M.bank||0);M.qUsed=M.carry||0;M.carry=0;M.qT0=Date.now();M.recent.push(it.type);if(M.recent.length>6)M.recent.shift();
   $('#m-stem').innerHTML=stemHtml(it,M.n);$('#m-fig').innerHTML=it.svg;const pics=!!it.choices[0].svg;const fs=$('#m-choices');fs.className='choices'+(pics?' pics':'');
-  fs.innerHTML='<legend>Answer choices</legend>'+it.choices.map((c,i)=>`<button type="button" class="choice" data-i="${i}"><span class="bubble" aria-hidden="true">${LET[i]}</span>${pics?c.svg+`<span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${LET[i]}: ${esc(c.t)}</span>`:`<span class="ctext">${esc(c.t)}</span>`}</button>`).join('');
+  fs.innerHTML='<legend>Answer choices</legend>'+it.choices.map((c,i)=>`<button type="button" class="choice" data-i="${i}"><span class="bubble" aria-hidden="true">${LET[i]}</span>${pics?c.svg+`<span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${LET[i]}: ${esc(c.t)}</span>`:c.h?`<span class="ctext mch">${c.h}</span>`:`<span class="ctext">${esc(c.t)}</span>`}</button>`).join('');
   fs.querySelectorAll('.choice').forEach(b=>b.onclick=()=>answerMelt(+b.dataset.i));$('#m-fb').hidden=true;updateMeltBar();meltQTick();saveMelt('active');window.scrollTo(0,0);}
 function updateMeltBar(){$('#m-lvl').textContent=M.level;$('#m-score').textContent=M.score.toLocaleString();$('#m-heat').style.width=((M.right%4)/4*100)+'%';}
 function answerMelt(i){if(M.locked)return;M.locked=true;const it=M.cur,to=i<0,ok=i===it.correct,secs=qElapsed();const oldLevel=M.level;let pts=0,fast=false;
@@ -308,6 +310,18 @@ function boardHtml(me){const rows=Object.values(store.get(BOARD,{})).sort((a,b)=
     return `<tr class="${r.rid===me?'me':''}"><td>${i+1}</td><td><b>${esc(r.name)}</b><br><span class="muted mono" style="font-size:12px">${esc(r.rid)}</span></td><td class="n"><b>${r.score.toLocaleString()}</b></td><td class="n">${r.level}</td><td class="n">${r.streak}</td><td class="n">${r.right}/${r.answered}</td><td class="n">${mmss(r.time)}</td><td>${r.status==='finished'?'<span class="tag done">Finished</span>':`<span class="tag paused">${r.status==='paused'?'Paused':'Left mid-run'}</span>`}${can?` <button type="button" class="btn small" data-mr="${esc(r.rid)}">Resume</button>`:''}</td></tr>`;}).join('')}</tbody></table>`;}
 function wireBoard(root){root.querySelectorAll('[data-mr]').forEach(b=>b.onclick=()=>resumeState(store.get(SAVES,{})[b.dataset.mr]));}
 function renderBoard(){$('#melt-board').innerHTML=boardHtml(null);wireBoard($('#melt-board'));}
+/* JumpStart Math answer key (the guide prints none): its multiple-choice practice problems, then every drill, handout and word problem */
+function renderKey(){const K=G.GANM,h=K.jsH,L='ABCDE';if(!$('#jskey'))return;
+  const mc=(title,rows)=>`<section><h3>${title}</h3><ol>${rows.join('')}</ol></section>`;
+  let out='<p class="muted kp">The guide says its answers are in an appendix that isn’t in the PDF. Every answer below was worked out by hand and checked again by a separate program. Fractions are in lowest terms, improper fractions as mixed numbers.</p>';
+  out+=mc('Practice Problems: Numerical Computation (pages 34–35)',K.JS_NC.map((q,i)=>`<li><b>${i+1}.</b>${h(q[0])} = ${h(q[1][q[2]])} <span class="muted">(${L[q[2]]})</span>${i===18?`<span class="w">A, ${h('1 9/24')}, is the same amount but not reduced; B is the fully reduced answer.</span>`:i===21?`<span class="w">B, ${h('9/2')}, is the same amount as an improper fraction; the guide writes it as the mixed number in A.</span>`:''}</li>`));
+  out+=mc('Practice: Types of Fractions (page 12)',K.JS_TYPES.map((q,i)=>`<li><b>${i+1}.</b>${q[0]}: ${h(q[1][q[2]])} <span class="muted">(${L[q[2]]})</span></li>`));
+  out+=mc('Practice Problems: Numerical Reasoning (pages 38–39)',K.JS_NR.map((q,i)=>`<li><b>${q[0]==='1'?'Test 1':'Test 2'} · ${i<7?i+1:i-6}.</b>${q[1].split(' ').join(', ')} → <b>${q[2][q[3]]}</b> <span class="muted">(${L[q[3]]})</span><span class="w">${esc(q[4])}</span></li>`));
+  K.JS_KEY.forEach(([title,page,rows])=>{out+=mc(title+(page?` (page ${page})`:''),rows.map(r=>{const [n,e,a,w,k]=r;
+    const body=k==='lcd'?`${h(e)} <span class="muted">→</span> LCD ${a}`:k==='whole'?`${h(e)} = ${h('50 2/3')} → ${a}`:`${h(e)} = ${h(a)}`;
+    return `<li><b>${typeof n==='number'?n+'.':esc(n)+'.'}</b>${body}${w?`<span class="w">${esc(w).replace(/@([^@]+)@/g,(_,x)=>h(x))}</span>`:''}</li>`;}));});
+  $('#jskey').innerHTML=out;}
+renderKey();
 renderSaved();renderBoard();
 document.addEventListener('keydown',e=>{if($('#melt').hidden||e.metaKey||e.ctrlKey||e.altKey)return;if(!M||$('#m-play').hidden)return;const k=e.key.toLowerCase();
   if(M.locked){if(k==='enter'||k==='n'){e.preventDefault();nextMelt();}return;}

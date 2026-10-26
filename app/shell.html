@@ -388,6 +388,7 @@ details .rules{display:grid;gap:10px;padding-bottom:18px}
 .btn.heat{background:var(--heat);border-color:var(--heat);color:var(--heat-ink)}
 .btn.heat:hover{filter:brightness(1.08)}
 .melt-bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin-inline:-16px;padding:10px 16px;border-bottom:2px solid var(--heat);display:grid;gap:8px}
+.jskey{display:grid;gap:14px;padding:6px 2px}.jskey h3{margin:6px 0 2px;font-size:17px}.jskey .kp{font-size:14px;margin:0 0 4px}.jskey ol{list-style:none;margin:0;padding:0;display:grid;gap:6px}.jskey li{font:400 17px/1.6 'Cambria Math','STIX Two Math','Times New Roman',serif}.jskey li b{font-family:var(--body);margin-right:6px}.jskey li .w{font:400 15px/1.45 var(--body);display:block;color:var(--muted)}.jskey .fr{font-size:.8em}
 .mpace{border:1px solid var(--heat);border-radius:8px;padding:10px 12px;margin:10px 0;display:grid;gap:6px}.mpace legend{font-weight:700;padding:0 6px}.mpace-in{display:flex;gap:14px;flex-wrap:wrap}.mpace-in input{width:72px;min-height:36px;font:inherit;padding:2px 6px}
 .qtimer{display:flex;align-items:center;gap:10px;font:600 13px var(--mono,monospace)}.qtimer b{min-width:3ch;text-align:right;font-size:16px}.qbar{flex:1;height:8px;border-radius:4px;background:var(--heat-soft);overflow:hidden}.qbar i{display:block;height:100%;background:var(--heat);transition:width .5s linear}.qbar i.low{background:#d33}
 .melt-bar .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -509,7 +510,7 @@ details .rules{display:grid;gap:10px;padding-bottom:18px}
         <label><input type="radio" name="qsrc" id="src-rand" value="rand" checked><span>Randomized (new questions every test)</span></label>
         <label><input type="radio" name="qsrc" id="src-sg" value="sg"><span>Study guide (exact questions from your study materials, reshuffled)</span></label>
       </div>
-      <p class="muted" id="src-note" style="font-size:14px;margin:6px 0 0">Study guide uses only your study materials: paper folding from the GAN Study Guide and GAN Practice Problems, and mechanical questions from the GAN Study Guide and the Bennett test. Missed questions come with an animated replay. (The box folding drill and the two math sections always use generated questions: the JumpStart Math guide has no answer key.)</p></div>
+      <p class="muted" id="src-note" style="font-size:14px;margin:6px 0 0">Study guide uses only your study materials: paper folding from the GAN Study Guide and GAN Practice Problems, and mechanical questions from the GAN Study Guide and the Bennett test. Missed questions come with an animated replay. Math uses the practice problems in the JumpStart Math guide: 26 computation problems plus the 4 types-of-fractions questions, and the 17 number series from Practice Tests 1 and 2. The guide has no answer key, so those answers were worked out and double-checked here. (The box folding drill always uses generated questions.)</p></div>
     <div class="field" role="radiogroup" aria-labelledby="l-sec"><span id="l-sec">Sections</span>
       <div class="seg">
         <label><input type="radio" name="sections" id="sec-full" value="full" checked><span>Full test, in test-day order (Computation, Reasoning, Mechanical, Paper Folding)</span></label>
@@ -536,6 +537,13 @@ details .rules{display:grid;gap:10px;padding-bottom:18px}
         <label><input type="radio" name="mlevel" id="ml-expert" value="expert"><span>Expert</span></label>
       </div>
       <span class="muted" style="font-size:14px">Hard gives every question its trickiest version with no hints. Expert adds multi-step comparisons: longer gear trains with idlers, levers loaded away from the end, presses and springs built from several parts, and look-alike setups that turn out to be equal. Nothing in it needs numbers or arithmetic. Applies to the mechanical section and the concepts drill.</span></div>
+    <div class="field" role="radiogroup" aria-labelledby="l-gmlevel"><span id="l-gmlevel">Math level</span>
+      <div class="seg">
+        <label><input type="radio" name="gmlevel" id="gml-std" value="std" checked><span>Standard (test-like)</span></label>
+        <label><input type="radio" name="gmlevel" id="gml-hard" value="hard"><span>Hard</span></label>
+        <label><input type="radio" name="gmlevel" id="gml-expert" value="expert"><span>Expert</span></label>
+      </div>
+      <span class="muted" style="font-size:14px">Standard matches the JumpStart Math practice problems. Hard uses three-number sums, mixed numbers on both sides, borrowing across zeros, longer decimals and bigger, faster-changing number series. Expert adds problems where you must do × and ÷ before + and −, fractions mixed with decimals, series whose steps multiply, a multiply step inside a three-step pattern, and series where each number is the sum of the two before. Applies to both math sections.</span></div>
     <div class="field" role="radiogroup" aria-labelledby="l-time"><span id="l-time">Timing</span>
       <div class="seg">
         <label><input type="radio" name="timing" id="t-real" value="real" checked><span>Timed</span></label>
@@ -562,16 +570,24 @@ details .rules{display:grid;gap:10px;padding-bottom:18px}
   <section class="melt-card" aria-labelledby="h-melt">
     <span class="eyebrow">Endless mode</span>
     <div class="title" id="h-melt">MELTDOWN ∞</div>
-    <p>Paper folding and mechanical questions, mixed, one after another with no end. Each question has its own countdown; run out and it counts as a miss. Answer inside half the time for a x1.25 bonus. Time you have left after a correct answer (up to 60 s) carries over to the next question; a miss or a time-out wipes the bank. The limit tightens a little each level, down to 80% of your starting time. Every 4 right answers pushes you up a level and the questions get harder: more folds, corner flaps, turned answers and cube patterns; jammed gears, differential winches and trick "same" answers. Streaks multiply your points.</p>
+    <p>Paper folding, mechanical and math questions, mixed, one after another with no end. Pick what goes in below. Each question has its own countdown; run out and it counts as a miss. Answer inside half the time for a x1.25 bonus. Time you have left after a correct answer (up to 60 s) carries over to the next question; a miss or a time-out wipes the bank. The limit tightens a little each level, down to 80% of your starting time. Every 4 right answers pushes you up a level and the questions get harder: more folds, corner flaps, turned answers and cube patterns; jammed gears, differential winches and trick "same" answers; math moves from test-level problems (levels 1–3) to Hard (4–6) and Expert (7 and up). Streaks multiply your points.</p>
+    <fieldset class="mpace"><legend>Questions to include</legend>
+      <div class="mpace-in"><label><input type="checkbox" id="mx-fold" checked> Paper folding</label><label><input type="checkbox" id="mx-mech" checked> Mechanical</label><label><input type="checkbox" id="mx-math" checked> Math (computation and number series)</label></div>
+    </fieldset>
     <fieldset class="mpace"><legend>Time per question (Level 1)</legend>
-      <label><input type="radio" name="mpace" value="std" checked> <b>Aptitude pace</b> (default): paper folding 38 s, mechanical 27 s <span class="muted">(24 in 15 min, 45 in 20 min)</span></label>
-      <label><input type="radio" name="mpace" value="easy"> <b>Relaxed</b>: paper folding 60 s, mechanical 40 s <span class="muted">(30 in 30 min, 45 in 30 min)</span></label>
+      <label><input type="radio" name="mpace" value="std" checked> <b>Aptitude pace</b> (default): paper folding 38 s, mechanical 27 s, computation 52 s, number series 66 s <span class="muted">(the test-day section paces)</span></label>
+      <label><input type="radio" name="mpace" value="easy"> <b>Relaxed</b>: paper folding 60 s, mechanical 40 s, computation 80 s, number series 100 s</label>
       <label><input type="radio" name="mpace" value="custom"> <b>Custom</b></label>
-      <div class="mpace-in"><label>Paper folding <input type="number" id="mp-fold" min="5" max="300" value="38" inputmode="numeric"> s</label><label>Mechanical <input type="number" id="mp-mech" min="5" max="300" value="27" inputmode="numeric"> s</label></div>
+      <div class="mpace-in"><label>Paper folding <input type="number" id="mp-fold" min="5" max="300" value="38" inputmode="numeric"> s</label><label>Mechanical <input type="number" id="mp-mech" min="5" max="300" value="27" inputmode="numeric"> s</label><label>Computation <input type="number" id="mp-comp" min="5" max="300" value="52" inputmode="numeric"> s</label><label>Number series <input type="number" id="mp-reason" min="5" max="300" value="66" inputmode="numeric"> s</label></div>
     </fieldset>
     <div class="row"><button type="button" class="btn heat" id="melt-go">Start Meltdown</button><span class="muted" id="melt-best"></span></div>
     <div id="melt-board-wrap"><h3 style="margin-bottom:6px">High scores</h3><div class="tablewrap" id="melt-board"></div></div>
   </section>
+
+  <details id="jskey-wrap">
+    <summary>JumpStart Math answer key</summary>
+    <div class="jskey" id="jskey"></div>
+  </details>
 
   <details>
     <summary>The rules that answer most questions</summary>

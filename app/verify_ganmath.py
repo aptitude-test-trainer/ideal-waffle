@@ -1,26 +1,36 @@
 """Independent check of every GAN math item (Numerical Computation + Numerical Reasoning).
 
-Reads ganmathdump.json (node dumpganmath.js N) and re-solves each question from what is SHOWN:
-the expression or series in the picture and the choice text. Nothing from the generator is reused.
-  computation: parse the stacked fractions / mixed numbers / decimals, evaluate with exact Fractions,
-               exactly one choice must equal it and be the marked one; choices distinct and positive;
-               answers in lowest terms (mixed numbers for improper fractions); no inline slash fractions.
+Reads ganmathdump.json (node dumpganmath.js N: N tests at each level std/hard/expert, Meltdown picks,
+and the JumpStart study-guide items) and re-solves each question from what is SHOWN: the expression or
+series in the picture and the choice text. Nothing from the generator is reused.
+  computation: parse the stacked fractions / mixed numbers / decimals, evaluate with exact Fractions
+               (x and / before + and -); exactly one choice must equal it and be the marked one; choices
+               distinct and positive; answers in lowest terms (mixed numbers for improper fractions);
+               no inline slash fractions; the worked explanation ends on the marked answer.
   reasoning:   fit the series with a family of rules (constant step, constant ratio, growing steps,
                steps in a ratio, sum of the two before, two interleaved series, repeating 2- or 3-step
                cycles of + or x). Every rule that fits must agree on the next number, it must be the
                marked choice, and no fitted rule may land on a wrong choice.
+  study guide: the JumpStart guide's own problems with the choices as printed (unreduced or zero choices
+               allowed). If two printed choices equal the answer, the marked one must be the only one in
+               simplest form (reduced, improper fractions as mixed numbers) and the other must carry a note.
+  answer key: every problem in the JumpStart answer key (jskey.json: the guide's drills, handouts and word
+               problems, typed in the guide's notation with a hand-worked answer) is evaluated here from that
+               notation and must equal the hand answer, written in lowest terms (or as the drill asks:
+               lowest common denominator, over 12, as an improper fraction, whole bags).
+  types of fractions: each choice is classified (proper / improper / mixed / unreduced) from what is shown;
+               exactly one choice may be the kind asked for, and it must be the marked one.
 """
 import json, re, sys
 from fractions import Fraction as F
 from math import gcd
 from collections import Counter
 
-MI = '−'
 items = json.load(open('ganmathdump.json'))
 fails = Counter(); msgs = []; warn = Counter()
 def fail(it, why):
-    fails[it['sub']] += 1
-    if len(msgs) < 40: msgs.append(f"  {it['sub']}: {why} | {it['stem']} | {[c['t'] for c in it['choices']]} marked {it['correct']}")
+    fails[it['level'] + ' · ' + it['sub']] += 1
+    if len(msgs) < 40: msgs.append(f"  {it['level']} {it['sub']}: {why} | {it['stem']} | {[c['t'] for c in it['choices']]} marked {it['correct']}")
 
 FR = r'<span class="fr"><span>(\d+)</span><span>(\d+)</span></span>'
 TOK = re.compile(r'\s*(?:(?P<mix>\d+)' + FR.replace('(\\d+)', '(?P<mn>\\d+)', 1).replace('(\\d+)', '(?P<md>\\d+)', 1) +
@@ -47,10 +57,9 @@ def tokens(h):
     return out
 
 def evaluate(tk):
+    if any(t[0] != 'v' for t in tk[0::2]) or any(t[0] != 'op' for t in tk[1::2]) or len(tk) % 2 == 0: raise ValueError('bad order')
     vals = [t[1] for t in tk[0::2]]; ops = [t[1] for t in tk[1::2]]
-    if any(t[0] != 'v' for t in tk[0::2]) or any(t[0] != 'op' for t in tk[1::2]): raise ValueError('bad order')
-    # x and / first, then + and -
-    v = [vals[0]]; o = []
+    v = [vals[0]]; o = []          # x and / first, then + and -
     for op, x in zip(ops, vals[1:]):
         if op == '×': v[-1] = v[-1] * x
         elif op == '÷': v[-1] = v[-1] / x
@@ -60,8 +69,12 @@ def evaluate(tk):
     return r
 
 def visible(h): return re.sub(r'<[^>]+>', '', h or '')
+def simplest(form):
+    if form[0] in ('frac', 'mixed'): return form[1] < form[2] and gcd(form[1], form[2]) == 1
+    return True
 
 def check_comp(it):
+    sg = it['level'] == 'sg'
     m = re.search(r'<div class="mathblk">(.*)</div>', it['fig'], re.S)
     if not m: return fail(it, 'no expression')
     expr = m.group(1).strip()
@@ -69,29 +82,50 @@ def check_comp(it):
     if '/' in visible(expr): return fail(it, 'inline slash fraction in the question')
     try: val = evaluate(tokens(expr[:-1]))
     except Exception as e: return fail(it, f'parse {e}')
-    vals, kinds = [], []
+    vals, forms = [], []
     for c in it['choices']:
         if '/' in visible(c['h']): return fail(it, 'inline slash fraction in a choice')
         tk = tokens(c['h'])
         if len(tk) != 1 or tk[0][0] != 'v': return fail(it, 'choice is not one number: ' + c['t'])
         v, form = tk[0][1], tk[0][2]
-        if form[0] in ('mixed', 'frac'):
-            n, d = form[1], form[2]
-            if not (0 < n < d) or gcd(n, d) != 1: return fail(it, 'choice not in lowest terms / not a proper part: ' + c['t'])
-        if form[0] == 'dec':
-            s = form[1]
-            if s.endswith('0') or s.endswith('.'): return fail(it, 'trailing zero in a decimal choice: ' + s)
-        vals.append(v); kinds.append('dec' if form[0] == 'dec' or (form[0] == 'int' and '.' in expr) else 'frac')
-    if len(set(vals)) != 5: return fail(it, 'two choices have the same value')
-    if any(v <= 0 for v in vals): return fail(it, 'a choice is not positive')
+        if not sg:
+            if form[0] in ('mixed', 'frac') and not simplest(form): return fail(it, 'choice not in lowest terms / not a proper part: ' + c['t'])
+            if form[0] == 'dec' and (form[1].endswith('0') or form[1].endswith('.')): return fail(it, 'trailing zero in a decimal choice: ' + form[1])
+        vals.append(v); forms.append(form)
+    if len(vals) != 5: return fail(it, f'{len(vals)} choices')
+    if not sg:
+        if len(set(vals)) != 5: return fail(it, 'two choices have the same value')
+        if any(v <= 0 for v in vals): return fail(it, 'a choice is not positive')
     right = [i for i, v in enumerate(vals) if v == val]
+    if sg and len(right) > 1:
+        simp = [i for i in right if simplest(forms[i])]
+        if len(simp) != 1: return fail(it, f'{len(right)} printed choices equal the answer, {len(simp)} in simplest form')
+        if any(not it['choices'][i]['note'] for i in right if i != simp[0]): return fail(it, 'equal-valued choice has no note')
+        right = simp
     if len(right) != 1: return fail(it, f'{len(right)} choices equal the answer {val}')
     if right[0] != it['correct']: return fail(it, f'checker picks {right[0]}')
-    dec_q = bool(re.search(r'\d*\.\d', visible(expr)))
-    if dec_q and any(t[2][0] in ('mixed', 'frac') for c in it['choices'] for t in tokens(c['h'])):
+    if not sg and re.search(r'\d*\.\d', visible(expr)) and any(f[0] in ('mixed', 'frac') for f in forms):
         return fail(it, 'decimal question with a fraction choice')
-    # the worked explanation must end on the marked answer
     if it['choices'][it['correct']]['h'] not in (it.get('explainH') or ''): return fail(it, 'explanation does not show the answer')
+
+def check_types(it):
+    ask = it['params']['ask'].lower()
+    def kinds(h):
+        tk = tokens(h)
+        if len(tk) != 1: return set()
+        form = tk[0][2]; k = set()
+        if form[0] == 'mixed': k.add('mixed number')
+        if form[0] == 'frac':
+            n, d = form[1], form[2]
+            if n < d and gcd(n, d) == 1: k.add('proper fraction')
+            if n > d: k.add('improper fraction')
+            if gcd(n, d) > 1: k.add('unreduced fraction')
+        return k
+    want = [w for w in ('proper fraction', 'improper fraction', 'mixed number', 'unreduced fraction') if w in ask and not ('improper' in ask and w == 'proper fraction')]
+    if len(want) != 1: return fail(it, 'cannot tell what is asked')
+    hit = [i for i, c in enumerate(it['choices']) if want[0] in kinds(c['h'])]
+    if len(hit) != 1: return fail(it, f'{len(hit)} choices are a {want[0]}')
+    if hit[0] != it['correct']: return fail(it, f'checker picks {hit[0]}')
 
 # ---------- series ----------
 def const(xs): return len(xs) >= 2 and all(x == xs[0] for x in xs)
@@ -155,22 +189,72 @@ def check_reason(it):
     hit = [v for v in pv if v in vals]
     if len(hit) != 1: return fail(it, f'rules disagree on a listed choice: {preds}')
     if vals.index(hit[0]) != it['correct']: return fail(it, f'checker picks {vals.index(hit[0])} ({preds})')
+    if str(hit[0]) not in (it.get('explainH') or ''): return fail(it, 'explanation does not show the answer')
     if len(pv) > 1: warn['another rule gives a number that is not a choice'] += 1
 
 for it in items:
-    if it['sec'] == 'ncomp': check_comp(it)
+    # fractions are always stacked: no slash in any shown text (notes are shown as plain text)
+    if '/' in visible(it.get('explainH')) or any('/' in (c.get('note') or '') for c in it['choices']): fail(it, 'inline slash fraction in a note or explanation')
+    if it['type'] == 'gsgtype': check_types(it)
+    elif it['sec'] in ('ncomp', 'sgncomp'): check_comp(it)
     else: check_reason(it)
 
-def share(sec):
-    c = Counter(it['correct'] for it in items if it['sec'] == sec); n = sum(c.values())
+# ---------- JumpStart answer key ----------
+NT = re.compile(r'(\d+) (\d+)/(\d+)|(\d+)/(\d+)|(\d*\.\d+)|(\d+)|([+−×÷()])')
+def notation(s):
+    out = []
+    for m in NT.finditer(s):
+        if m.group(1): out.append(f'(F({m.group(1)})+F({m.group(2)},{m.group(3)}))')
+        elif m.group(4): out.append(f'F({m.group(4)},{m.group(5)})')
+        elif m.group(6): out.append(f"F('{m.group(6)}')")
+        elif m.group(7): out.append(f'F({m.group(7)})')
+        else: out.append({'+': '+', '−': '-', '×': '*', '÷': '/', '(': '(', ')': ')'}[m.group(8)])
+    if re.sub(r'[\d\s./+−×÷()]', '', s): raise ValueError('unexpected text in ' + s)
+    return eval(''.join(out), {'F': F})
+def form_of(a):
+    m = re.fullmatch(r'(\d+) (\d+)/(\d+)|(\d+)/(\d+)|(\d*\.\d+)|(\d+)', a)
+    if not m: return None
+    if m.group(1): return ('mixed', int(m.group(2)), int(m.group(3)))
+    if m.group(4): return ('frac', int(m.group(4)), int(m.group(5)))
+    if m.group(6): return ('dec', m.group(6))
+    return ('int', m.group(7))
+nkey = 0
+for title, page, rows in json.load(open('jskey.json')):
+    for r in rows:
+        num, expr, ans = r[0], r[1], r[2]; kind = r[4] if len(r) > 4 else ''
+        it = {'level': 'key', 'sub': title, 'stem': f'{num}. {expr}', 'choices': [{'t': ans}], 'correct': 0}
+        nkey += 1
+        try: v = notation(expr); a = notation(ans)
+        except Exception as e: fail(it, f'cannot read: {e}'); continue
+        f = form_of(ans)
+        if f is None: fail(it, 'answer not a number'); continue
+        if kind == 'lcd':
+            dens = [int(d) for d in re.findall(r'/(\d+)', expr)]; L = 1
+            for d in dens: L = L * d // gcd(L, d)
+            if a != L: fail(it, f'lowest common denominator is {L}')
+        elif kind == 'd12':
+            if f[0] != 'frac' or f[2] != 12 or a != v: fail(it, f'should be {v} over 12')
+        elif kind == 'imp':
+            if f[0] != 'frac' or a != v or gcd(f[1], f[2]) != 1: fail(it, f'improper fraction should be {v}')
+        elif kind == 'whole':
+            if a != int(v): fail(it, f'whole ones in {v} is {int(v)}')
+        else:
+            if a != v: fail(it, f'answer should be {v}')
+            elif f[0] == 'frac' and (f[1] >= f[2] or gcd(f[1], f[2]) != 1): fail(it, 'not in lowest terms / should be a mixed number')
+            elif f[0] == 'mixed' and (f[1] >= f[2] or gcd(f[1], f[2]) != 1): fail(it, 'fraction part not in lowest terms')
+            elif f[0] == 'dec' and f[1].endswith('0'): fail(it, 'trailing zero')
+print('answer key problems checked', nkey)
+
+def share(sec, level):
+    c = Counter(it['correct'] for it in items if it['sec'] == sec and it['level'] == level); n = sum(c.values())
     return {'ABCDE'[k]: round(100 * c[k] / n, 1) for k in range(5)}
-print('items', Counter(it['sec'] for it in items))
+print('items', dict(Counter(it['level'] + ' ' + it['sec'] for it in items)))
 print('by type', dict(Counter(it['sub'] for it in items)))
 print('failures', dict(fails))
 for m in msgs: print(m)
 if warn: print('notes', dict(warn))
-for sec in ('ncomp', 'nreason'): print(sec, 'correct-letter share', share(sec))
-for sec in ('ncomp', 'nreason'):
-    sh = share(sec)
-    if max(sh.values()) - min(sh.values()) > 2: print('ERROR: letters not balanced in', sec); fails['balance'] += 1
+for level in ('std', 'hard', 'expert'):
+    for sec in ('ncomp', 'nreason'):
+        sh = share(sec, level); print(level, sec, 'correct-letter share', sh)
+        if max(sh.values()) - min(sh.values()) > 2: print('ERROR: letters not balanced in', level, sec); fails['balance'] += 1
 sys.exit(1 if fails else 0)
