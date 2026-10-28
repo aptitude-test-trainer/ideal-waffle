@@ -500,6 +500,25 @@ summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2
 details[open]>summary::after{transform:rotate(225deg) translate(-3px,-3px)}
 .disclaimer{background:color-mix(in srgb,var(--paper) 80%,transparent);border-radius:8px;padding:14px 4px 0}
 @media (prefers-reduced-motion:reduce){.choice,.btn,.tabs button,summary::after{transition:none}}
+
+/* ---------- scratch pad ---------- */
+.scratch{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.sc-bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.sc-closed .sc-bar{border-bottom:0}
+.sc-title{font:700 17px/1 var(--display);margin-right:auto;padding-left:4px}
+.sc-btn{min-height:38px;min-width:38px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font:600 14px var(--body);display:inline-flex;align-items:center;justify-content:center;gap:6px;color:var(--ink)}
+.sc-btn.sc-ico{padding:0}
+.sc-btn[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.sc-btn:disabled{opacity:.38;cursor:default}
+.sc-closed .sc-btn:not(.sc-toggle){display:none}
+.sc-area{position:relative;background-color:var(--surface);background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);background-size:120px 120px,120px 120px,24px 24px,24px 24px}
+.sc-area canvas{display:block;width:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair}
+.sc-area.erasing{box-shadow:inset 0 0 0 2px var(--bad)}
+.sc-ring{position:absolute;width:24px;height:24px;margin:-12px 0 0 -12px;border:2px solid var(--bad);border-radius:50%;pointer-events:none;background:color-mix(in srgb,var(--bad) 12%,transparent)}
+.sc-hint{font-size:13px;color:var(--muted);padding:6px 10px 8px}
+.sc-review{margin-top:8px;padding:0 12px}.sc-review summary{min-height:40px;font-size:16px}
+.sc-done{display:block;width:100%;height:auto;max-height:360px;fill:none;stroke:var(--ink);stroke-linecap:round;stroke-linejoin:round;background:var(--surface);margin-bottom:10px}
+@media (max-width:520px){.sc-btn span{display:none}.sc-btn{padding:0}.sc-title{font-size:16px}}
 </style>
 
 <div class="wrap">
@@ -783,6 +802,7 @@ details[open]>summary::after{transform:rotate(225deg) translate(-3px,-3px)}
   <div class="qcard">
     <p class="stem" id="stem"></p>
     <div class="figure" id="figure"></div>
+    <section class="scratch" id="scratch" hidden aria-label="Scratch work"></section>
     <fieldset class="choices" id="choices"><legend>Answer choices</legend></fieldset>
     <div class="fb" id="pfb" hidden></div>
   </div>
@@ -822,6 +842,7 @@ details[open]>summary::after{transform:rotate(225deg) translate(-3px,-3px)}
     <div class="qcard melt-q">
       <p class="stem" id="m-stem"></p>
       <div class="figure" id="m-fig"></div>
+      <section class="scratch" id="m-scratch" hidden aria-label="Scratch work"></section>
       <fieldset class="choices" id="m-choices"><legend>Answer choices</legend></fieldset>
     </div>
     <div class="fb" id="m-fb" hidden aria-live="polite"></div>

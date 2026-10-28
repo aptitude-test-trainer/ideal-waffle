@@ -500,6 +500,25 @@ summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2
 details[open]>summary::after{transform:rotate(225deg) translate(-3px,-3px)}
 .disclaimer{background:color-mix(in srgb,var(--paper) 80%,transparent);border-radius:8px;padding:14px 4px 0}
 @media (prefers-reduced-motion:reduce){.choice,.btn,.tabs button,summary::after{transition:none}}
+
+/* ---------- scratch pad ---------- */
+.scratch{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.sc-bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.sc-closed .sc-bar{border-bottom:0}
+.sc-title{font:700 17px/1 var(--display);margin-right:auto;padding-left:4px}
+.sc-btn{min-height:38px;min-width:38px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font:600 14px var(--body);display:inline-flex;align-items:center;justify-content:center;gap:6px;color:var(--ink)}
+.sc-btn.sc-ico{padding:0}
+.sc-btn[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.sc-btn:disabled{opacity:.38;cursor:default}
+.sc-closed .sc-btn:not(.sc-toggle){display:none}
+.sc-area{position:relative;background-color:var(--surface);background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);background-size:120px 120px,120px 120px,24px 24px,24px 24px}
+.sc-area canvas{display:block;width:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair}
+.sc-area.erasing{box-shadow:inset 0 0 0 2px var(--bad)}
+.sc-ring{position:absolute;width:24px;height:24px;margin:-12px 0 0 -12px;border:2px solid var(--bad);border-radius:50%;pointer-events:none;background:color-mix(in srgb,var(--bad) 12%,transparent)}
+.sc-hint{font-size:13px;color:var(--muted);padding:6px 10px 8px}
+.sc-review{margin-top:8px;padding:0 12px}.sc-review summary{min-height:40px;font-size:16px}
+.sc-done{display:block;width:100%;height:auto;max-height:360px;fill:none;stroke:var(--ink);stroke-linecap:round;stroke-linejoin:round;background:var(--surface);margin-bottom:10px}
+@media (max-width:520px){.sc-btn span{display:none}.sc-btn{padding:0}.sc-title{font-size:16px}}
 </style>
 
 <div class="wrap">
@@ -783,6 +802,7 @@ details[open]>summary::after{transform:rotate(225deg) translate(-3px,-3px)}
   <div class="qcard">
     <p class="stem" id="stem"></p>
     <div class="figure" id="figure"></div>
+    <section class="scratch" id="scratch" hidden aria-label="Scratch work"></section>
     <fieldset class="choices" id="choices"><legend>Answer choices</legend></fieldset>
     <div class="fb" id="pfb" hidden></div>
   </div>
@@ -822,6 +842,7 @@ details[open]>summary::after{transform:rotate(225deg) translate(-3px,-3px)}
     <div class="qcard melt-q">
       <p class="stem" id="m-stem"></p>
       <div class="figure" id="m-fig"></div>
+      <section class="scratch" id="m-scratch" hidden aria-label="Scratch work"></section>
       <fieldset class="choices" id="m-choices"><legend>Answer choices</legend></fieldset>
     </div>
     <div class="fb" id="m-fb" hidden aria-live="polite"></div>
@@ -4627,7 +4648,7 @@ function rcode(prefix){const a='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let s=prefix;fo
 function player(){const v=($('#pname').value||'').trim();return v||'Player 1';}
 $('#pname').value=store.get('fm-player','');$('#pname').addEventListener('change',()=>store.set('fm-player',$('#pname').value.trim()));
 function putSave(st){const all=store.get(SAVES,{});all[st.rid]=st;store.set(SAVES,all);}
-function dropSave(rid){const all=store.get(SAVES,{});delete all[rid];store.set(SAVES,all);}
+function dropSave(rid){const all=store.get(SAVES,{});delete all[rid];store.set(SAVES,all);try{localStorage.removeItem('fm-scratch-'+rid);}catch(e){}}
 function toFull(st){try{return 'X'+btoa(unescape(encodeURIComponent(JSON.stringify(st)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}catch(e){return '';}}
 function fromFull(s){try{s=s.replace(/\s+/g,'').slice(1).replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return JSON.parse(decodeURIComponent(escape(atob(s))));}catch(e){return null;}}
 function copyText(txt,btn,sel){const done=()=>{const o=btn.textContent;btn.textContent='Copied';setTimeout(()=>btn.textContent=o,1500);};
@@ -4700,7 +4721,7 @@ const secMin=sec=>{const k=SGBASE[sec]||sec;return run&&run.cfg&&run.cfg[k]?run.
 function counts(cfg){if(!cfg.net)cfg.net={min:10,count:15};if(!cfg.eta)cfg.eta={min:46,count:33};if(!cfg.ncomp)cfg.ncomp={min:26,count:30};if(!cfg.nreason)cfg.nreason={min:22,count:20};return{fold:cfg.fold.count,mech:cfg.mech.count,concept:cfg.concept.count,net:cfg.net.count,eta:cfg.eta.count,ncomp:cfg.ncomp.count,nreason:cfg.nreason.count,gmlevel:cfg.gmlevel||'std'};}
 function startRun(code,order,timing,level,mlevel,cfg){
   level=level||'std';mlevel=mlevel||'std';cfg=cfg||DEF_CFG;const test=G.buildTest(code,level,mlevel,counts(cfg));
-  run={tout:{},bank:0,rid:rcode('T'),name:player(),code,order,timing,level,mlevel,cfg,test,sIdx:0,q:0,ans:{},flag:{},used:{},timedOut:{},remaining:0,elapsed:0,stage:'exam'};
+  run={scratch:{},tout:{},bank:0,rid:rcode('T'),name:player(),code,order,timing,level,mlevel,cfg,test,sIdx:0,q:0,ans:{},flag:{},used:{},timedOut:{},remaining:0,elapsed:0,stage:'exam'};
   beginSection();
 }
 function beginSection(){const sec=run.order[run.sIdx];run.q=0;run.remaining=secMin(sec)*60;run.elapsed=0;run.stage='exam';enterExam();}
@@ -4717,7 +4738,7 @@ function runState(status){const ser=f=>{const o={};run.order.forEach(s=>{o[s]=ru
     used:run.used,timedOut:run.timedOut,tout:Object.keys(run.tout||{}),lens:run.order.map(s=>run.test[s].length),a:ser(it=>run.ans[it.id]===undefined?'.':String(run.ans[it.id])),f:ser(it=>run.flag[it.id]?'1':'.')};}
 function saveRun(status){if(!run||run.done)return;putSave(runState(status));}
 function resumeRun(st){const test=G.buildTest(st.code,st.level,st.mlevel,counts(st.cfg||DEF_CFG));
-  run={tout:Object.fromEntries((st.tout||[]).map(k=>[k,true])),bank:0,rid:st.rid,name:st.name||player(),code:st.code,order:st.order,timing:st.timing,level:st.level,mlevel:st.mlevel,cfg:st.cfg||DEF_CFG,test,sIdx:st.sIdx,q:st.q,ans:{},flag:{},used:st.used||{},timedOut:st.timedOut||{},remaining:st.remaining,elapsed:st.elapsed||0,stage:st.stage};
+  run={scratch:store.get('fm-scratch-'+st.rid,{}),tout:Object.fromEntries((st.tout||[]).map(k=>[k,true])),bank:0,rid:st.rid,name:st.name||player(),code:st.code,order:st.order,timing:st.timing,level:st.level,mlevel:st.mlevel,cfg:st.cfg||DEF_CFG,test,sIdx:st.sIdx,q:st.q,ans:{},flag:{},used:st.used||{},timedOut:st.timedOut||{},remaining:st.remaining,elapsed:st.elapsed||0,stage:st.stage};
   st.order.forEach(s=>{const A=(st.a&&st.a[s])||'',F=(st.f&&st.f[s])||'';test[s].forEach((it,i)=>{if(A[i]&&A[i]!=='.')run.ans[it.id]=+A[i];if(F[i]==='1')run.flag[it.id]=true;});});
   if(run.stage==='inter'){showInter(run.order[run.sIdx-1]);saveRun('active');}else enterExam();}
 $('#pausebtn').onclick=()=>{clearInterval(tick);saveRun('paused');showPaused(runState('paused'));};
@@ -4728,6 +4749,118 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState!==
   autoSaveAll();});
 window.addEventListener('pagehide',autoSaveAll);
 const SRO='position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)';
+/* ---------- scratch pad: hand-written work under math questions ----------
+   Pen draws (pressure sets the width). Hold the pen still for half a second to switch to the eraser
+   until you lift it (the pen's side button erases too). Select draws a loop around writing; drag the
+   box to move it. Once a pen has been used, fingers and palms scroll instead of drawing. */
+const SC_ICON={pen:'<path d="M3 17.5 4 13 13.5 3.5a2 2 0 0 1 3 3L7 16Z"/><path d="m12 5 3 3"/>',erase:'<path d="M8 17h9"/><path d="M3.6 12.6 11 5.2a2 2 0 0 1 2.8 0l2.4 2.4a2 2 0 0 1 0 2.8L9.6 17H7.4l-3.8-3.8a.6.6 0 0 1 0-.6Z"/>',select:'<path d="M4 4h3M10 4h3M16 4v3M16 10v3M16 16h-3M10 16H7M4 16v-3M4 10V7" stroke-linecap="round"/>',
+  undo:'<path d="M7 5 3 9l4 4"/><path d="M3 9h9a5 5 0 0 1 0 10H9"/>',redo:'<path d="m13 5 4 4-4 4"/><path d="M17 9H8a5 5 0 0 0 0 10h3"/>',del:'<path d="M4 6h12M8 6V4h4v2M6 6l1 11h6l1-11"/>',clear:'<path d="M4 4l12 12M16 4 4 16"/>',more:'<path d="M10 4v12M4 10h12"/>',hand:'<path d="M7 10V4.5a1.5 1.5 0 0 1 3 0V9M10 8.5V3.5a1.5 1.5 0 0 1 3 0V9M13 8.5V5a1.5 1.5 0 0 1 3 0v6a6 6 0 0 1-6 6h-.5a6 6 0 0 1-4.6-2.2L2.6 11.9a1.5 1.5 0 0 1 2.3-1.9L7 12"/>'};
+const scIcon=k=>`<svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true">${SC_ICON[k]}</svg>`;
+const scCap=(el,id)=>{try{el.setPointerCapture(id);}catch(_){}};
+const SCP=Object.assign({open:true,penSeen:false,finger:'draw'},store.get('fm-scratch-prefs',{}));
+const scSavePrefs=()=>store.set('fm-scratch-prefs',SCP);
+function scSvg(page){/* a finished page as a small picture (review screen) */if(!page||!page.s||!page.s.length)return '';const w=page.w||600,h=page.h||320;
+  const d=st=>st.p.length===1?`M${st.p[0][0]} ${st.p[0][1]}h.1`:'M'+st.p.map(q=>q[0]+' '+q[1]).join('L');
+  return `<svg class="sc-done" viewBox="0 0 ${w} ${h}" role="img" aria-label="Your scratch work">${page.s.map(st=>`<path d="${d(st)}" stroke-width="${(st.p.reduce((a,q)=>a+q[2],0)/st.p.length).toFixed(1)}"/>`).join('')}</svg>`;}
+function makePad(host){
+  host.innerHTML=`<div class="sc-bar" role="toolbar" aria-label="Scratch pad tools"><b class="sc-title">Scratch work</b>
+    <button type="button" class="sc-btn" data-t="pen" aria-pressed="true">${scIcon('pen')}<span>Pen</span></button>
+    <button type="button" class="sc-btn" data-t="erase" aria-pressed="false">${scIcon('erase')}<span>Eraser</span></button>
+    <button type="button" class="sc-btn" data-t="select" aria-pressed="false">${scIcon('select')}<span>Select</span></button>
+    <button type="button" class="sc-btn sc-ico" data-a="undo" aria-label="Undo">${scIcon('undo')}</button>
+    <button type="button" class="sc-btn sc-ico" data-a="redo" aria-label="Redo">${scIcon('redo')}</button>
+    <button type="button" class="sc-btn" data-a="del" hidden>${scIcon('del')}<span>Delete</span></button>
+    <button type="button" class="sc-btn" data-a="clear">${scIcon('clear')}<span>Clear</span></button>
+    <button type="button" class="sc-btn" data-a="more">${scIcon('more')}<span>More room</span></button>
+    <button type="button" class="sc-btn" data-a="finger" aria-pressed="false">${scIcon('hand')}<span>Finger draws</span></button>
+    <button type="button" class="sc-btn sc-toggle" data-a="toggle" aria-expanded="true">Hide</button></div>
+    <div class="sc-body"><div class="sc-area"><canvas aria-label="Scratch pad: write here with a pen, mouse or finger"></canvas><div class="sc-ring" hidden></div></div>
+    <p class="sc-hint">Hold the pen still for half a second to erase. Select: draw a loop around writing, then drag it. Scratch work is never graded.</p></div>`;
+  const cv=host.querySelector('canvas'),ctx=cv.getContext('2d'),area=host.querySelector('.sc-area'),ring=host.querySelector('.sc-ring'),q=s=>host.querySelector(s);
+  let pages=null,key=null,page=null,onChange=null,tool='pen',act=null,sel=null,W=0,dpr=1,penDown=false;
+  const ink=()=>getComputedStyle(document.documentElement).getPropertyValue('--ink').trim()||'#1d2227';
+  const accent=()=>getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#2347a6';
+  function fit(){const w=Math.round(area.clientWidth);if(!w||!page)return;W=w;dpr=window.devicePixelRatio||1;page.w=W;cv.style.height=page.h+'px';cv.width=Math.round(W*dpr);cv.height=Math.round(page.h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  new ResizeObserver(()=>{if(!host.hidden)fit();}).observe(area);
+  function strokePath(st){const p=st.p;ctx.beginPath();ctx.moveTo(p[0][0],p[0][1]);
+    if(p.length<3){p.slice(1).forEach(c=>ctx.lineTo(c[0],c[1]));if(p.length===1)ctx.lineTo(p[0][0]+.1,p[0][1]);return;}
+    for(let i=1;i<p.length-1;i++){const mx=(p[i][0]+p[i+1][0])/2,my=(p[i][1]+p[i+1][1])/2;ctx.quadraticCurveTo(p[i][0],p[i][1],mx,my);}ctx.lineTo(p[p.length-1][0],p[p.length-1][1]);}
+  const avgW=st=>st.p.reduce((a,c)=>a+c[2],0)/st.p.length;
+  function draw(){if(!page)return;ctx.clearRect(0,0,W,page.h);ctx.lineCap='round';ctx.lineJoin='round';const c=ink(),a=accent();
+    page.s.forEach((st,i)=>{ctx.strokeStyle=sel&&sel.idx.includes(i)?a:c;ctx.lineWidth=avgW(st);strokePath(st);ctx.stroke();});
+    if(sel){const b=sel.box;ctx.save();ctx.setLineDash([6,5]);ctx.strokeStyle=a;ctx.lineWidth=1.5;ctx.fillStyle='rgba(35,71,166,.06)';ctx.fillRect(b.x0,b.y0,b.x1-b.x0,b.y1-b.y0);ctx.strokeRect(b.x0,b.y0,b.x1-b.x0,b.y1-b.y0);ctx.restore();}
+    if(act&&act.kind==='lasso'&&act.pts.length>1){ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyle=a;ctx.lineWidth=1.5;ctx.beginPath();act.pts.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.closePath();ctx.stroke();ctx.restore();}}
+  function bar(){host.querySelectorAll('[data-t]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.t===((act&&act.kind==='erase')?'erase':tool))));
+    q('[data-a="undo"]').disabled=!(page&&page.u&&page.u.length);q('[data-a="redo"]').disabled=!(page&&page.r&&page.r.length);q('[data-a="del"]').hidden=!sel;q('[data-a="clear"]').disabled=!(page&&page.s.length);
+    const f=q('[data-a="finger"]');f.setAttribute('aria-pressed',String(SCP.finger==='draw'));f.querySelector('span').textContent=SCP.finger==='draw'?'Finger draws':'Finger scrolls';
+    const open=SCP.open;q('.sc-body').hidden=!open;const tg=q('[data-a="toggle"]');tg.textContent=open?'Hide':'Show scratch pad';tg.setAttribute('aria-expanded',String(open));
+    host.classList.toggle('sc-closed',!open);}
+  const snap=()=>JSON.stringify(page.s);
+  function commit(before){page.u=page.u||[];page.u.push(before);if(page.u.length>60)page.u.shift();page.r=[];changed();}
+  function changed(){bar();if(onChange)onChange();}
+  function pos(e){const r=cv.getBoundingClientRect();return{x:Math.max(0,Math.min(W,e.clientX-r.left)),y:Math.max(0,Math.min(page.h,e.clientY-r.top))};}
+  const width=e=>e.pointerType==='pen'?+(0.8+2.8*(e.pressure||0.5)).toFixed(2):2.2;
+  const d2=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+  function segDist(p,a,b){const dx=b.x-a.x,dy=b.y-a.y,L=dx*dx+dy*dy;let t=L?((p.x-a.x)*dx+(p.y-a.y)*dy)/L:0;t=Math.max(0,Math.min(1,t));return Math.hypot(p.x-(a.x+t*dx),p.y-(a.y+t*dy));}
+  function eraseAt(a,b){const R=11;let hit=false;const keep=[];
+    page.s.forEach(st=>{const P=st.p.map(c=>({x:c[0],y:c[1]}));let near=false;
+      for(let i=0;i<P.length&&!near;i++){if(segDist(P[i],a,b)<R+st.p[i][2]/2)near=true;if(i&&(segDist(a,P[i-1],P[i])<R||segDist(b,P[i-1],P[i])<R))near=true;}
+      if(near)hit=true;else keep.push(st);});
+    if(hit){page.s=keep;sel=null;}return hit;}
+  function showRing(p,on){ring.hidden=!on;area.classList.toggle('erasing',!!on);if(on&&p){ring.style.left=p.x+'px';ring.style.top=p.y+'px';}}
+  function inside(pt,poly){let c=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const a=poly[i],b=poly[j];if((a.y>pt.y)!==(b.y>pt.y)&&pt.x<(b.x-a.x)*(pt.y-a.y)/(b.y-a.y)+a.x)c=!c;}return c;}
+  function boxOf(idx){let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;idx.forEach(i=>page.s[i].p.forEach(c=>{x0=Math.min(x0,c[0]);y0=Math.min(y0,c[1]);x1=Math.max(x1,c[0]);y1=Math.max(y1,c[1]);}));return{x0:x0-8,y0:y0-8,x1:x1+8,y1:y1+8};}
+  const inBox=(p,b)=>p.x>=b.x0&&p.x<=b.x1&&p.y>=b.y0&&p.y<=b.y1;
+  function startErase(e,p,before,hold){act={kind:'erase',id:e.pointerId,last:p,before,hit:false,hold};showRing(p,true);if(eraseAt(p,p))act.hit=true;draw();bar();}
+  cv.addEventListener('contextmenu',e=>e.preventDefault());
+  cv.addEventListener('pointerdown',e=>{if(!page)return;
+    if(e.pointerType==='pen'){penDown=true;if(!SCP.penSeen){SCP.penSeen=true;SCP.finger='scroll';scSavePrefs();bar();}if(act&&act.kind==='scroll')act=null;/* the pen wins over a resting palm */}
+    if(e.pointerType==='touch'&&penDown){e.preventDefault();return;}/* palm while writing: ignore it completely */
+    if(e.pointerType==='touch'&&SCP.finger==='scroll'){/* finger: scroll the page, never draw */if(!act){act={kind:'scroll',id:e.pointerId,y:e.clientY};scCap(cv,e.pointerId);}e.preventDefault();return;}
+    if(act||(e.pointerType==='mouse'&&e.button!==0))return;
+    scCap(cv,e.pointerId);e.preventDefault();const p=pos(e);
+    const side=e.pointerType==='pen'&&((e.buttons&32)||(e.buttons&2));const t=side?'erase':tool;
+    if(t==='select'){if(sel&&inBox(p,sel.box))act={kind:'move',id:e.pointerId,last:p,before:snap(),moved:false};else{sel=null;act={kind:'lasso',id:e.pointerId,pts:[p]};}draw();bar();return;}
+    sel=null;
+    if(t==='erase'){startErase(e,p,snap(),false);return;}
+    const before=snap(),st={p:[[+p.x.toFixed(1),+p.y.toFixed(1),width(e)]]};page.s.push(st);
+    act={kind:'pen',id:e.pointerId,st,start:p,before,timer:setTimeout(()=>{/* held still: switch to the eraser until the pen lifts */if(!act||act.kind!=='pen')return;page.s.pop();
+      if(navigator.vibrate)try{navigator.vibrate(15);}catch(_){}startErase(e,act.start,act.before,true);},500)};
+    draw();bar();});
+  cv.addEventListener('pointermove',e=>{if(!act||e.pointerId!==act.id)return;e.preventDefault();
+    if(act.kind==='scroll'){window.scrollBy(0,act.y-e.clientY);act.y=e.clientY;return;}
+    const evs=(e.getCoalescedEvents&&e.getCoalescedEvents().length)?e.getCoalescedEvents():[e];
+    if(act.kind==='pen'){evs.forEach(ev=>{const p=pos(ev);if(act.timer&&d2(p,act.start)>6){clearTimeout(act.timer);act.timer=null;}const L=act.st.p[act.st.p.length-1];if(Math.hypot(p.x-L[0],p.y-L[1])<0.8)return;act.st.p.push([+p.x.toFixed(1),+p.y.toFixed(1),width(ev)]);});draw();return;}
+    if(act.kind==='erase'){evs.forEach(ev=>{const p=pos(ev);if(eraseAt(act.last,p))act.hit=true;act.last=p;showRing(p,true);});draw();bar();return;}
+    if(act.kind==='lasso'){evs.forEach(ev=>act.pts.push(pos(ev)));draw();return;}
+    if(act.kind==='move'){const p=pos(e),dx=p.x-act.last.x,dy=p.y-act.last.y;act.last=p;if(!dx&&!dy)return;act.moved=true;
+      sel.idx.forEach(i=>page.s[i].p.forEach(c=>{c[0]=+(c[0]+dx).toFixed(1);c[1]=+(c[1]+dy).toFixed(1);}));sel.box={x0:sel.box.x0+dx,y0:sel.box.y0+dy,x1:sel.box.x1+dx,y1:sel.box.y1+dy};draw();}});
+  function end(e){if(e.pointerType==='pen')penDown=false;if(!act||e.pointerId!==act.id)return;const a=act;act=null;
+    if(a.kind==='pen'){clearTimeout(a.timer);commit(a.before);}
+    else if(a.kind==='erase'){showRing(null,false);if(a.hit)commit(a.before);}
+    else if(a.kind==='move'){if(a.moved)commit(a.before);}
+    else if(a.kind==='lasso'){const poly=a.pts;const idx=poly.length>2?page.s.map((st,i)=>[st,i]).filter(([st])=>st.p.filter(c=>inside({x:c[0],y:c[1]},poly)).length>=st.p.length/2).map(([,i])=>i):[];sel=idx.length?{idx,box:boxOf(idx)}:null;}
+    draw();bar();}
+  cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+  host.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{tool=b.dataset.t;if(tool!=='select')sel=null;draw();bar();});
+  const A={undo(){if(!page.u||!page.u.length)return;page.r=page.r||[];page.r.push(snap());page.s=JSON.parse(page.u.pop());sel=null;draw();changed();},
+    redo(){if(!page.r||!page.r.length)return;page.u.push(snap());page.s=JSON.parse(page.r.pop());sel=null;draw();changed();},
+    del(){if(!sel)return;const before=snap();page.s=page.s.filter((_,i)=>!sel.idx.includes(i));sel=null;draw();commit(before);},
+    clear(){if(!page.s.length)return;const before=snap();page.s=[];sel=null;draw();commit(before);},
+    more(){page.h=Math.min(2400,page.h+260);fit();changed();},
+    finger(){SCP.finger=SCP.finger==='draw'?'scroll':'draw';scSavePrefs();bar();},
+    toggle(){SCP.open=!SCP.open;scSavePrefs();bar();if(SCP.open)fit();}};
+  host.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{if(page)A[b.dataset.a]();});
+  host.addEventListener('keydown',e=>{if(!(e.ctrlKey||e.metaKey)||!page)return;const k=e.key.toLowerCase();if(k==='z'){e.preventDefault();e.stopPropagation();(e.shiftKey?A.redo:A.undo)();}else if(k==='y'){e.preventDefault();e.stopPropagation();A.redo();}});
+  return{show(store_,k,cb){pages=store_;key=k;onChange=cb;if(!pages[key])pages[key]={s:[],h:window.innerWidth>=700?380:300};page=pages[key];if(!page.s)page.s=[];sel=null;act=null;host.hidden=false;bar();requestAnimationFrame(fit);},
+    hide(){host.hidden=true;page=null;act=null;},undo:()=>page&&A.undo(),redo:()=>page&&A.redo()};}
+const isMathItem=it=>it&&it.skill==='Math';
+const scClean=pages=>{const o={};Object.keys(pages||{}).forEach(k=>{const p=pages[k];if(p&&p.s&&(p.s.length||p.h>420))o[k]={s:p.s,h:p.h,w:p.w};});return o;};
+const examPad=makePad($('#scratch')),meltPad=makePad($('#m-scratch'));
+let scT=null;function scSave(){clearTimeout(scT);scT=setTimeout(()=>{if(run&&!run.done)store.set('fm-scratch-'+run.rid,scClean(run.scratch));},400);}
+document.addEventListener('keydown',e=>{if(!(e.ctrlKey||e.metaKey)||e.altKey)return;const k=e.key.toLowerCase();if(k!=='z'&&k!=='y')return;if(e.target&&(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'))return;
+  const pad=!$('#exam').hidden&&!$('#scratch').hidden?examPad:!$('#melt').hidden&&!$('#m-scratch').hidden?meltPad:null;if(!pad)return;e.preventDefault();(k==='y'||e.shiftKey)?pad.redo():pad.undo();});
+
 const isGraphQ=it=>it.skill==='Math'&&!!it.grid;
 function graphBody(c,i){return c.svg?`<span class="gfig" role="button" tabindex="0" aria-label="Enlarge choice ${LET[i]}">${c.svg}</span>`:`<div class="mch">${c.h||esc(c.t)}</div>`;}
 /* shown big, the drawn graphs' built-in margins become wide empty bands: frame each one to its drawing (display only) */
@@ -4739,6 +4872,7 @@ function renderQ(){
   const sec=run.order[run.sIdx],list=items(),it=list[run.q];
   $('#secname').textContent=SEC[sec].name;$('#qpos').textContent=`Question ${run.q+1} of ${list.length}`;
   $('#stem').innerHTML=stemHtml(it,run.q+1);$('#figure').innerHTML=it.svg;$('#figure').hidden=!it.svg;{const s=[...document.querySelectorAll('#figure svg')].sort((p,q)=>(+(q.getAttribute('viewBox')||'0 0 0').split(' ')[2])-(+(p.getAttribute('viewBox')||'0 0 0').split(' ')[2]))[0];const vb=s?(s.getAttribute('viewBox')||'').split(' ').map(Number):[];if(vb[2]>900&&s.getBoundingClientRect().width<vb[2]*0.6)$('#figure').insertAdjacentHTML('beforeend','<span class="zoomhint">Tap the picture to enlarge</span>');}
+  if(isMathItem(it))examPad.show(run.scratch||(run.scratch={}),it.id,scSave);else examPad.hide();
   const pics=!!it.choices[0].svg||!!it.grid;const gq=isGraphQ(it);const fs=$('#choices');fs.className='choices'+(pics?' pics':'')+(gq?' graphs':'');
   if(gq)fs.innerHTML='<legend>Answer choices</legend><p class="ghint">Tap a picture to enlarge it. Tap the letter bar to choose.</p>'+it.choices.map((c,i)=>`<label class="choice" for="c${i}"><input type="radio" name="ans" id="c${i}" value="${i}"${run.ans[it.id]===i?' checked':''}><span class="gpick"><span class="bubble" aria-hidden="true">${LET[i]}</span><span class="gpick-t" aria-hidden="true"></span></span>${graphBody(c,i)}${c.svg?`<span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${LET[i]}: ${esc(c.t)}</span>`:''}</label>`).join('');
   else fs.innerHTML='<legend>Answer choices</legend>'+it.choices.map((c,i)=>`<label class="choice" for="c${i}"><input type="radio" name="ans" id="c${i}" value="${i}"${run.ans[it.id]===i?' checked':''}><span class="bubble" aria-hidden="true">${LET[i]}</span>${choiceBody(c,pics)}${pics&&c.svg?`<span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${LET[i]}: ${esc(c.t)}</span>`:''}</label>`).join('');
@@ -4809,7 +4943,7 @@ function renderReview(filter){
     const why=(!ok&&!blank&&it.choices[a].note)?`<p><b>Your pick (${LET[a]}):</b> ${esc(it.choices[a].note)}</p>`:'';
     html+=`<article class="ritem ${ok?'right':blank?'blank':'wrong'}"><div class="head"><span>${SEC[sec].name} · Q${i+1}${run.flag[it.id]?' · flagged':''}</span><span>${ok?'Correct':blank?'Blank · answer '+LET[it.correct]:'Missed · answer '+LET[it.correct]}</span></div>
       ${(it.type==='fold'||it.type==='cubenet'||it.type==='sgfold')?'':`<p>${it.stemH||esc(it.stem)}</p>`}${it.svg?`<div class="figure">${it.svg}</div>`:''}<div class="rch${pics?' pics':''}${gq?' graphs':''}">${ch}</div>
-      <div class="why">${why}<p><b>How to get it:</b> ${it.explainH||esc(it.explain)}</p><p class="muted" style="font-size:13px">${esc(it.sub)}</p></div>${G.ANIM.can(it)?`<div class="anim-slot"><button type="button" class="btn small primary anim-go" data-sec="${sec}" data-i="${i}">▶ Watch it worked out</button></div>`:''}</article>`;});});
+      <div class="why">${why}<p><b>How to get it:</b> ${it.explainH||esc(it.explain)}</p><p class="muted" style="font-size:13px">${esc(it.sub)}</p></div>${run.scratch&&run.scratch[it.id]&&run.scratch[it.id].s&&run.scratch[it.id].s.length?`<details class="sc-review"><summary>Your scratch work</summary>${scSvg(run.scratch[it.id])}</details>`:''}${G.ANIM.can(it)?`<div class="anim-slot"><button type="button" class="btn small primary anim-go" data-sec="${sec}" data-i="${i}">▶ Watch it worked out</button></div>`:''}</article>`;});});
   $('#review').innerHTML=html||'<p class="muted">Nothing to show here.</p>';tightGraphs($('#review'));
   $('#review').querySelectorAll('.anim-go').forEach(b=>b.onclick=()=>G.ANIM.mount(b.parentElement,run.test[b.dataset.sec][+b.dataset.i],true));
 }
@@ -4875,7 +5009,7 @@ $('#m-pause').onclick=()=>{clearInterval(mtick);saveMelt('paused');showPaused(me
 function meltLevel(){return 1+Math.floor(M.right/4);}
 function nextMelt(){M.n++;M.recentBefore=M.recent.slice();M.genLevel=M.level;let it=null;for(let k=0;k<5&&!it;k++){try{it=G.endlessItem(G.hashSeed(M.seed,M.n,k),M.level,M.recent,M.mix||undefined);}catch(e){it=null;}}
   M.cur=it;M.locked=false;M.qStart=Date.now();M.baseLimit=qLimit(it,M.level);M.qLimit=M.baseLimit+(M.bank||0);M.qUsed=M.carry||0;M.carry=0;M.qT0=Date.now();M.recent.push(it.type);if(M.recent.length>6)M.recent.shift();
-  $('#m-stem').innerHTML=stemHtml(it,M.n);$('#m-fig').innerHTML=it.svg;const pics=!!it.choices[0].svg;const fs=$('#m-choices');fs.className='choices'+(pics?' pics':'');
+  $('#m-stem').innerHTML=stemHtml(it,M.n);$('#m-fig').innerHTML=it.svg;if(isMathItem(it)){M.scratch={};meltPad.show(M.scratch,'q',null);}else meltPad.hide();const pics=!!it.choices[0].svg;const fs=$('#m-choices');fs.className='choices'+(pics?' pics':'');
   fs.innerHTML='<legend>Answer choices</legend>'+it.choices.map((c,i)=>`<button type="button" class="choice" data-i="${i}"><span class="bubble" aria-hidden="true">${LET[i]}</span>${pics?c.svg+`<span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${LET[i]}: ${esc(c.t)}</span>`:c.h?`<span class="ctext mch">${c.h}</span>`:`<span class="ctext">${esc(c.t)}</span>`}</button>`).join('');
   fs.querySelectorAll('.choice').forEach(b=>b.onclick=()=>answerMelt(+b.dataset.i));$('#m-fb').hidden=true;updateMeltBar();meltQTick();saveMelt('active');window.scrollTo(0,0);}
 function updateMeltBar(){$('#m-lvl').textContent=M.level;$('#m-score').textContent=M.score.toLocaleString();$('#m-heat').style.width=((M.right%4)/4*100)+'%';}
